@@ -3,7 +3,7 @@ import Button from "./Button";
 import { text, boolean } from "@storybook/addon-knobs";
 
 export default {
-  title: "Button"
+  title: "Components|Button"
 };
 
 export const button = () => (
