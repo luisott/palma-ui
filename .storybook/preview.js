@@ -1,5 +1,7 @@
 import React from "react";
 import { addDecorator } from "@storybook/react";
+import { withKnobs } from "@storybook/addon-knobs";
+
 import { css } from "@emotion/core";
 
 const Center = ({ children }) => (
@@ -16,3 +18,4 @@ const Center = ({ children }) => (
 );
 
 addDecorator(storyFn => <Center>{storyFn()}</Center>);
+addDecorator(withKnobs);
