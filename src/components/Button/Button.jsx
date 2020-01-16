@@ -47,7 +47,13 @@ const Button = ({ variant, danger, loading, children, ...rest }) => {
       variant={variant}
       {...rest}
     >
-      {loading && <CircularProgress css={progressIndicatorStyle} size={24} />}
+      {loading && (
+        <CircularProgress
+          data-testid="loading"
+          css={progressIndicatorStyle}
+          size={24}
+        />
+      )}
       <div css={styles.childStyle(loading)}>{children}</div>
     </MaterialButton>
   );
