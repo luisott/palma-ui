@@ -1,10 +1,11 @@
 import { css } from "@emotion/core";
 
 import * as colors from "../../styles/colors";
+import { buttonTransition } from "../../styles/transitions";
 
 export const iconButtonStyles = css`
   && {
-    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    ${buttonTransition};
     :hover {
       background-color: ${colors.primaryBlueLight};
     }

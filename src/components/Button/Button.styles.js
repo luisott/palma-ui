@@ -1,6 +1,7 @@
 import * as colors from "../../styles/colors";
 import { css } from "@emotion/core";
 import { BUTTON_VARIANTS } from "./Button";
+import { buttonTransition } from "../../styles/transitions";
 
 export const buttonStyles = (
   mainColor = colors.primaryBlue,
@@ -11,7 +12,7 @@ export const buttonStyles = (
   base: css`
     && {
       text-transform: none;
-      transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      ${buttonTransition};
     }
   `,
   [BUTTON_VARIANTS.text]: css`
