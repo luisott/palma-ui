@@ -2,6 +2,7 @@ import * as colors from "../../styles/colors";
 import { css } from "@emotion/core";
 import { BUTTON_VARIANTS } from "./Button";
 import { buttonTransition } from "../../styles/transitions";
+import { borderRadius } from "../../styles/commonStyles";
 
 export const buttonStyles = (
   mainColor = colors.primaryBlue,
@@ -12,6 +13,7 @@ export const buttonStyles = (
   base: css`
     && {
       text-transform: none;
+      ${borderRadius};
       ${buttonTransition};
     }
   `,
