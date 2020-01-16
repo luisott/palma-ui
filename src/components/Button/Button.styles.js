@@ -1,4 +1,4 @@
-import * as colors from "../../colors";
+import * as colors from "../../styles/colors";
 import { css } from "@emotion/core";
 import { BUTTON_VARIANTS } from "./Button";
 

@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Button as MaterialButton, CircularProgress } from "@material-ui/core";
-import * as colors from "../../colors";
+import MaterialButton from "@material-ui/core/Button";
+import CircularProgress from "@material-ui/core/CircularProgress";
+
+import * as colors from "../../styles/colors";
 import * as styles from "./Button.styles";
 
 export const BUTTON_VARIANTS = {

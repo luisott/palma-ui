@@ -1,20 +1,22 @@
 import React from "react";
-import { IconButton as MaterialIconButton } from "@material-ui/core";
+import MaterialIconButton from "@material-ui/core/IconButton";
+import PropTypes from "prop-types";
 
-//import PropTypes from "prop-types";
-import * as styles from "./Button.styles";
+import * as styles from "./IconButton.styles";
 
-//const props = {
-//  someBoolean: PropTypes.bool,
-//};
-
-//const defaultProps = {
-//};
-
-const IconButton = props => {
-  return <MaterialIconButton {...props} />;
+const props = {
+  "aria-label": PropTypes.string.isRequired
 };
 
-//Button.props = props;
-//Button.defaultProps = defaultProps;
+const IconButton = props => {
+  return (
+    <MaterialIconButton
+      css={styles.iconButtonStyles}
+      disableTouchRipple
+      {...props}
+    />
+  );
+};
+
+IconButton.props = props;
 export default IconButton;
