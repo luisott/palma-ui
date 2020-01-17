@@ -1,15 +1,9 @@
-import * as colors from "../../styles/colors";
 import { css } from "@emotion/core";
-import { BUTTON_VARIANTS } from "./Button";
-import { buttonTransition } from "../../styles/transitions";
 import { borderRadius } from "../../styles/commonStyles";
+import { buttonTransition } from "../../styles/transitions";
+import { BUTTON_VARIANTS } from "./types";
 
-export const buttonStyles = (
-  mainColor = colors.primary,
-  mediumColor = colors.primaryBlueMedium,
-  lightColor = colors.primaryBlueLight,
-  darkColor = colors.primaryBlueDark
-) => ({
+export const buttonStyles = primaryColor => ({
   base: css`
     && {
       text-transform: none;
@@ -17,40 +11,14 @@ export const buttonStyles = (
       ${buttonTransition};
     }
   `,
-  [BUTTON_VARIANTS.text]: css`
-    && {
-      color: ${mainColor};
-      :hover {
-        background-color: ${lightColor};
-      }
-      :active {
-        background-color: ${mediumColor};
-      }
-    }
-  `,
   [BUTTON_VARIANTS.outlined]: css`
     && {
-      color: ${mainColor};
-      border-color: ${mainColor};
+      border-color: ${primaryColor};
       :hover {
-        background-color: ${lightColor};
-        border-color: ${mainColor};
+        border-color: ${primaryColor};
       }
       :active {
-        background-color: ${mediumColor};
-        border-color: ${mainColor};
-      }
-    }
-  `,
-  [BUTTON_VARIANTS.contained]: css`
-    && {
-      background-color: ${mainColor};
-      :hover {
-        opacity: 0.8;
-        background-color: ${mainColor};
-      }
-      :active {
-        background-color: ${darkColor};
+        border-color: ${primaryColor};
       }
     }
   `
@@ -60,20 +28,10 @@ export const childStyle = loading => css`
   visibility: ${loading ? "hidden" : "visible"};
 `;
 
-export const progressIndicatorStyles = (color = colors.primary) => ({
+export const progressIndicatorStyles = {
   base: css`
     && {
       position: absolute;
-    }
-  `,
-  [BUTTON_VARIANTS.text]: css`
-    && {
-      color: ${color};
-    }
-  `,
-  [BUTTON_VARIANTS.outlined]: css`
-    && {
-      color: ${color};
     }
   `,
   [BUTTON_VARIANTS.contained]: css`
@@ -81,4 +39,4 @@ export const progressIndicatorStyles = (color = colors.primary) => ({
       color: white;
     }
   `
-});
+};

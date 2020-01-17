@@ -2,18 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import MaterialButton from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import { useTheme } from "@material-ui/core/styles";
 
-import * as colors from "../../styles/colors";
 import * as styles from "./Button.styles";
-
-export const BUTTON_VARIANTS = {
-  text: "text",
-  outlined: "outlined",
-  contained: "contained"
-};
+import { BUTTON_VARIANTS } from "./types";
 
 const props = {
-  danger: PropTypes.bool,
   loading: PropTypes.bool,
   variant: PropTypes.oneOf([BUTTON_VARIANTS.values])
 };
@@ -22,40 +16,42 @@ const defaultProps = {
   variant: BUTTON_VARIANTS.outlined
 };
 
-const Button = ({ variant, danger, loading, children, ...rest }) => {
+const Button = ({ variant, loading, children, ...rest }) => {
+  const theme = useTheme();
+
   const buttonStyle = [
-    styles.buttonStyles().base,
-    styles.buttonStyles(
-      danger ? colors.danger : colors.primary,
-      danger ? colors.dangerMedium : colors.primaryBlueMedium,
-      danger ? colors.dangerLight : colors.primaryBlueLight,
-      danger ? colors.dangerDark : colors.primaryBlueDark
-    )[variant]
+    styles.buttonStyles(theme.palette.primary.main).base,
+    styles.buttonStyles(theme.palette.primary.main)[variant]
   ];
 
-  const progressIndicatorStyle = [
-    styles.progressIndicatorStyles().base,
-    styles.progressIndicatorStyles(danger ? colors.danger : colors.primary)[
-      variant
-    ]
-  ];
+  const getProgressIndicator = () => {
+    if (!loading) return null;
+
+    const progressIndicatorStyle = [
+      styles.progressIndicatorStyles.base,
+      styles.progressIndicatorStyles[variant]
+    ];
+
+    debugger;
+
+    return (
+      <CircularProgress
+        data-testid="loading"
+        css={progressIndicatorStyle}
+        size={24}
+      />
+    );
+  };
 
   return (
     <MaterialButton
-      disableTouchRipple
       color="primary"
       css={buttonStyle}
       disableElevation
       variant={variant}
       {...rest}
     >
-      {loading && (
-        <CircularProgress
-          data-testid="loading"
-          css={progressIndicatorStyle}
-          size={24}
-        />
-      )}
+      {getProgressIndicator()}
       <div css={styles.childStyle(loading)}>{children}</div>
     </MaterialButton>
   );

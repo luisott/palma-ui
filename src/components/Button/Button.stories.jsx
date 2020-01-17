@@ -12,7 +12,6 @@ export const button = () => (
   <Button
     disabled={boolean("Disabled", false)}
     loading={boolean("Loading", false)}
-    danger={boolean("Danger", false)}
     variant={select("Variant", ["text", "outlined", "contained"], "contained")}
     startIcon={boolean("Left icon", false) && <DeleteIcon />}
     endIcon={boolean("Right icon", false) && <KeyboardArrowDown />}
