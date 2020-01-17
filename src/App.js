@@ -6,21 +6,9 @@ import {
   ThemeProvider
 } from "@material-ui/core/styles";
 import { Button } from "components";
-import { primary, secondary } from "styles/colors";
+import { themes } from "styles/themes";
 
-let theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: primary
-    },
-    secondary: {
-      main: secondary
-    }
-  },
-  status: {
-    danger: "orange"
-  }
-});
+let theme = createMuiTheme(themes.light);
 
 theme = responsiveFontSizes(theme);
 
