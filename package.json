@@ -10,7 +10,6 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
-    "customize-cra": "^0.9.1",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
@@ -18,10 +17,10 @@
     "source-map-explorer": "^2.2.2"
   },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
-    "eject": "react-app-rewired eject",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook-github-pages": "build-storybook -s public",
     "build-storybook": "build-storybook -c .storybook -o .out",
@@ -51,7 +50,6 @@
     "@storybook/addons": "^5.3.1",
     "@storybook/preset-create-react-app": "^1.5.1",
     "@storybook/react": "^5.3.1",
-    "prettier": "1.19.1",
-    "react-app-rewired": "^2.1.5"
+    "prettier": "1.19.1"
   }
 }

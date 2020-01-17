@@ -1,4 +1,5 @@
-export const primaryBlue = "rgb(47,128,237)";
+export const primary = "#2f80ed";
+export const secondary = "#424242";
 export const primaryBlueDark = "rgb(32,72,126)";
 export const primaryBlueMedium = "rgba(47,128,237,0.22)";
 export const primaryBlueLight = "rgba(47,128,237,0.08)";

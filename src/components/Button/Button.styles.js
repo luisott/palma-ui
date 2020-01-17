@@ -5,7 +5,7 @@ import { buttonTransition } from "../../styles/transitions";
 import { borderRadius } from "../../styles/commonStyles";
 
 export const buttonStyles = (
-  mainColor = colors.primaryBlue,
+  mainColor = colors.primary,
   mediumColor = colors.primaryBlueMedium,
   lightColor = colors.primaryBlueLight,
   darkColor = colors.primaryBlueDark
