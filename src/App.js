@@ -5,8 +5,8 @@ import {
   responsiveFontSizes,
   ThemeProvider
 } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import { primary, secondary } from "src/styles/colors";
+import { Button } from "components";
+import { primary, secondary } from "styles/colors";
 
 let theme = createMuiTheme({
   palette: {

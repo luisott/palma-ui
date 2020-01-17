@@ -60,7 +60,7 @@ export const childStyle = loading => css`
   visibility: ${loading ? "hidden" : "visible"};
 `;
 
-export const progressIndicatorStyles = (color = colors.primaryBlue) => ({
+export const progressIndicatorStyles = (color = colors.primary) => ({
   base: css`
     && {
       position: absolute;

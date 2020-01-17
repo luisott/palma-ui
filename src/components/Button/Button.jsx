@@ -26,7 +26,7 @@ const Button = ({ variant, danger, loading, children, ...rest }) => {
   const buttonStyle = [
     styles.buttonStyles().base,
     styles.buttonStyles(
-      danger ? colors.danger : colors.primaryBlue,
+      danger ? colors.danger : colors.primary,
       danger ? colors.dangerMedium : colors.primaryBlueMedium,
       danger ? colors.dangerLight : colors.primaryBlueLight,
       danger ? colors.dangerDark : colors.primaryBlueDark
@@ -35,7 +35,7 @@ const Button = ({ variant, danger, loading, children, ...rest }) => {
 
   const progressIndicatorStyle = [
     styles.progressIndicatorStyles().base,
-    styles.progressIndicatorStyles(danger ? colors.danger : colors.primaryBlue)[
+    styles.progressIndicatorStyles(danger ? colors.danger : colors.primary)[
       variant
     ]
   ];
