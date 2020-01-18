@@ -1,24 +1,24 @@
 import { css } from "@emotion/core";
-import { borderRadius } from "../../styles/commonStyles";
-import { buttonTransition } from "../../styles/transitions";
+import { commonBorderRadius } from "../../styles/commonStyles";
 import { BUTTON_VARIANTS } from "./types";
 
-export const buttonStyles = primaryColor => ({
+export const buttonStyles = theme => ({
   base: css`
     && {
       text-transform: none;
-      ${borderRadius};
-      ${buttonTransition};
+      ${commonBorderRadius};
+      transition: all ${theme.transitions.duration.shorter}ms
+        ${theme.transitions.easing.easeIn};
     }
   `,
   [BUTTON_VARIANTS.outlined]: css`
     && {
-      border-color: ${primaryColor};
+      border-color: ${theme.palette.primary.main};
       :hover {
-        border-color: ${primaryColor};
+        border-color: ${theme.palette.primary.main};
       }
       :active {
-        border-color: ${primaryColor};
+        border-color: ${theme.palette.primary.main};
       }
     }
   `

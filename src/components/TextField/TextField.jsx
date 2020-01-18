@@ -9,16 +9,16 @@ const props = {
    * Needed for accessibility
    */
   id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  error: PropTypes.bool
+  label: PropTypes.string.isRequired
 };
 
-const TextField = ({ error, label, ...rest }) => {
+const TextField = ({ id, label, ...rest }) => {
   return (
     <MaterialTextField
+      id={id}
       label={label}
       variant="outlined"
-      error={error}
+      color={"secondary"}
       css={styles.textFieldStyles.base}
       size={"small"}
       {...rest}

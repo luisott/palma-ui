@@ -4,6 +4,6 @@ import TextField from "./TextField";
 
 it("renders some label", () => {
   const label = "Label";
-  const { getByText } = render(<TextField>{buttonLabel}</TextField>);
+  const { getByText } = render(<TextField label={label} />);
   expect(getByText(label)).toBeInTheDocument();
 });

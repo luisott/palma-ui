@@ -1,5 +1,5 @@
 import { css } from "@emotion/core";
 
-export const borderRadius = css`
+export const commonBorderRadius = css`
   border-radius: 4px;
 `;

@@ -20,8 +20,8 @@ const Button = ({ variant, loading, children, ...rest }) => {
   const theme = useTheme();
 
   const buttonStyle = [
-    styles.buttonStyles(theme.palette.primary.main).base,
-    styles.buttonStyles(theme.palette.primary.main)[variant]
+    styles.buttonStyles(theme).base,
+    styles.buttonStyles(theme)[variant]
   ];
 
   const getProgressIndicator = () => {
