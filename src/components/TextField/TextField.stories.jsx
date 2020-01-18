@@ -19,7 +19,6 @@ export const textField = () => (
     multiline={boolean("Multiline", false)}
     placeholder={text("Placeholder", "Placeholder")}
     required={boolean("Required", false)}
-    select={boolean("Select", false)}
   >
     <MenuItem key={0} value={0}>
       One

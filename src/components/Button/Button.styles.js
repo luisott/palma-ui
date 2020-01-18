@@ -1,5 +1,5 @@
 import { css } from "@emotion/core";
-import { commonBorderRadius } from "../../styles/commonStyles";
+import { commonBorderRadius } from "styles/commonStyles";
 import { BUTTON_VARIANTS } from "./types";
 
 export const buttonStyles = theme => ({

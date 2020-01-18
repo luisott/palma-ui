@@ -5,6 +5,10 @@ module.exports = {
   webpackFinal: config => {
     // Copy pasted this from webpack.config.js
     // TODO: Import the config here instead
+    config.resolve.alias = {
+      components: `${paths.appSrc}/components`,
+      styles: `${paths.appSrc}/styles`
+    };
     config.module.rules.push({
       test: /\.(js|mjs|jsx|ts|tsx)$/,
       include: paths.appSrc,

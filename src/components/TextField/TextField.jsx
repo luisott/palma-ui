@@ -1,5 +1,6 @@
 import React from "react";
 import MaterialTextField from "@material-ui/core/TextField";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 import PropTypes from "prop-types";
 import * as styles from "./TextField.styles";
