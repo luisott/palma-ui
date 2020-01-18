@@ -17,7 +17,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <div>
         <header>
-          <Button color={"primary"}>Some button text</Button>
+          <Button variant={"contained"}>Some button text 2</Button>
         </header>
       </div>
     </ThemeProvider>

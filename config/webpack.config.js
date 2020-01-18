@@ -373,7 +373,9 @@ module.exports = function(webpackEnv) {
                 customize: require.resolve(
                   "babel-preset-react-app/webpack-overrides"
                 ),
-
+                // This rule is so we don't have to define the JSX pragma in every file we need to use emotion css
+                // https://emotion.sh/docs/css-prop
+                presets: [require.resolve("@emotion/babel-preset-css-prop")],
                 plugins: [
                   [
                     require.resolve("babel-plugin-named-asset-import"),

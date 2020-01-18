@@ -74,7 +74,7 @@
     "test": "node scripts/test.js",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook-github-pages": "build-storybook -s public",
-    "build-storybook": "build-storybook -c .storybook -o .out",
+    "build-storybook": "build-storybook -s public",
     "analyze": "source-map-explorer 'build/static/js/*.js'"
   },
   "eslintConfig": {
@@ -93,14 +93,14 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^5.3.1",
+    "@storybook/addon-actions": "^5.3.6",
     "@storybook/addon-centered": "^5.3.1",
     "@storybook/addon-info": "^5.3.1",
     "@storybook/addon-knobs": "^5.3.1",
-    "@storybook/addon-links": "^5.3.1",
-    "@storybook/addons": "^5.3.1",
-    "@storybook/preset-create-react-app": "^1.5.1",
-    "@storybook/react": "^5.3.1",
+    "@storybook/addon-links": "^5.3.6",
+    "@storybook/addons": "^5.3.6",
+    "@storybook/preset-create-react-app": "^1.5.2",
+    "@storybook/react": "^5.3.6",
     "prettier": "1.19.1"
   },
   "jest": {

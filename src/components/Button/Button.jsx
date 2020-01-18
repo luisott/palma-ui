@@ -32,8 +32,6 @@ const Button = ({ variant, loading, children, ...rest }) => {
       styles.progressIndicatorStyles[variant]
     ];
 
-    debugger;
-
     return (
       <CircularProgress
         data-testid="loading"
