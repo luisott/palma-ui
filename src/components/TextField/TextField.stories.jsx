@@ -19,12 +19,16 @@ export const textField = () => (
     multiline={boolean("Multiline", false)}
     placeholder={text("Placeholder", "Placeholder")}
     required={boolean("Required", false)}
+    select={boolean("Select", false)}
   >
     <MenuItem key={0} value={0}>
       One
     </MenuItem>
-    <MenuItem key={1} value={0}>
+    <MenuItem key={1} value={1}>
       Two
+    </MenuItem>
+    <MenuItem key={2} value={2}>
+      Three
     </MenuItem>
   </TextField>
 );

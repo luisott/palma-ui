@@ -22,6 +22,9 @@ const TextField = ({ id, label, ...rest }) => {
       color={"secondary"}
       css={styles.textFieldStyles.base}
       size={"small"}
+      SelectProps={{
+        IconComponent: ExpandMoreIcon
+      }}
       {...rest}
     />
   );
