@@ -1,13 +1,18 @@
 import React from "react";
 import Select from "./Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import { boolean } from "@storybook/addon-knobs";
 
 export default {
   title: "Components|Select"
 };
 
 export const select = () => (
-  <Select id={"some-id"} labelId={"some-id"}>
+  <Select
+    id={"some-id"}
+    labelId={"some-id"}
+    disabled={boolean("Disabled", false)}
+  >
     <MenuItem key={0} value={0}>
       One
     </MenuItem>
