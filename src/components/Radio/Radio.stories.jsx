@@ -21,7 +21,9 @@ export const radio = () =>
     const label = text("Radio group label", "Radio group label");
     return (
       <FormControl component="fieldset" disabled={boolean("Disabled", false)}>
-        <FormLabel component="legend">{label}</FormLabel>
+        <FormLabel hidden={boolean("Hide label", false)} component="legend">
+          {label}
+        </FormLabel>
         <RadioGroup
           aria-label={label}
           name={label}
