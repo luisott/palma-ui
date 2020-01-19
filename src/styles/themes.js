@@ -1,9 +1,9 @@
 import { primary, secondary, danger } from "./colors";
 import {
-  commonBorderRadius,
   commonBorder,
-  commonShadow
-} from "styles/commonStyles";
+  commonShadow,
+  commonBorderRadiusPx
+} from "./commonStyles";
 
 export const themes = {
   light: {
@@ -15,7 +15,19 @@ export const themes = {
         },
         list: {
           border: commonBorder,
-          borderRadius: commonBorderRadius
+          borderRadius: `${commonBorderRadiusPx}px`
+        }
+      },
+      MuiListItem: {
+        minHeight: "40px",
+        list: {
+          minHeight: "40px"
+        }
+      },
+      MuiMenuItem: {
+        minHeight: "40px",
+        list: {
+          minHeight: "40px"
         }
       }
     },
@@ -38,5 +50,8 @@ export const themes = {
         main: danger
       }
     }
+  },
+  shape: {
+    borderRadius: commonBorderRadiusPx
   }
 };

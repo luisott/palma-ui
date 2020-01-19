@@ -1,12 +1,10 @@
 import { css } from "@emotion/core";
-import { commonBorderRadius } from "../../styles/commonStyles";
 import { BUTTON_VARIANTS } from "./types";
 
 export const buttonStyles = theme => ({
   base: css`
     && {
       text-transform: none;
-      border-radius: ${commonBorderRadius};
       transition: all ${theme.transitions.duration.shorter}ms
         ${theme.transitions.easing.easeIn};
     }

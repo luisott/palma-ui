@@ -1,7 +1,6 @@
 import React from "react";
 import Select from "./Select";
 import MenuItem from "@material-ui/core/MenuItem";
-import { text } from "@storybook/addon-knobs";
 
 export default {
   title: "Components|Select"

@@ -4,6 +4,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 import PropTypes from "prop-types";
 import * as styles from "./TextField.styles";
+import { inputFieldColor, inputFieldVariant } from "styles/commonStyles";
 
 const props = {
   /**
@@ -18,8 +19,8 @@ const TextField = ({ id, label, ...rest }) => {
     <MaterialTextField
       id={id}
       label={label}
-      variant="outlined"
-      color={"secondary"}
+      variant={inputFieldVariant}
+      color={inputFieldColor}
       css={styles.textFieldStyles.base}
       size={"small"}
       SelectProps={{
