@@ -3,7 +3,7 @@ import MaterialSelect from "@material-ui/core/Select";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { selectStyle } from "./Select.styles";
 import { OutlinedInput } from "@material-ui/core";
-import { inputFieldColor, inputFieldVariant } from "styles/commonStyles";
+import { inputFieldColor, inputFieldVariant } from "../../styles/commonStyles";
 
 const Select = props => {
   return (

@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import Select from "./Select";
 import MenuItem from "@material-ui/core/MenuItem";
 
-it("renders some label", () => {
+it("renders label", () => {
   const selectedOptionLabel = "One";
   const { getByText } = render(
     <Select value={0}>
