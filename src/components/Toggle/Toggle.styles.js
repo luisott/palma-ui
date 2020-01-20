@@ -6,6 +6,7 @@ export const toggleStyles = theme => css`
     width: 42px;
     height: ${heightPx + 3}px;
     padding: 0;
+    margin: 0 9px;
 
     & .MuiSwitch-switchBase {
       padding: 1px;
