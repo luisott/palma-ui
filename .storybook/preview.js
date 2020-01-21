@@ -5,7 +5,7 @@ import { withKnobs } from "@storybook/addon-knobs";
 import { withInfo } from "@storybook/addon-info";
 import themeDecorator from "./themeDecorator";
 
-addDecorator(themeDecorator);
 addDecorator(withInfo);
+addDecorator(themeDecorator);
 addDecorator(centered);
 addDecorator(withKnobs);
