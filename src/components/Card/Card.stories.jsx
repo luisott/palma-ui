@@ -12,11 +12,19 @@ export const card = () => (
     <CardHeader title="Some card header" />
     <CardContent
       css={css`
-        width: 200px;
-        height: 200px;
+        max-width: 600px;
       `}
     >
-      <Typography>Some card content</Typography>
+      <Typography>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ornare
+        erat risus, vel tristique orci faucibus vitae. Fusce nec lacus
+        pellentesque, rhoncus tortor gravida, bibendum quam. Vestibulum at
+        facilisis orci. Sed ultricies lorem et commodo pulvinar. Donec ut
+        facilisis lectus, at varius tortor. Nunc sit amet libero mollis,
+        efficitur erat quis, suscipit arcu. Sed convallis velit nec blandit
+        finibus. Nam commodo nisi vel nibh laoreet, sit amet pellentesque leo
+        finibus.
+      </Typography>
     </CardContent>
   </Card>
 );
