@@ -1,9 +1,5 @@
 import { primary, secondary, danger } from "./colors";
-import {
-  commonBorder,
-  commonShadow,
-  commonBorderRadiusPx
-} from "./commonStyles";
+import { commonBorder, commonBorderRadiusPx } from "./commonStyles";
 
 export const themes = {
   light: {
@@ -11,7 +7,7 @@ export const themes = {
       MuiMenu: {
         // Name of the rule
         paper: {
-          boxShadow: commonShadow
+          boxShadow: "none"
         },
         list: {
           border: commonBorder,
