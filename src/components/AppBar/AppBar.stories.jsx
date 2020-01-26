@@ -6,8 +6,8 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import Tabs from "components/Tabs/Tabs";
-import Tab from "components/Tabs/Tab/Tab";
+import { Tabs, Tab } from "components";
+import * as styles from "components/AppBar/AppBar.styles";
 
 export default {
   title: "Components|AppBar"
@@ -30,19 +30,6 @@ const logoWrapperStyle = css`
   width: 100%;
 `;
 
-const tabStyle = css`
-  && {
-    width: 100%;
-    overflow: inherit;
-    height: 100%;
-    align-self: flex-end;
-
-    .MuiTabs-indicator {
-      background-color: white;
-    }
-  }
-`;
-
 export const appBar = () => (
   <div css={styleWrapper}>
     <CssBaseline />
@@ -52,7 +39,7 @@ export const appBar = () => (
       </div>
       <Tabs
         value={0}
-        css={tabStyle}
+        css={styles.appBarStyle}
         aria-label="simple tabs example"
         centered={boolean("Centered", false)}
         variant={boolean("Full Width", false) ? "fullWidth" : null}
