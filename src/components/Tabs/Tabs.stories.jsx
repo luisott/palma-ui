@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Typography } from "@material-ui/core";
-// import { text, boolean, select } from "@storybook/addon-knobs";
 import Tabs from "./Tabs";
 import Tab from "./Tab/Tab";
 import TabPanel from "components/Tabs/TabPanel/TabPanel";
@@ -10,6 +9,11 @@ import { css } from "@emotion/core";
 export default {
   title: "Components|Tabs"
 };
+
+const contentStyle = css`
+  margin-top: 20px;
+  background-color: lightgrey;
+`;
 
 export const tabs = () => {
   const [value, setValue] = useState(0);
@@ -38,13 +42,13 @@ export const tabs = () => {
         <Tab label="Item Three" ariaLabelPrefix={ariaLabelPrefix} index={2} />
       </Tabs>
       <TabPanel index={0} currentTab={value} ariaLabelPrefix={ariaLabelPrefix}>
-        <Typography>Item One</Typography>
+        <Typography css={contentStyle}>Item One</Typography>
       </TabPanel>
       <TabPanel index={1} currentTab={value} ariaLabelPrefix={ariaLabelPrefix}>
-        <Typography> Item Two</Typography>
+        <Typography css={contentStyle}> Item Two</Typography>
       </TabPanel>
       <TabPanel index={2} currentTab={value} ariaLabelPrefix={ariaLabelPrefix}>
-        <Typography>Item Three</Typography>
+        <Typography css={contentStyle}>Item Three</Typography>
       </TabPanel>
     </div>
   );

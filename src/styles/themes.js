@@ -45,6 +45,7 @@ export const themes = {
       error: {
         main: danger
       }
+      //palette.background.default
     }
   },
   shape: {
