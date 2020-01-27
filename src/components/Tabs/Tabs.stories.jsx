@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Typography } from "@material-ui/core";
-import Tabs from "./Tabs";
+import TabsComponent from "./Tabs";
 import Tab from "./Tab/Tab";
 import TabPanel from "components/Tabs/TabPanel/TabPanel";
 import { boolean } from "@storybook/addon-knobs";
@@ -15,7 +15,7 @@ const contentStyle = css`
   background-color: lightgrey;
 `;
 
-export const tabs = () => {
+export const Tabs = () => {
   const [value, setValue] = useState(0);
 
   const handleChange = (event, newValue) => {
@@ -30,7 +30,7 @@ export const tabs = () => {
         min-width: 500px;
       `}
     >
-      <Tabs
+      <TabsComponent
         value={value}
         onChange={handleChange}
         aria-label="simple tabs example"
@@ -40,7 +40,7 @@ export const tabs = () => {
         <Tab label="Item One" ariaLabelPrefix={ariaLabelPrefix} index={0} />
         <Tab label="Item Two" ariaLabelPrefix={ariaLabelPrefix} index={1} />
         <Tab label="Item Three" ariaLabelPrefix={ariaLabelPrefix} index={2} />
-      </Tabs>
+      </TabsComponent>
       <TabPanel index={0} currentTab={value} ariaLabelPrefix={ariaLabelPrefix}>
         <Typography css={contentStyle}>Item One</Typography>
       </TabPanel>

@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import Button from "components/Button/Button";
-import Menu from "@material-ui/core/Menu";
+import MenuMaterial from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 
 export default {
   title: "Components|Menu"
 };
 
-export const menu = () => {
+export const Menu = () => {
   const [open, setOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
 
@@ -26,7 +26,7 @@ export const menu = () => {
       >
         Open Menu
       </Button>
-      <Menu
+      <MenuMaterial
         id="simple-menu"
         anchorEl={anchorEl}
         keepMounted
@@ -36,7 +36,7 @@ export const menu = () => {
         <MenuItem onClick={handleClose}>Profile</MenuItem>
         <MenuItem onClick={handleClose}>My account</MenuItem>
         <MenuItem onClick={handleClose}>Logout</MenuItem>
-      </Menu>
+      </MenuMaterial>
     </>
   );
 };

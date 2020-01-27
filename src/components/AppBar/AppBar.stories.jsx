@@ -86,7 +86,7 @@ export const appBarDesktop = () => (
   </div>
 );
 
-export const appBarMobile = () => {
+export const AppBarMobile = () => {
   const [open, setOpen] = useState(false);
 
   const handleClose = () => setOpen(false);
@@ -130,10 +130,4 @@ export const appBarMobile = () => {
       </Drawer>
     </div>
   );
-};
-
-appBarDesktop.story = {
-  parameters: {
-    centered: { disable: true }
-  }
 };
