@@ -91,7 +91,6 @@ export const AppBarMobile = () => {
 
   const handleClose = () => setOpen(false);
   const handleOpen = () => {
-    debugger;
     setOpen(true);
   };
 
