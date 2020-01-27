@@ -1,19 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { boolean } from "@storybook/addon-knobs";
 import AppBar from "./AppBar";
 import { css } from "@emotion/core";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
-import Typography from "@material-ui/core/Typography";
+import { IconButton } from "components";
+import MenuIcon from "@material-ui/icons/Menu";
+import CloseIcon from "@material-ui/icons/Close";
 import { Tabs, Tab } from "components";
 import * as styles from "components/AppBar/AppBar.styles";
+import {
+  Typography,
+  Avatar,
+  Toolbar,
+  Drawer,
+  ListItemText,
+  List,
+  ListItem
+} from "@material-ui/core";
 
 export default {
   title: "Components|AppBar"
 };
 
-const styleWrapper = css`
+const storyStyleWrapper = css`
   position: fixed;
   top: 0px;
   left: 0px;
@@ -26,37 +34,105 @@ const styleWrapper = css`
   margin-right: 20px;
 `;
 
+const storyMobileStyleWrapper = css`
+  ${storyStyleWrapper};
+  margin-left: 100px;
+  margin-right: 100px;
+`;
+
 const logoWrapperStyle = css`
   width: 100%;
 `;
 
-export const appBar = () => (
-  <div css={styleWrapper}>
-    <CssBaseline />
+const menuIconStyle = css`
+  && {
+    margin-right: 20px;
+  }
+`;
+
+const closeIconStyle = css`
+  && {
+    align-self: flex-end;
+  }
+`;
+
+export const appBarDesktop = () => (
+  <div css={storyStyleWrapper}>
     <AppBar>
-      <div css={logoWrapperStyle}>
-        <Typography>LOGO</Typography>{" "}
-      </div>
-      <Tabs
-        value={0}
-        css={styles.appBarStyle}
-        aria-label="simple tabs example"
-        centered={boolean("Centered", false)}
-        variant={boolean("Full Width", false) ? "fullWidth" : null}
-        // TabIndicatorProps={{ css: tabIndicatorStyle }}
-      >
-        <Tab label="Item One" ariaLabelPrefix={"ariaLabelPrefix"} index={0} />
-        <Tab label="Item Two" ariaLabelPrefix={"ariaLabelPrefix"} index={1} />
-        <Tab label="Item Three" ariaLabelPrefix={"ariaLabelPrefix"} index={2} />
-      </Tabs>
-      <IconButton edge="end" color="inherit">
-        <Avatar />
-      </IconButton>
+      <Toolbar variant={"dense"}>
+        <Typography variant="h5" css={logoWrapperStyle}>
+          LOGO
+        </Typography>
+        <Tabs
+          value={0}
+          css={styles.appBarStyle}
+          aria-label="simple tabs example"
+          centered={boolean("Centered", false)}
+          variant={boolean("Full Width", false) ? "fullWidth" : null}
+        >
+          <Tab label="Item One" ariaLabelPrefix={"ariaLabelPrefix"} index={0} />
+          <Tab label="Item Two" ariaLabelPrefix={"ariaLabelPrefix"} index={1} />
+          <Tab
+            label="Item Three"
+            ariaLabelPrefix={"ariaLabelPrefix"}
+            index={2}
+          />
+        </Tabs>
+        <IconButton aria-label="user" edge="end" color="inherit">
+          <Avatar />
+        </IconButton>
+      </Toolbar>
     </AppBar>
   </div>
 );
 
-appBar.story = {
+export const appBarMobile = () => {
+  const [open, setOpen] = useState(false);
+
+  const handleClose = () => setOpen(false);
+  const handleOpen = () => {
+    debugger;
+    setOpen(true);
+  };
+
+  return (
+    <div css={storyMobileStyleWrapper}>
+      <AppBar>
+        <Toolbar variant={"dense"}>
+          <IconButton
+            css={menuIconStyle}
+            color="inherit"
+            edge="start"
+            aria-label="menu"
+            onClick={handleOpen}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Typography variant="h5" css={logoWrapperStyle}>
+            LOGO
+          </Typography>
+          <IconButton aria-label="user" edge="end" color="inherit">
+            <Avatar />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+      <Drawer anchor="top" open={open} onClose={handleClose}>
+        <IconButton css={closeIconStyle}>
+          <CloseIcon onClick={handleClose} />
+        </IconButton>
+        <List>
+          {["Item One", "Item Two", "Item Three"].map((text, index) => (
+            <ListItem button key={text}>
+              <ListItemText primary={text} />
+            </ListItem>
+          ))}
+        </List>
+      </Drawer>
+    </div>
+  );
+};
+
+appBarDesktop.story = {
   parameters: {
     centered: { disable: true }
   }
