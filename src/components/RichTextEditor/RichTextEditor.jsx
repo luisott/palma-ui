@@ -1,83 +1,55 @@
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { Slate, Editable, withReact } from "slate-react";
-import { createEditor } from "slate";
-import { withHistory } from "slate-history";
 
-import HoverToolbar, { toggleFormat } from "./HoverToolbar/HoverToolbar";
+import { EditorState, Editor, RichUtils } from "draft-js";
+import { convertToHTML, convertFromHTML } from "draft-convert";
+import HoverToolbar from "./HoverToolbar/HoverToolbar";
 
 //import * as styles from "./$NAME.styles";
 
-const initialValue = [
-  {
-    children: [
-      {
-        text:
-          "This example shows how you can make a hovering menu appear above your content, which you can use to make text "
-      },
-      { text: "bold", bold: true },
-      { text: ", " },
-      { text: "italic", italic: true },
-      { text: ", or anything else you might want to do!" }
-    ]
-  },
-  {
-    children: [
-      { text: "Try it out yourself! Just " },
-      { text: "select any piece of text and the menu will appear", bold: true },
-      { text: "." }
-    ]
-  }
-];
-
-const Leaf = ({ attributes, children, leaf }) => {
-  if (leaf.bold) {
-    children = <strong>{children}</strong>;
-  }
-
-  if (leaf.italic) {
-    children = <em>{children}</em>;
-  }
-
-  if (leaf.underlined) {
-    children = <u>{children}</u>;
-  }
-
-  return <span {...attributes}>{children}</span>;
-};
-
 const props = {
-  initialText: PropTypes.string
+  /**
+   * Initial string containing valid html
+   */
+  initialInput: PropTypes.string,
+  /**
+   * Every time value changes an HTML string with the new value is returned to this callback
+   */
+  onChange: PropTypes.func
 };
 
-const defaultProps = {};
+const defaultProps = {
+  initialInput: ""
+};
 
-const RichTextEditor = ({ initialText }) => {
-  const [value, setValue] = useState(initialValue);
-  const editor = useMemo(() => withHistory(withReact(createEditor())), []);
+const RichTextEditor = ({ initialInput, onChange }) => {
+  const [editorState, setEditorState] = useState(
+    EditorState.createWithContent(convertFromHTML(initialInput))
+  );
 
-  const handleChange = value => {
-    setValue(value);
+  const handleChange = newEditorState => {
+    const currentEditorState = editorState;
+    setEditorState(newEditorState);
+
+    if (
+      onChange &&
+      currentEditorState.getCurrentContent() !==
+        newEditorState.getCurrentContent()
+    ) {
+      onChange(convertToHTML(newEditorState.getCurrentContent()));
+    }
   };
 
   return (
-    <Slate editor={editor} value={value} onChange={handleChange}>
-      <HoverToolbar />
-      <Editable
-        renderLeaf={props => <Leaf {...props} />}
-        placeholder="Enter some text..."
-        onDOMBeforeInput={event => {
-          switch (event.inputType) {
-            case "formatBold":
-              return toggleFormat(editor, "bold");
-            case "formatItalic":
-              return toggleFormat(editor, "italic");
-            case "formatUnderline":
-              return toggleFormat(editor, "underline");
-          }
-        }}
+    <div>
+      <HoverToolbar
+        currentStyle={editorState.getCurrentInlineStyle()}
+        onButtonClicked={format =>
+          handleChange(RichUtils.toggleInlineStyle(editorState, format))
+        }
       />
-    </Slate>
+      <Editor editorState={editorState} onChange={handleChange} />
+    </div>
   );
 };
 

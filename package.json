@@ -24,6 +24,8 @@
     "css-loader": "3.2.0",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
+    "draft-convert": "^2.1.8",
+    "draft-js": "^0.11.4",
     "eslint": "^6.6.0",
     "eslint-config-react-app": "^5.1.0",
     "eslint-loader": "3.0.2",
@@ -96,8 +98,9 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^5.3.6",
+    "@storybook/addon-actions": "^5.3.9",
     "@storybook/addon-centered": "^5.3.1",
+    "@storybook/addon-console": "^1.2.1",
     "@storybook/addon-info": "^5.3.1",
     "@storybook/addon-knobs": "^5.3.1",
     "@storybook/addon-links": "^5.3.6",
