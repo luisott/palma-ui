@@ -5,7 +5,8 @@ import { EditorState, Editor, RichUtils } from "draft-js";
 import { convertToHTML, convertFromHTML } from "draft-convert";
 import HoverToolbar from "./HoverToolbar/HoverToolbar";
 
-//import * as styles from "./$NAME.styles";
+import * as styles from "./RichTextEditor.styles";
+import { useTheme } from "@material-ui/core";
 
 const props = {
   /**
@@ -27,6 +28,8 @@ const RichTextEditor = ({ initialInput, onChange }) => {
     EditorState.createWithContent(convertFromHTML(initialInput))
   );
 
+  const theme = useTheme();
+
   const handleChange = newEditorState => {
     const currentEditorState = editorState;
     setEditorState(newEditorState);
@@ -41,15 +44,17 @@ const RichTextEditor = ({ initialInput, onChange }) => {
   };
 
   return (
-    <div>
+    <>
       <HoverToolbar
         currentStyle={editorState.getCurrentInlineStyle()}
         onButtonClicked={format =>
           handleChange(RichUtils.toggleInlineStyle(editorState, format))
         }
       />
-      <Editor editorState={editorState} onChange={handleChange} />
-    </div>
+      <div css={styles.richTextEditor(theme)}>
+        <Editor editorState={editorState} onChange={handleChange} />
+      </div>
+    </>
   );
 };
 

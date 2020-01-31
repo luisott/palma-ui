@@ -1,15 +1,17 @@
 import { css } from "@emotion/core";
+import { commonBorderRadiusPx } from "styles/commonStyles";
 
 export const menu = css`
   padding: 8px 7px 6px;
-  //position: absolute;
-  //z-index: 1;
-  //top: -10000px;
-  //left: -10000px;
-  //margin-top: -6px;
-  //opacity: 0;
+  position: absolute;
+  display: flex;
+  z-index: 1;
+  top: -10000px;
+  left: -10000px;
+  margin-top: -6px;
+  opacity: 0;
   background-color: #222;
-  border-radius: 4px;
+  border-radius: ${commonBorderRadiusPx}px;
   transition: opacity 0.75s;
 `;
 
