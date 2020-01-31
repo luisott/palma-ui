@@ -7,6 +7,7 @@ import HoverToolbar from "./HoverToolbar/HoverToolbar";
 
 import * as styles from "./RichTextEditor.styles";
 import { useTheme } from "@material-ui/core";
+import { css } from "@emotion/core";
 
 const props = {
   /**
@@ -44,7 +45,11 @@ const RichTextEditor = ({ initialInput, onChange }) => {
   };
 
   return (
-    <>
+    <div
+      css={css`
+        position: relative;
+      `}
+    >
       <HoverToolbar
         currentStyle={editorState.getCurrentInlineStyle()}
         onButtonClicked={format =>
@@ -54,7 +59,7 @@ const RichTextEditor = ({ initialInput, onChange }) => {
       <div css={styles.richTextEditor(theme)}>
         <Editor editorState={editorState} onChange={handleChange} />
       </div>
-    </>
+    </div>
   );
 };
 
