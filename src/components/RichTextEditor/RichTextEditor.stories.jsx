@@ -6,7 +6,7 @@ export default {
 };
 
 const INITIAL_INPUT =
-  "<h1>This is the title of some content</h1>" +
+  "<h2>This is the title of some content</h2>" +
   "</br>" +
   "<strong>Some bold content</strong>" +
   "<ul>" +

@@ -15,20 +15,29 @@ import {
 
 import * as styles from "./HoverToolbar.styles";
 import PropTypes from "prop-types";
+import { Tooltip } from "@material-ui/core";
 
 const INLINE_STYLES = [
-  { Icon: FormatBold, style: "BOLD" },
-  { Icon: FormatItalic, style: "ITALIC" },
-  { Icon: FormatUnderlined, style: "UNDERLINE" },
-  { Icon: CodeRounded, style: "CODE" }
+  { Icon: FormatBold, label: "Bold", style: "BOLD" },
+  { Icon: FormatItalic, label: "Italic", style: "ITALIC" },
+  { Icon: FormatUnderlined, label: "Underlined", style: "UNDERLINE" },
+  { Icon: CodeRounded, label: "Code", style: "CODE" }
 ];
 
 const BLOCK_STYLES = [
-  { Icon: Title, style: "header-five" },
-  { Icon: FormatQuote, style: "blockquote" },
-  { Icon: FormatListBulleted, style: "unordered-list-item" },
-  { Icon: FormatListNumbered, style: "ordered-list-item" },
-  { Icon: Code, style: "code-block" }
+  { Icon: Title, label: "Header 2", style: "header-two" },
+  { Icon: FormatQuote, label: "Block Quote", style: "blockquote" },
+  {
+    Icon: FormatListBulleted,
+    label: "Unordered list",
+    style: "unordered-list-item"
+  },
+  {
+    Icon: FormatListNumbered,
+    label: "Ordered list",
+    style: "ordered-list-item"
+  },
+  { Icon: Code, label: "Code block", style: "code-block" }
 ];
 
 const props = {
@@ -82,29 +91,36 @@ const HoverToolbar = ({
   return (
     <Portal>
       <div ref={ref} css={styles.menu}>
-        {INLINE_STYLES.map(({ Icon, style }) => (
-          <span
-            key={style}
-            css={[
-              styles.button.base,
-              currentInlineStyle.has(style) && styles.button.active
-            ]}
-            onClick={() => onInlineStyleButtonClicked(style)}
-          >
-            <Icon css={styles.icon} />
-          </span>
+        {INLINE_STYLES.map(({ Icon, style, label }) => (
+          <Tooltip key={style} title={label}>
+            <span
+              key={style}
+              aria-label={label}
+              css={[
+                styles.button.base,
+                currentInlineStyle.has(style) && styles.button.active
+              ]}
+              onClick={() => onInlineStyleButtonClicked(style)}
+            >
+              <Icon css={styles.icon} />
+            </span>
+          </Tooltip>
         ))}
-        {BLOCK_STYLES.map(({ Icon, style }) => (
-          <span
-            key={style}
-            css={[
-              styles.button.base,
-              currentBlockStyle === style && styles.button.active
-            ]}
-            onClick={() => onBlockStyleButtonClicked(style)}
-          >
-            <Icon css={styles.icon} />
-          </span>
+        {BLOCK_STYLES.map(({ Icon, style, label }) => (
+          <Tooltip key={style} title={label}>
+            <span
+              key={style}
+              aria-label={label}
+              title={label}
+              css={[
+                styles.button.base,
+                currentBlockStyle === style && styles.button.active
+              ]}
+              onClick={() => onBlockStyleButtonClicked(style)}
+            >
+              <Icon css={styles.icon} />
+            </span>
+          </Tooltip>
         ))}
       </div>
     </Portal>
