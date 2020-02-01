@@ -25,7 +25,11 @@ const propTypes = {
   /**
    * Block styles to support in styling toolbar
    */
-  blockStyles: PropTypes.arrayOf(richTextStyle).isRequired
+  blockStyles: PropTypes.arrayOf(richTextStyle).isRequired,
+  /**
+   * Highlight the whole editor when hover or focused
+   */
+  highlightWhenActive: PropTypes.bool
 };
 
 const defaultProps = {
