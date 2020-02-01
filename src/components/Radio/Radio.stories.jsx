@@ -6,7 +6,7 @@ import FormLabel from "@material-ui/core/FormLabel";
 import Radio from "./Radio";
 
 export default {
-  title: "Components|Radio"
+  title: "Components/Radio"
 };
 
 export const radio = () =>

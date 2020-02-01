@@ -4,7 +4,7 @@ import IconButton from "./IconButton";
 import { boolean } from "@storybook/addon-knobs";
 
 export default {
-  title: "Components|IconButton"
+  title: "Components/IconButton"
 };
 
 export const iconButton = () => (

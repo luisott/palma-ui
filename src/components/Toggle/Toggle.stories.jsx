@@ -4,7 +4,7 @@ import Toggle from "./Toggle";
 import { FormControlLabel } from "@material-ui/core";
 
 export default {
-  title: "Components|Toggle"
+  title: "Components/Toggle"
 };
 
 export const toggle = () => (

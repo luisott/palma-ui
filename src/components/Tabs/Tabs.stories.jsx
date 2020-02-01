@@ -7,7 +7,7 @@ import { boolean } from "@storybook/addon-knobs";
 import { css } from "@emotion/core";
 
 export default {
-  title: "Components|Tabs"
+  title: "Components/Tabs"
 };
 
 const contentStyle = css`

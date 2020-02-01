@@ -5,7 +5,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "./TextField";
 
 export default {
-  title: "Components|TextField"
+  title: "Components/TextField"
 };
 
 export const textField = () => (

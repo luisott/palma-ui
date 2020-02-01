@@ -18,7 +18,7 @@ import {
 } from "@material-ui/core";
 
 export default {
-  title: "Components|AppBar"
+  title: "Components/AppBar"
 };
 
 const storyStyleWrapper = css`

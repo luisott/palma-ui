@@ -13,18 +13,6 @@ export const themes = {
           border: commonBorder,
           borderRadius: `${commonBorderRadiusPx}px`
         }
-      },
-      MuiListItem: {
-        minHeight: "40px",
-        list: {
-          minHeight: "40px"
-        }
-      },
-      MuiMenuItem: {
-        minHeight: "40px",
-        list: {
-          minHeight: "40px"
-        }
       }
     },
     transitions: {

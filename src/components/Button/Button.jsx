@@ -9,7 +9,7 @@ import { BUTTON_VARIANTS } from "./types";
 
 const propTypes = {
   loading: PropTypes.bool,
-  variant: PropTypes.oneOf([BUTTON_VARIANTS.values]),
+  variant: PropTypes.oneOf(Object.values(BUTTON_VARIANTS)),
   children: PropTypes.node
 };
 

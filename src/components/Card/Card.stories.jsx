@@ -4,7 +4,7 @@ import { css } from "@emotion/core";
 import { CardContent, CardHeader, Typography } from "@material-ui/core";
 
 export default {
-  title: "Components|Card"
+  title: "Components/Card"
 };
 
 export const card = () => (

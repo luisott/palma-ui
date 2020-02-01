@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Container from "./Container";
 
 export default {
-  title: "Components|Container"
+  title: "Components/Container"
 };
 
 export const container = () => (

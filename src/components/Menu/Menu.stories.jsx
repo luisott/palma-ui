@@ -4,7 +4,7 @@ import MenuMaterial from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 
 export default {
-  title: "Components|Menu"
+  title: "Components/Menu"
 };
 
 export const Menu = () => {

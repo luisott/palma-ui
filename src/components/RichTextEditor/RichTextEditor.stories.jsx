@@ -15,7 +15,7 @@ import {
 } from "@material-ui/icons";
 
 export default {
-  title: "Components|RichTextEditor",
+  title: "Components/RichTextEditor",
   parameters: {
     info: {
       text: `This component uses https://draftjs.org/`

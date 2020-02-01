@@ -4,7 +4,7 @@ import Checkbox from "./Checkbox";
 import { FormControlLabel } from "@material-ui/core";
 
 export default {
-  title: "Components|Checkbox"
+  title: "Components/Checkbox"
 };
 
 export const checkbox = () => (

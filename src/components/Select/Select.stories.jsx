@@ -4,7 +4,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import { boolean } from "@storybook/addon-knobs";
 
 export default {
-  title: "Components|Select"
+  title: "Components/Select"
 };
 
 export const select = () => (

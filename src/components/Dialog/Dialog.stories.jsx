@@ -11,7 +11,7 @@ import { BUTTON_VARIANTS } from "components/Button/types";
 import DialogActions from "./DialogActions/DialogActions";
 
 export default {
-  title: "Components|Dialog"
+  title: "Components/Dialog"
 };
 
 export const Dialog = () => {

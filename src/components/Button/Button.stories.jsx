@@ -8,7 +8,7 @@ import Button from "./Button";
 import { css } from "@emotion/core";
 
 export default {
-  title: "Components|Button"
+  title: "Components/Button"
 };
 
 export const button = () => (

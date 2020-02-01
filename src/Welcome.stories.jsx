@@ -1,7 +1,7 @@
 import React from "react";
 
 export default {
-  title: "Welcome|Getting Started"
+  title: "Welcome/Getting Started"
 };
 
 export const usage = () => (
