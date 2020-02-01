@@ -5,7 +5,12 @@ import {
   FormatBold,
   FormatItalic,
   FormatUnderlined,
-  CodeRounded
+  CodeRounded,
+  FormatListNumbered,
+  FormatListBulleted,
+  Code,
+  FormatQuote,
+  Title
 } from "@material-ui/icons";
 
 import * as styles from "./HoverToolbar.styles";
@@ -18,12 +23,27 @@ const INLINE_STYLES = [
   { Icon: CodeRounded, style: "CODE" }
 ];
 
+const BLOCK_STYLES = [
+  { Icon: Title, style: "header-five" },
+  { Icon: FormatQuote, style: "blockquote" },
+  { Icon: FormatListBulleted, style: "unordered-list-item" },
+  { Icon: FormatListNumbered, style: "ordered-list-item" },
+  { Icon: Code, style: "code-block" }
+];
+
 const props = {
-  onButtonClicked: PropTypes.func.isRequired,
-  currentStyle: PropTypes.any
+  onInlineStyleButtonClicked: PropTypes.func.isRequired,
+  onBlockStyleButtonClicked: PropTypes.func.isRequired,
+  currentInlineStyle: PropTypes.any,
+  currentBlockStyle: PropTypes.string
 };
 
-const HoverToolbar = ({ onButtonClicked, currentStyle }) => {
+const HoverToolbar = ({
+  onInlineStyleButtonClicked,
+  onBlockStyleButtonClicked,
+  currentInlineStyle,
+  currentBlockStyle
+}) => {
   const ref = useRef();
 
   useEffect(() => {
@@ -32,7 +52,7 @@ const HoverToolbar = ({ onButtonClicked, currentStyle }) => {
       return;
     }
 
-    if (!currentStyle) {
+    if (!currentInlineStyle) {
       el.removeAttribute("style");
       return;
     }
@@ -67,9 +87,21 @@ const HoverToolbar = ({ onButtonClicked, currentStyle }) => {
             key={style}
             css={[
               styles.button.base,
-              currentStyle.has(style) && styles.button.active
+              currentInlineStyle.has(style) && styles.button.active
             ]}
-            onClick={() => onButtonClicked(style)}
+            onClick={() => onInlineStyleButtonClicked(style)}
+          >
+            <Icon css={styles.icon} />
+          </span>
+        ))}
+        {BLOCK_STYLES.map(({ Icon, style }) => (
+          <span
+            key={style}
+            css={[
+              styles.button.base,
+              currentBlockStyle === style && styles.button.active
+            ]}
+            onClick={() => onBlockStyleButtonClicked(style)}
           >
             <Icon css={styles.icon} />
           </span>

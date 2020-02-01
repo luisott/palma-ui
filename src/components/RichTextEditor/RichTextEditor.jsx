@@ -7,7 +7,6 @@ import HoverToolbar from "./HoverToolbar/HoverToolbar";
 
 import * as styles from "./RichTextEditor.styles";
 import { useTheme } from "@material-ui/core";
-import { css } from "@emotion/core";
 
 const props = {
   /**
@@ -24,7 +23,7 @@ const defaultProps = {
   initialInput: ""
 };
 
-const RichTextEditor = ({ initialInput, onChange }) => {
+const RichTextEditor = ({ initialInput, onChange, ...rest }) => {
   const [editorState, setEditorState] = useState(
     EditorState.createWithContent(convertFromHTML(initialInput))
   );
@@ -44,20 +43,31 @@ const RichTextEditor = ({ initialInput, onChange }) => {
     }
   };
 
+  const handleInlineStyleChange = newFormat => {
+    const newEditorState = RichUtils.toggleInlineStyle(editorState, newFormat);
+    handleChange(newEditorState);
+  };
+
+  const handleBlockStyleChange = newFormat => {
+    const newEditorState = RichUtils.toggleBlockType(editorState, newFormat);
+    handleChange(newEditorState);
+  };
+
+  const selection = editorState.getSelection();
+  const blockType = editorState
+    .getCurrentContent()
+    .getBlockForKey(selection.getStartKey())
+    .getType();
   return (
-    <div
-      css={css`
-        position: relative;
-      `}
-    >
+    <div>
       <HoverToolbar
-        currentStyle={editorState.getCurrentInlineStyle()}
-        onButtonClicked={format =>
-          handleChange(RichUtils.toggleInlineStyle(editorState, format))
-        }
+        currentInlineStyle={editorState.getCurrentInlineStyle()}
+        currentBlockStyle={blockType}
+        onInlineStyleButtonClicked={handleInlineStyleChange}
+        onBlockStyleButtonClicked={handleBlockStyleChange}
       />
       <div css={styles.richTextEditor(theme)}>
-        <Editor editorState={editorState} onChange={handleChange} />
+        <Editor editorState={editorState} onChange={handleChange} {...rest} />
       </div>
     </div>
   );
