@@ -1,4 +1,6 @@
 import React from "react";
+import { boolean } from "@storybook/addon-knobs";
+
 import RichTextEditor from "./RichTextEditor";
 import {
   Code,
@@ -13,7 +15,12 @@ import {
 } from "@material-ui/icons";
 
 export default {
-  title: "Components|RichTextEditor"
+  title: "Components|RichTextEditor",
+  parameters: {
+    info: {
+      text: `This component uses https://draftjs.org/`
+    }
+  }
 };
 
 const INLINE_STYLES = [
@@ -65,6 +72,7 @@ export const richTextEditor = () => {
       onChange={htmlValue => console.log(`onChange with html=${htmlValue}`)}
       inlineStyles={INLINE_STYLES}
       blockStyles={BLOCK_STYLES}
+      highlightWhenActive={boolean("Highlight on hover", false)}
     />
   );
 };

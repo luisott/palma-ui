@@ -81,7 +81,6 @@ const HoverToolbar = ({
             <span
               key={style}
               aria-label={label}
-              title={label}
               css={[
                 styles.button.base,
                 currentBlockStyle === style && styles.button.active

@@ -41,6 +41,7 @@ const RichTextEditor = ({
   onChange,
   inlineStyles,
   blockStyles,
+  highlightWhenActive,
   ...rest
 }) => {
   const [editorState, setEditorState] = useState(
@@ -87,7 +88,12 @@ const RichTextEditor = ({
         inlineStyles={inlineStyles}
         blockStyles={blockStyles}
       />
-      <div css={styles.richTextEditor(theme)}>
+      <div
+        css={[
+          styles.richTextEditor(theme).base,
+          highlightWhenActive && styles.richTextEditor(theme).highlight
+        ]}
+      >
         <Editor editorState={editorState} onChange={handleChange} {...rest} />
       </div>
     </>
