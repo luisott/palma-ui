@@ -14,7 +14,6 @@ export const radio = () =>
     const [value, setValue] = useState("one");
 
     const handleChange = event => {
-      debugger;
       setValue(event.target.value);
     };
 

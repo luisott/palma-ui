@@ -21,7 +21,7 @@ export const Dialog = () => {
     setOpen(true);
   };
 
-  const handleClose = value => {
+  const handleClose = () => {
     setOpen(false);
   };
 
@@ -41,7 +41,7 @@ export const Dialog = () => {
         <DialogActions>
           <Button onClick={handleClose}>Not so sure</Button>
           <Button variant={BUTTON_VARIANTS.contained} onClick={handleClose}>
-            I'm sure
+            Sure
           </Button>
         </DialogActions>
       </DialogComponent>

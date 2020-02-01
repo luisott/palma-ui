@@ -9,7 +9,7 @@ import * as styles from "./RichTextEditor.styles";
 import { useTheme } from "@material-ui/core";
 import { richTextStyle } from "components/RichTextEditor/types";
 
-const props = {
+const propTypes = {
   /**
    * Initial string containing valid html
    */
@@ -90,6 +90,6 @@ const RichTextEditor = ({
   );
 };
 
-RichTextEditor.props = props;
+RichTextEditor.propTypes = propTypes;
 RichTextEditor.defaultProps = defaultProps;
 export default RichTextEditor;

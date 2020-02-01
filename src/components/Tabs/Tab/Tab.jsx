@@ -4,7 +4,7 @@ import MaterialTab from "@material-ui/core/Tab";
 import * as styles from "./Tab.styles";
 import PropTypes from "prop-types";
 
-const props = {
+const propTypes = {
   index: PropTypes.number.isRequired,
   ariaLabelPrefix: PropTypes.string.isRequired
 };
@@ -18,5 +18,5 @@ const Tab = ({ ariaLabelPrefix, index, ...rest }) => {
   return <MaterialTab css={styles.tabStyle} {...a11yProps} {...rest} />;
 };
 
-Tab.props = props;
+Tab.propTypes = propTypes;
 export default Tab;

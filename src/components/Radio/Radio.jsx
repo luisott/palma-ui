@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import MaterialRadio from "@material-ui/core/Radio";
 import { FormControlLabel } from "@material-ui/core";
 
-const props = {
+const propTypes = {
   formControlLabelProps: PropTypes.object,
   radioProps: PropTypes.object,
   label: PropTypes.string.isRequired,
@@ -21,5 +21,5 @@ const Radio = ({ label, formControlLabelProps, value, radioProps }) => {
   );
 };
 
-Radio.props = props;
+Radio.propTypes = propTypes;
 export default Radio;

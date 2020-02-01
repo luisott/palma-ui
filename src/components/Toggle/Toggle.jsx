@@ -6,7 +6,7 @@ import Switch from "@material-ui/core/Switch";
 import * as styles from "./Toggle.styles";
 import { useTheme } from "@material-ui/core";
 
-const props = {
+const propTypes = {
   /**
    * The value of the component. The DOM API casts this to a string.
    */
@@ -31,5 +31,5 @@ const Toggle = ({ value, ariaLabel, ...rest }) => {
   );
 };
 
-Toggle.props = props;
+Toggle.propTypes = propTypes;
 export default Toggle;

@@ -23,10 +23,10 @@ export default {
 
 const storyStyleWrapper = css`
   position: fixed;
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
-  right: 0px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   display: flex;
   align-items: center;
   overflow: auto;
@@ -120,7 +120,7 @@ export const AppBarMobile = () => {
           <CloseIcon onClick={handleClose} />
         </IconButton>
         <List>
-          {["Item One", "Item Two", "Item Three"].map((text, index) => (
+          {["Item One", "Item Two", "Item Three"].map(text => (
             <ListItem button key={text}>
               <ListItemText primary={text} />
             </ListItem>

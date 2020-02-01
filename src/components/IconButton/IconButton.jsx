@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import * as styles from "./IconButton.styles";
 import { useTheme } from "@material-ui/core/styles";
 
-const props = {
+const propTypes = {
   "aria-label": PropTypes.string.isRequired
 };
 
@@ -15,5 +15,5 @@ const IconButton = props => {
   return <MaterialIconButton css={styles.iconButtonStyles(theme)} {...props} />;
 };
 
-IconButton.props = props;
+IconButton.propTypes = propTypes;
 export default IconButton;

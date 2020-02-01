@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import * as styles from "./TextField.styles";
 import { inputFieldColor, inputFieldVariant } from "../../styles/commonStyles";
 
-const props = {
+const propTypes = {
   /**
    * Needed for accessibility
    */
@@ -31,5 +31,5 @@ const TextField = ({ id, label, ...rest }) => {
   );
 };
 
-TextField.props = props;
+TextField.propTypes = propTypes;
 export default TextField;

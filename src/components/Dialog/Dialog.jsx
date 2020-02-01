@@ -9,8 +9,9 @@ import MaterialDialog from "@material-ui/core/Dialog";
 import * as styles from "./Dialog.styles";
 import IconButton from "../IconButton/IconButton";
 
-const props = {
-  onClose: PropTypes.func
+const propTypes = {
+  onClose: PropTypes.func,
+  children: PropTypes.node
 };
 
 const Dialog = ({ onClose, children, ...props }) => {
@@ -33,5 +34,5 @@ const Dialog = ({ onClose, children, ...props }) => {
   );
 };
 
-Dialog.props = props;
+Dialog.propTypes = propTypes;
 export default Dialog;

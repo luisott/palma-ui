@@ -7,9 +7,10 @@ import { useTheme } from "@material-ui/core/styles";
 import * as styles from "./Button.styles";
 import { BUTTON_VARIANTS } from "./types";
 
-const props = {
+const propTypes = {
   loading: PropTypes.bool,
-  variant: PropTypes.oneOf([BUTTON_VARIANTS.values])
+  variant: PropTypes.oneOf([BUTTON_VARIANTS.values]),
+  children: PropTypes.node
 };
 
 const defaultProps = {
@@ -55,6 +56,6 @@ const Button = ({ variant, loading, children, ...rest }) => {
   );
 };
 
-Button.props = props;
+Button.propTypes = propTypes;
 Button.defaultProps = defaultProps;
 export default Button;

@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import { Tooltip } from "@material-ui/core";
 import { richTextStyle } from "components/RichTextEditor/types";
 
-const props = {
+const propTypes = {
   onInlineStyleButtonClicked: PropTypes.func.isRequired,
   onBlockStyleButtonClicked: PropTypes.func.isRequired,
   currentInlineStyle: PropTypes.any,
@@ -102,5 +102,5 @@ const Portal = ({ children }) => {
   return ReactDOM.createPortal(children, document.body);
 };
 
-HoverToolbar.props = props;
+HoverToolbar.propTypes = propTypes;
 export default HoverToolbar;

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const props = {
+const propTypes = {
   index: PropTypes.number.isRequired,
   ariaLabelPrefix: PropTypes.string.isRequired,
   currentTab: PropTypes.number.isRequired
@@ -19,5 +19,5 @@ const TabPanel = ({ ariaLabelPrefix, index, currentTab, ...rest }) => {
   );
 };
 
-TabPanel.props = props;
+TabPanel.propTypes = propTypes;
 export default TabPanel;

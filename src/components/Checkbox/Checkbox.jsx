@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import MaterialCheckbox from "@material-ui/core/Checkbox";
 
-const props = {
+const propTypes = {
   ariaLabel: PropTypes.string.isRequired
 };
 
@@ -16,5 +16,5 @@ const Checkbox = ({ ariaLabel, ...props }) => {
   );
 };
 
-Checkbox.props = props;
+Checkbox.propTypes = propTypes;
 export default Checkbox;
