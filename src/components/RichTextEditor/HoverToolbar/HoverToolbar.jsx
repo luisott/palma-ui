@@ -1,57 +1,27 @@
 import React, { useEffect, useRef } from "react";
 import ReactDOM from "react-dom";
 
-import {
-  FormatBold,
-  FormatItalic,
-  FormatUnderlined,
-  CodeRounded,
-  FormatListNumbered,
-  FormatListBulleted,
-  Code,
-  FormatQuote,
-  Title
-} from "@material-ui/icons";
-
 import * as styles from "./HoverToolbar.styles";
 import PropTypes from "prop-types";
 import { Tooltip } from "@material-ui/core";
-
-const INLINE_STYLES = [
-  { Icon: FormatBold, label: "Bold", style: "BOLD" },
-  { Icon: FormatItalic, label: "Italic", style: "ITALIC" },
-  { Icon: FormatUnderlined, label: "Underlined", style: "UNDERLINE" },
-  { Icon: CodeRounded, label: "Code", style: "CODE" }
-];
-
-const BLOCK_STYLES = [
-  { Icon: Title, label: "Header 2", style: "header-two" },
-  { Icon: FormatQuote, label: "Block Quote", style: "blockquote" },
-  {
-    Icon: FormatListBulleted,
-    label: "Unordered list",
-    style: "unordered-list-item"
-  },
-  {
-    Icon: FormatListNumbered,
-    label: "Ordered list",
-    style: "ordered-list-item"
-  },
-  { Icon: Code, label: "Code block", style: "code-block" }
-];
+import { richTextStyle } from "components/RichTextEditor/types";
 
 const props = {
   onInlineStyleButtonClicked: PropTypes.func.isRequired,
   onBlockStyleButtonClicked: PropTypes.func.isRequired,
   currentInlineStyle: PropTypes.any,
-  currentBlockStyle: PropTypes.string
+  currentBlockStyle: PropTypes.string,
+  inlineStyles: PropTypes.arrayOf(richTextStyle).isRequired,
+  blockStyles: PropTypes.arrayOf(richTextStyle).isRequired
 };
 
 const HoverToolbar = ({
   onInlineStyleButtonClicked,
   onBlockStyleButtonClicked,
   currentInlineStyle,
-  currentBlockStyle
+  currentBlockStyle,
+  inlineStyles,
+  blockStyles
 }) => {
   const ref = useRef();
 
@@ -91,7 +61,7 @@ const HoverToolbar = ({
   return (
     <Portal>
       <div ref={ref} css={styles.menu}>
-        {INLINE_STYLES.map(({ Icon, style, label }) => (
+        {inlineStyles.map(({ Icon, style, label }) => (
           <Tooltip key={style} title={label}>
             <span
               key={style}
@@ -106,7 +76,7 @@ const HoverToolbar = ({
             </span>
           </Tooltip>
         ))}
-        {BLOCK_STYLES.map(({ Icon, style, label }) => (
+        {blockStyles.map(({ Icon, style, label }) => (
           <Tooltip key={style} title={label}>
             <span
               key={style}
