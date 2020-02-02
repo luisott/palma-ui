@@ -2,6 +2,7 @@ import React from "react";
 import { Typography } from "@material-ui/core";
 import TypographyReadme from "./README.md";
 import { css } from "@emotion/core";
+import Link from "@material-ui/core/Link";
 
 export default {
   title: "Foundations/Typography",
@@ -29,7 +30,19 @@ const typographyTypes = [
   "overline"
 ];
 
-const TEXT = "Typography";
+const labelStyle = css`
+  align-self: center;
+  margin-right: 16px;
+  flex: 1 1 auto;
+  max-width: 200px;
+`;
+
+const lineWrapperStyle = css`
+  display: flex;
+  margin-bottom: 16px;
+`;
+
+const TEXT = "Typography rules";
 export const typography = () => (
   <div
     css={css`
@@ -37,27 +50,41 @@ export const typography = () => (
       flex-direction: column;
     `}
   >
+    <Typography variant={"h4"}>Sizes/Types:</Typography>
     {typographyTypes.map(typographyType => (
-      <div
-        key={typographyType}
-        css={css`
-          display: flex;
-          margin-bottom: 16px;
-        `}
-      >
-        <Typography
-          css={css`
-            align-self: center;
-            margin-right: 16px;
-            flex: 1 1 auto;
-            max-width: 200px;
-          `}
-        >
-          {typographyType}
-        </Typography>
+      <div key={typographyType} css={lineWrapperStyle}>
+        <Typography css={labelStyle}>{typographyType}</Typography>
         <Typography variant={typographyType}>{TEXT}</Typography>
       </div>
     ))}
+    <div
+      css={css`
+        display: flex;
+        flex-direction: column;
+      `}
+    >
+      <Typography
+        variant={"h4"}
+        css={css`
+          && {
+            margin-top: 24px;
+            margin-bottom: 16px;
+          }
+        `}
+      >
+        Formatting:
+      </Typography>
+      <div css={lineWrapperStyle}>
+        <Typography css={labelStyle}>Error</Typography>
+        <Typography color={"error"}>{TEXT}</Typography>
+      </div>
+      <div css={lineWrapperStyle}>
+        <Typography css={labelStyle}>Link</Typography>
+        <Typography>
+          <Link> {TEXT}</Link>
+        </Typography>
+      </div>
+    </div>
   </div>
 );
 

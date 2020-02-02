@@ -8,7 +8,7 @@ import { withInfo } from "@storybook/addon-info";
 import { addParameters } from "@storybook/react";
 import { addReadme, configureReadme } from "storybook-readme";
 import themeDecorator from "./themeDecorator";
-import { Card, Container, CardContent, CardHeader } from "components";
+import { Card, Container, CardContent } from "components";
 
 addParameters({
   options: {
@@ -17,7 +17,8 @@ addParameters({
      * @type {Boolean}
      */
     showRoots: true
-  }
+  },
+  info: { disable: true }
 });
 
 /**
@@ -33,8 +34,10 @@ configureReadme({
     <Container>
       <Card
         css={css`
-          border-top: 0;
-          border-radius: 0 4px 4px 0;
+          && {
+            border-top: 0;
+            border-radius: 0 4px 4px 0;
+          }
         `}
       >
         <CardContent>{children}</CardContent>
@@ -55,8 +58,10 @@ configureReadme({
     >
       <Card
         css={css`
-          border-bottom: 0;
-          border-radius: 4px 0 0 4px;
+          && {
+            border-bottom: 0;
+            border-radius: 4px 0 0 4px;
+          }
         `}
       >
         <CardContent>{children}</CardContent>
