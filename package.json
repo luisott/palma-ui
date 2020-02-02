@@ -101,7 +101,8 @@
     "@storybook/preset-create-react-app": "^1.5.2",
     "@storybook/react": "^5.3.6",
     "eslint-plugin-react": "^7.16.0",
-    "prettier": "1.19.1"
+    "prettier": "1.19.1",
+    "storybook-readme": "^5.0.8"
   },
   "jest": {
     "roots": [

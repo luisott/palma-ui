@@ -1,7 +1,10 @@
 import React from "react";
-import Card from "./Card";
 import { css } from "@emotion/core";
-import { CardContent, CardHeader, Typography } from "@material-ui/core";
+
+import Card from "./Card";
+import CardContent from "./CardContent/CardContent";
+import CardHeader from "./CardHeader/CardHeader";
+import { Typography } from "@material-ui/core";
 
 export default {
   title: "Components/Card"
@@ -9,7 +12,7 @@ export default {
 
 export const card = () => (
   <Card>
-    <CardHeader title="Some card header" />
+    <CardHeader title={"Some card header"} />
     <CardContent
       css={css`
         max-width: 600px;
