@@ -40,9 +40,9 @@ export const themes = {
         "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', 'Roboto', 'Oxygen',\n" +
         "    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',\n" +
         "    sans-serif"
+    },
+    shape: {
+      borderRadius: commonBorderRadiusPx
     }
-  },
-  shape: {
-    borderRadius: commonBorderRadiusPx
   }
 };
