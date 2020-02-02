@@ -34,6 +34,12 @@ export const themes = {
         main: danger
       }
       //palette.background.default
+    },
+    typography: {
+      fontFamily:
+        "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', 'Roboto', 'Oxygen',\n" +
+        "    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',\n" +
+        "    sans-serif"
     }
   },
   shape: {

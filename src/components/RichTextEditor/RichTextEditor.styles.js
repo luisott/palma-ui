@@ -14,8 +14,6 @@ export const richTextEditor = theme => ({
     padding: 10.5px 14px;
     transition: all ${theme.transitions.duration.shorter}ms
       ${theme.transitions.easing.easeIn};
-    // Not sure why but the DraftJS editor needs to have the font family reassigned
-    font-family: ${theme.typography.fontFamily};
   `,
   highlight: css`
     :hover,
