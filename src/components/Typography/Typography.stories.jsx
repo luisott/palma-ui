@@ -9,8 +9,11 @@ export default {
   parameters: {
     readme: {
       // Show readme before story
-      content: TypographyReadme
-    }
+      content: TypographyReadme,
+      disable: false
+    },
+    centered: { disable: true },
+    info: { disable: true }
   }
 };
 
@@ -87,9 +90,3 @@ export const typography = () => (
     </div>
   </div>
 );
-
-typography.story = {
-  parameters: {
-    centered: { disable: true }
-  }
-};

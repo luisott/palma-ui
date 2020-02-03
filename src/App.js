@@ -8,9 +8,7 @@ import {
 import { Button } from "components";
 import { themes } from "styles/themes";
 
-let theme = createMuiTheme(themes.light);
-
-theme = responsiveFontSizes(theme);
+const theme = responsiveFontSizes(createMuiTheme(themes.light));
 
 function App() {
   return (

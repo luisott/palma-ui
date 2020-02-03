@@ -1,15 +1,17 @@
 import React from "react";
+import WelcomeReadme from "./README.md";
 
 export default {
-  title: "Welcome/Getting Started"
+  title: "Welcome/Getting Started",
+  parameters: {
+    readme: {
+      // Show readme before story
+      content: WelcomeReadme,
+      disable: false
+    },
+    centered: { disable: true },
+    info: { disable: true }
+  }
 };
 
-export const usage = () => (
-  <div>
-    Welcome
-    <div>
-      Importing material components while minimizing bundle size:
-      https://material-ui.com/guides/minimizing-bundle-size/{" "}
-    </div>
-  </div>
-);
+export const usage = () => <div />;

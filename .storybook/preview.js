@@ -18,7 +18,7 @@ addParameters({
      */
     showRoots: true
   },
-  info: { disable: true }
+  readme: { disable: true }
 });
 
 /**

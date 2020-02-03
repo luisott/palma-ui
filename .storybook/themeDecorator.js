@@ -7,8 +7,7 @@ import {
 } from "@material-ui/core/styles";
 import { themes } from "../src/styles/themes";
 
-let theme = createMuiTheme(themes.light);
-theme = responsiveFontSizes(theme);
+const theme = responsiveFontSizes(createMuiTheme(themes.light));
 
 const ThemeDecorator = storyFn => (
   <ThemeProvider theme={theme}>{storyFn()}</ThemeProvider>
