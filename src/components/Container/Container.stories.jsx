@@ -1,6 +1,5 @@
 import React from "react";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import Typography from "@material-ui/core/Typography";
+import { CssBaseline, Typography } from "@material-ui/core";
 
 import Container from "./Container";
 

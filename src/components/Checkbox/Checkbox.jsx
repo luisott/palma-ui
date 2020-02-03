@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import MaterialCheckbox from "@material-ui/core/Checkbox";
+import { Checkbox as MaterialCheckbox } from "@material-ui/core";
 
 const propTypes = {
   ariaLabel: PropTypes.string.isRequired

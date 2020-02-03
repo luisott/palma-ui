@@ -1,9 +1,11 @@
 import React from "react";
 
-import DialogActionsMaterial from "@material-ui/core/DialogActions";
+import {
+  DialogActions as DialogActionsMaterial,
+  useMediaQuery
+} from "@material-ui/core";
 import * as styles from "./DialogActions.styles";
 import { useTheme } from "@material-ui/core/styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 
 const DialogActions = props => {
   const theme = useTheme();

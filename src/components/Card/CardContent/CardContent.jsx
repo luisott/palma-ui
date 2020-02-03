@@ -1,5 +1,5 @@
 import React from "react";
-import MaterialCardContent from "@material-ui/core/CardContent";
+import { CardContent as MaterialCardContent } from "@material-ui/core";
 
 import * as styles from "./CardContent.styles";
 

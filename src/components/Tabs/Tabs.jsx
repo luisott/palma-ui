@@ -1,5 +1,5 @@
 import React from "react";
-import MaterialTabs from "@material-ui/core/Tabs";
+import { Tabs as MaterialTabs } from "@material-ui/core";
 
 import * as styles from "./Tabs.styles";
 

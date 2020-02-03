@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import MaterialButton from "@material-ui/core/Button";
-import CircularProgress from "@material-ui/core/CircularProgress";
+import { Button as MaterialButton, CircularProgress } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 
 import * as styles from "./Button.styles";

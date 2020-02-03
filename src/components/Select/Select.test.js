@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "@testing-library/react";
 import Select from "./Select";
-import MenuItem from "@material-ui/core/MenuItem";
+import { MenuItem } from "@material-ui/core";
 
 it("renders label", () => {
   const selectedOptionLabel = "One";

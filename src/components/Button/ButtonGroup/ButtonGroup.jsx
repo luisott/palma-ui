@@ -1,5 +1,5 @@
 import React from "react";
-import MaterialButtonGroup from "@material-ui/core/ButtonGroup";
+import { ButtonGroup as MaterialButtonGroup } from "@material-ui/core";
 
 import * as styles from "./ButtonGroup.styles";
 

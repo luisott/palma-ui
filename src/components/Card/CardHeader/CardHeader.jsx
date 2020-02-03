@@ -1,5 +1,5 @@
 import React from "react";
-import MaterialCardHeader from "@material-ui/core/CardHeader";
+import { CardHeader as MaterialCardHeader } from "@material-ui/core";
 
 import * as styles from "./CardHeader.styles";
 

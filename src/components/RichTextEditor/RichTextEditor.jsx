@@ -6,7 +6,7 @@ import { convertToHTML, convertFromHTML } from "draft-convert";
 import HoverToolbar from "./HoverToolbar/HoverToolbar";
 
 import * as styles from "./RichTextEditor.styles";
-import { useTheme } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
 import { richTextStyle } from "components/RichTextEditor/types";
 
 const propTypes = {

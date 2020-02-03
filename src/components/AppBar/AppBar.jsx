@@ -1,6 +1,6 @@
 import React from "react";
 
-import MaterialAppBar from "@material-ui/core/AppBar";
+import { AppBar as MaterialAppBar } from "@material-ui/core";
 
 const AppBar = props => {
   return <MaterialAppBar color={"secondary"} position="static" {...props} />;

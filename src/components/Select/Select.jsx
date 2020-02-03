@@ -1,8 +1,7 @@
 import React from "react";
-import MaterialSelect from "@material-ui/core/Select";
+import { Select as MaterialSelect, OutlinedInput } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { selectStyle } from "./Select.styles";
-import { OutlinedInput } from "@material-ui/core";
 import { inputFieldColor, inputFieldVariant } from "../../styles/commonStyles";
 
 const Select = props => {

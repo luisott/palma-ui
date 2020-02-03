@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import MaterialRadio from "@material-ui/core/Radio";
-import { FormControlLabel } from "@material-ui/core";
+import { Radio as MaterialRadio, FormControlLabel } from "@material-ui/core";
 
 const propTypes = {
   formControlLabelProps: PropTypes.object,

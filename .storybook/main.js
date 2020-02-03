@@ -3,7 +3,7 @@ const paths = require("../config/paths");
 module.exports = {
   stories: ["../src/**/*.stories.js", "../src/**/*.stories.jsx"],
   webpackFinal: config => {
-    // Copy pasted this from webpack.config.js
+    // Copy pasted this from config/webpack.config.js
     // TODO: Import the config here instead
     config.resolve.alias = {
       components: `${paths.appSrc}/components`,
@@ -48,6 +48,26 @@ module.exports = {
                   }
                 }
               }
+            ],
+            [
+              "babel-plugin-import",
+              {
+                libraryName: "@material-ui/core",
+                // Use "'libraryDirectory': ''," if your bundler does not support ES modules
+                libraryDirectory: "esm",
+                camel2DashComponentName: false
+              },
+              "core"
+            ],
+            [
+              "babel-plugin-import",
+              {
+                libraryName: "@material-ui/icons",
+                // Use "'libraryDirectory': ''," if your bundler does not support ES modules
+                libraryDirectory: "esm",
+                camel2DashComponentName: false
+              },
+              "icons"
             ]
           ],
           // This is a feature of `babel-loader` for webpack (not Babel itself).

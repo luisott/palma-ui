@@ -1,8 +1,7 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
+import { Typography, Link } from "@material-ui/core";
 import TypographyReadme from "./README.md";
 import { css } from "@emotion/core";
-import Link from "@material-ui/core/Link";
 
 export default {
   title: "Foundations/Typography",

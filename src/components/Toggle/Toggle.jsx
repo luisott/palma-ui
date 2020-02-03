@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Switch from "@material-ui/core/Switch";
+import { Switch } from "@material-ui/core";
 
 import * as styles from "./Toggle.styles";
-import { useTheme } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
 
 const propTypes = {
   /**
