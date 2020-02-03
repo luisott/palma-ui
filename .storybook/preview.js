@@ -31,7 +31,11 @@ configureReadme({
    * Vue: Vue component
    */
   StoryPreview: ({ children }) => (
-    <Container>
+    <Container
+      css={css`
+        margin-bottom: 48px;
+      `}
+    >
       <Card
         css={css`
           && {

@@ -2,7 +2,7 @@ import React from "react";
 import WelcomeReadme from "./README.md";
 
 export default {
-  title: "Welcome/Getting Started",
+  title: "Foundations/Getting Started",
   parameters: {
     readme: {
       // Show readme before story
@@ -11,6 +11,9 @@ export default {
     },
     centered: { disable: true },
     info: { disable: true }
+    // options: {
+    //   showPanel: false
+    // }
   }
 };
 

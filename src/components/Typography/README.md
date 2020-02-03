@@ -1,4 +1,4 @@
-## Typography
+# Typography
 All text content in paragraphs and headings should be wrapped in a `Typography` component. The usage is just like in [material UI](https://material-ui.com/api/typography/).
 
 The fonts are wrapped in `responsiveFontSizes` to resize fonts for different screen sizes. Read more [here](https://material-ui.com/customization/theming/#responsivefontsizes-theme-options-theme). 

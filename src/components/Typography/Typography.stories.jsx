@@ -13,6 +13,9 @@ export default {
     },
     centered: { disable: true },
     info: { disable: true }
+    // options: {
+    //   showPanel: false
+    // }
   }
 };
 
