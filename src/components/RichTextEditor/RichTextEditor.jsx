@@ -1,13 +1,37 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-
-import { EditorState, Editor, RichUtils } from "draft-js";
-import { convertToHTML, convertFromHTML } from "draft-convert";
+import { Link as MaterialLink } from "@material-ui/core";
+import {
+  EditorState,
+  Editor,
+  RichUtils,
+  convertFromHTML,
+  ContentState,
+  CompositeDecorator
+} from "draft-js";
+import { convertToHTML } from "draft-convert";
 import HoverToolbar from "./HoverToolbar/HoverToolbar";
 
 import * as styles from "./RichTextEditor.styles";
 import { useTheme } from "@material-ui/core/styles";
 import { richTextStyle } from "components/RichTextEditor/types";
+
+const findLinkEntities = (contentBlock, callback, contentState) => {
+  contentBlock.findEntityRanges(character => {
+    const entityKey = character.getEntity();
+    return (
+      entityKey !== null &&
+      contentState.getEntity(entityKey).getType() === "LINK"
+    );
+  }, callback);
+};
+
+// eslint-disable-next-line react/prop-types
+const Link = ({ contentState, entityKey, children }) => {
+  // eslint-disable-next-line react/prop-types
+  const { url } = contentState.getEntity(entityKey).getData();
+  return <MaterialLink href={url}>{children}</MaterialLink>;
+};
 
 const propTypes = {
   /**
@@ -44,8 +68,21 @@ const RichTextEditor = ({
   highlightWhenActive,
   ...rest
 }) => {
+  const blocksFromHTML = convertFromHTML(initialInput);
+  const state = ContentState.createFromBlockArray(
+    blocksFromHTML.contentBlocks,
+    blocksFromHTML.entityMap
+  );
+
+  const decorator = new CompositeDecorator([
+    {
+      strategy: findLinkEntities,
+      component: Link
+    }
+  ]);
+
   const [editorState, setEditorState] = useState(
-    EditorState.createWithContent(convertFromHTML(initialInput))
+    EditorState.createWithContent(state, decorator)
   );
 
   const theme = useTheme();
@@ -78,6 +115,7 @@ const RichTextEditor = ({
     .getCurrentContent()
     .getBlockForKey(selection.getStartKey())
     .getType();
+
   return (
     <>
       <HoverToolbar

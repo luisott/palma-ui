@@ -64,7 +64,8 @@ const INITIAL_INPUT =
   "<ol>" +
   "<li>Ordered list element 1</li>" +
   "<li>Ordered list element 2</li>" +
-  "</ol>";
+  "</ol>" +
+  "<a href='https://googl.ca'>This is a link</a>";
 export const richTextEditor = () => {
   return (
     <RichTextEditor
