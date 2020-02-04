@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import TabPanel from "./TabPanel";
+import { TabPanel } from "./TabPanel";
 
 it("renders content when current tab is this one", () => {
   const label = "Label";

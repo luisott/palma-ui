@@ -18,4 +18,4 @@ const DialogActions = props => {
   return <DialogActionsMaterial css={actionsStyles} {...props} />;
 };
 
-export default DialogActions;
+export { DialogActions };

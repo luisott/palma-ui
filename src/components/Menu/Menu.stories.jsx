@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "components/Button/Button";
+import { Button } from "@components";
 import { Menu as MenuMaterial, MenuItem } from "@material-ui/core";
 
 export default {

@@ -1,7 +1,7 @@
 import React from "react";
 import { CssBaseline, Typography } from "@material-ui/core";
 
-import Container from "./Container";
+import { Container } from "./Container";
 
 export default {
   title: "Components/Container"

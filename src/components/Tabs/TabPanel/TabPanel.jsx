@@ -20,4 +20,4 @@ const TabPanel = ({ ariaLabelPrefix, index, currentTab, ...rest }) => {
 };
 
 TabPanel.propTypes = propTypes;
-export default TabPanel;
+export { TabPanel };

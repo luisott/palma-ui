@@ -1,9 +1,9 @@
 import React from "react";
 import { css } from "@emotion/core";
 
-import Card from "./Card";
-import CardContent from "./CardContent/CardContent";
-import CardHeader from "./CardHeader/CardHeader";
+import { Card } from "./Card";
+import { CardContent } from "./CardContent/CardContent";
+import { CardHeader } from "./CardHeader/CardHeader";
 import { Typography } from "@material-ui/core";
 
 export default {

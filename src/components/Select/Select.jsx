@@ -10,10 +10,10 @@ const Select = props => {
       variant={inputFieldVariant}
       IconComponent={ExpandMoreIcon}
       css={selectStyle}
-      input={<OutlinedInput color={inputFieldColor} />}
+      input={<OutlinedInput labelWidth={1} color={inputFieldColor} />}
       {...props}
     />
   );
 };
 
-export default Select;
+export { Select };

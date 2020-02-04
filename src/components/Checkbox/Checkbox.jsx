@@ -17,4 +17,4 @@ const Checkbox = ({ ariaLabel, ...props }) => {
 };
 
 Checkbox.propTypes = propTypes;
-export default Checkbox;
+export { Checkbox };

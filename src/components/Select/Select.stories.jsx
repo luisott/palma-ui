@@ -1,5 +1,5 @@
 import React from "react";
-import Select from "./Select";
+import { Select } from "./Select";
 import { MenuItem } from "@material-ui/core";
 import { boolean } from "@storybook/addon-knobs";
 

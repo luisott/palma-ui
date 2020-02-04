@@ -21,4 +21,4 @@ const Radio = ({ label, formControlLabelProps, value, radioProps }) => {
 };
 
 Radio.propTypes = propTypes;
-export default Radio;
+export { Radio };

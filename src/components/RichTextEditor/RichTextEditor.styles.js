@@ -3,8 +3,8 @@ import {
   commonBorder,
   commonBorderRadiusPx,
   commonShadow
-} from "styles/commonStyles";
-import { lightestGrey } from "styles/colors";
+} from "@styles/commonStyles";
+import { lightestGrey } from "@styles/colors";
 
 export const richTextEditor = theme => ({
   base: css`

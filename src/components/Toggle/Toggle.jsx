@@ -32,4 +32,4 @@ const Toggle = ({ value, ariaLabel, ...rest }) => {
 };
 
 Toggle.propTypes = propTypes;
-export default Toggle;
+export { Toggle };

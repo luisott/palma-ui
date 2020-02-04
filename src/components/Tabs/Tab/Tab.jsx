@@ -19,4 +19,4 @@ const Tab = ({ ariaLabelPrefix, index, ...rest }) => {
 };
 
 Tab.propTypes = propTypes;
-export default Tab;
+export { Tab };

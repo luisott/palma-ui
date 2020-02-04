@@ -7,7 +7,7 @@ import {
   ThemeProvider
 } from "@material-ui/core/styles";
 import { Typography } from "@material-ui/core";
-import { themes } from "styles/themes";
+import { themes } from "@styles/themes";
 
 export default {
   title: "Foundations/Color",
@@ -25,7 +25,7 @@ export default {
   }
 };
 
-const COLOR_INTENTIOMS = [
+const COLOR_INTENTIONS = [
   "primary",
   "secondary",
   "error",
@@ -46,7 +46,7 @@ export const Color = () => {
           flex-direction: column;
         `}
       >
-        {COLOR_INTENTIOMS.map(intention => (
+        {COLOR_INTENTIONS.map(intention => (
           <div
             key={intention}
             css={css`

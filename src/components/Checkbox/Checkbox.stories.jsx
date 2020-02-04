@@ -1,6 +1,6 @@
 import React from "react";
 import { text, boolean } from "@storybook/addon-knobs";
-import Checkbox from "./Checkbox";
+import { Checkbox } from "./Checkbox";
 import { FormControlLabel } from "@material-ui/core";
 
 export default {
@@ -14,7 +14,7 @@ export const checkbox = () => (
 export const withLabel = () => (
   <FormControlLabel
     disabled={boolean("Disabled", false)}
-    control={<Checkbox />}
+    control={<Checkbox ariaLabel={"label"} />}
     label={text("Label", "Some Label")}
   />
 );

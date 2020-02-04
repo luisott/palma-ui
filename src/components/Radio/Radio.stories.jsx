@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { text, boolean } from "@storybook/addon-knobs";
 import { RadioGroup, FormControl, FormLabel } from "@material-ui/core";
-import Radio from "./Radio";
+import { Radio } from "./Radio";
 
 export default {
   title: "Components/Radio"

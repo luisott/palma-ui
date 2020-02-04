@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import DialogComponent from "./Dialog";
-import { Button } from "components";
+import { Dialog as DialogComponent } from "./Dialog";
+import { Button } from "@components";
 
 import {
   DialogTitle,
   DialogContent,
   DialogContentText
 } from "@material-ui/core";
-import { BUTTON_VARIANTS } from "components/Button/types";
-import DialogActions from "./DialogActions/DialogActions";
+import { BUTTON_VARIANTS } from "@components/Button/types";
+import { DialogActions } from "./DialogActions/DialogActions";
 
 export default {
   title: "Components/Dialog"

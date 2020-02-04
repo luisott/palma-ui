@@ -32,4 +32,4 @@ const TextField = ({ id, label, ...rest }) => {
 };
 
 TextField.propTypes = propTypes;
-export default TextField;
+export { TextField };

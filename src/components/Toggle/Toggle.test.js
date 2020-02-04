@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import Toggle from "./Toggle";
+import { Toggle } from "./Toggle";
 
 it("renders label", () => {
   const label = "Label";

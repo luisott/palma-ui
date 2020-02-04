@@ -1,6 +1,6 @@
 import React from "react";
 import { boolean, text } from "@storybook/addon-knobs";
-import Toggle from "./Toggle";
+import { Toggle } from "./Toggle";
 import { FormControlLabel } from "@material-ui/core";
 
 export default {

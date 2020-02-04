@@ -4,12 +4,12 @@ import ReactDOM from "react-dom";
 import * as styles from "./HoverToolbar.styles";
 import PropTypes from "prop-types";
 import { Tooltip } from "@material-ui/core";
-import { richTextStyle } from "components/RichTextEditor/types";
+import { richTextStyle } from "../../RichTextEditor/types";
 
 const propTypes = {
   onInlineStyleButtonClicked: PropTypes.func.isRequired,
   onBlockStyleButtonClicked: PropTypes.func.isRequired,
-  currentInlineStyle: PropTypes.any,
+  currentInlineStyle: PropTypes.any.isRequired,
   currentBlockStyle: PropTypes.string,
   inlineStyles: PropTypes.arrayOf(richTextStyle).isRequired,
   blockStyles: PropTypes.arrayOf(richTextStyle).isRequired
@@ -102,4 +102,4 @@ const Portal = ({ children }) => {
 };
 
 HoverToolbar.propTypes = propTypes;
-export default HoverToolbar;
+export { HoverToolbar };

@@ -18,7 +18,7 @@ export const richTextStyle = PropTypes.shape({
   /**
    * React component for the icon to show
    */
-  Icon: PropTypes.node.isRequired,
+  Icon: PropTypes.object.isRequired,
   /**
    * Label to show in tooltip plus aria label in the icon
    */
@@ -26,5 +26,5 @@ export const richTextStyle = PropTypes.shape({
   /**
    * Style string for this style, needs to be one of the strings supported by DraftJS (https://draftjs.org/docs/advanced-topics-inline-styles/)
    */
-  style: PropTypes.oneOf([INLINE_STYLES, BLOCK_STYLES]).isRequired
+  style: PropTypes.oneOfType([INLINE_STYLES, BLOCK_STYLES]).isRequired
 });

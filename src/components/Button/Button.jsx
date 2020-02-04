@@ -57,4 +57,4 @@ const Button = ({ variant, loading, children, ...rest }) => {
 
 Button.propTypes = propTypes;
 Button.defaultProps = defaultProps;
-export default Button;
+export { Button };

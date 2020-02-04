@@ -6,4 +6,4 @@ const AppBar = props => {
   return <MaterialAppBar color={"secondary"} position="static" {...props} />;
 };
 
-export default AppBar;
+export { AppBar };

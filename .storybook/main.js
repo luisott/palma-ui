@@ -6,8 +6,8 @@ module.exports = {
     // Copy pasted this from config/webpack.config.js
     // TODO: Import the config here instead
     config.resolve.alias = {
-      components: `${paths.appSrc}/components`,
-      styles: `${paths.appSrc}/styles`
+      "@components": `${paths.appSrc}/components`,
+      "@styles": `${paths.appSrc}/styles`
     };
     config.module.rules.push(
       // First, run the linter.

@@ -6,7 +6,7 @@ import { useTheme } from "@material-ui/core/styles";
 import CloseIcon from "@material-ui/icons/Close";
 
 import * as styles from "./Dialog.styles";
-import IconButton from "../IconButton/IconButton";
+import { IconButton } from "../IconButton/IconButton";
 
 const propTypes = {
   onClose: PropTypes.func,
@@ -34,4 +34,4 @@ const Dialog = ({ onClose, children, ...props }) => {
 };
 
 Dialog.propTypes = propTypes;
-export default Dialog;
+export { Dialog };

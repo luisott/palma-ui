@@ -4,7 +4,7 @@ import KeyboardArrowDown from "@material-ui/icons/KeyboardArrowDown";
 import ButtonGroup from "./ButtonGroup/ButtonGroup";
 
 import { text, boolean, select } from "@storybook/addon-knobs";
-import Button from "./Button";
+import { Button } from "./Button";
 import { css } from "@emotion/core";
 
 export default {

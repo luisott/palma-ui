@@ -10,11 +10,11 @@ import {
   CompositeDecorator
 } from "draft-js";
 import { convertToHTML } from "draft-convert";
-import HoverToolbar from "./HoverToolbar/HoverToolbar";
+import { HoverToolbar } from "./HoverToolbar/HoverToolbar";
 
 import * as styles from "./RichTextEditor.styles";
 import { useTheme } from "@material-ui/core/styles";
-import { richTextStyle } from "components/RichTextEditor/types";
+import { richTextStyle } from "@components/RichTextEditor/types";
 
 const findLinkEntities = (contentBlock, callback, contentState) => {
   contentBlock.findEntityRanges(character => {
@@ -140,4 +140,4 @@ const RichTextEditor = ({
 
 RichTextEditor.propTypes = propTypes;
 RichTextEditor.defaultProps = defaultProps;
-export default RichTextEditor;
+export { RichTextEditor };

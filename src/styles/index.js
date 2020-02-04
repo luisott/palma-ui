@@ -1,4 +1,5 @@
-export * as colors from "./colors";
-export * as themes from "./themes";
-export * as commonStyles from "./commonStyles";
-export * as transitions from "./transitions";
+import * as colors from "./colors";
+import * as themes from "./themes";
+import * as commonStyles from "./commonStyles";
+
+export { colors, themes, commonStyles };

@@ -7,4 +7,4 @@ const CardHeader = props => {
   return <MaterialCardHeader css={styles.style} {...props} />;
 };
 
-export default CardHeader;
+export { CardHeader };

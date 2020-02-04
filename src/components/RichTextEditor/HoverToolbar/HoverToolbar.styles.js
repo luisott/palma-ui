@@ -1,5 +1,5 @@
 import { css } from "@emotion/core";
-import { commonBorderRadiusPx } from "styles/commonStyles";
+import { commonBorderRadiusPx } from "@styles/commonStyles";
 
 const TOOLBAR_HEIGHT_PX = 38;
 export const menu = css`

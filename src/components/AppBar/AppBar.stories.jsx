@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { boolean } from "@storybook/addon-knobs";
-import AppBar from "./AppBar";
+import { AppBar } from "./AppBar";
 import { css } from "@emotion/core";
-import { IconButton } from "components";
+import { IconButton } from "@components";
 import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
-import { Tabs, Tab } from "components";
-import * as styles from "components/AppBar/AppBar.styles";
+import { Tabs, Tab } from "@components";
+import * as styles from "@components/AppBar/AppBar.styles";
 import {
   Typography,
   Avatar,

@@ -5,7 +5,7 @@ import {
   responsiveFontSizes,
   ThemeProvider
 } from "@material-ui/core/styles";
-import { themes } from "../src/styles/themes";
+import { themes } from "@styles/themes";
 
 const theme = responsiveFontSizes(createMuiTheme(themes.light));
 

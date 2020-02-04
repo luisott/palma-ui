@@ -1,7 +1,7 @@
 import React from "react";
 import { boolean } from "@storybook/addon-knobs";
 
-import RichTextEditor from "./RichTextEditor";
+import { RichTextEditor } from "./RichTextEditor";
 import {
   Code,
   CodeRounded,

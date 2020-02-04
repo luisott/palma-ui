@@ -1,6 +1,6 @@
 import React from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
-import IconButton from "./IconButton";
+import { IconButton } from "./IconButton";
 import { boolean } from "@storybook/addon-knobs";
 
 export default {

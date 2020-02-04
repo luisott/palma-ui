@@ -7,4 +7,4 @@ const CardContent = props => {
   return <MaterialCardContent css={styles.style} {...props} />;
 };
 
-export default CardContent;
+export { CardContent };

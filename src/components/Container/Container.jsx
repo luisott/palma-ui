@@ -9,4 +9,4 @@ const Container = props => {
   );
 };
 
-export default Container;
+export { Container };

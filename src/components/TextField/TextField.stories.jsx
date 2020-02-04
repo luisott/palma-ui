@@ -2,7 +2,7 @@ import React from "react";
 import { text, boolean } from "@storybook/addon-knobs";
 import { MenuItem } from "@material-ui/core";
 
-import TextField from "./TextField";
+import { TextField } from "./TextField";
 
 export default {
   title: "Components/TextField"
