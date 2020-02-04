@@ -297,6 +297,7 @@ module.exports = function(webpackEnv) {
         "react-native": "react-native-web",
         "@components": `${paths.appSrc}/components`,
         "@styles": `${paths.appSrc}/styles`,
+        "@types": `${paths.appSrc}/types`,
         // Allows for better profiling with ReactDevTools
         ...(isEnvProductionProfile && {
           "react-dom$": "react-dom/profiling",

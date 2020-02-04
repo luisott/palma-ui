@@ -7,7 +7,8 @@ module.exports = {
     // TODO: Import the config here instead
     config.resolve.alias = {
       "@components": `${paths.appSrc}/components`,
-      "@styles": `${paths.appSrc}/styles`
+      "@styles": `${paths.appSrc}/styles`,
+      "@types": `${paths.appSrc}/types`
     };
     config.module.rules.push(
       // First, run the linter.
