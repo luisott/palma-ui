@@ -14,7 +14,8 @@ const propTypes = {
    */
   label: PropTypes.string.isRequired,
 
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+  onChange: PropTypes.func
 };
 
 const defaultProps = {};

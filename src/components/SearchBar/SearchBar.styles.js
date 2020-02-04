@@ -3,7 +3,7 @@ import {
   commonBorder,
   commonBorderRadiusPx,
   commonShadow,
-  hoverCommonShadow
+  shadowSurface
 } from "@styles/commonStyles";
 import { SIZES } from "@types/sizes";
 
@@ -15,15 +15,21 @@ export const container = theme => ({
     align-items: center;
     border: ${commonBorder};
     border-radius: ${commonBorderRadiusPx}px;
-    box-shadow: ${commonShadow};
+    box-shadow: ${shadowSurface};
     height: 36px;
     transition: all ${theme.transitions.duration.shorter}ms
       ${theme.transitions.easing.easeIn};
 
     :hover,
     :active,
-    :focus {
-      box-shadow: ${hoverCommonShadow};
+    :focus,
+    :focus-within {
+      box-shadow: ${commonShadow};
+    }
+
+    :focus,
+    :focus-within {
+      border-color: ${theme.palette.primary.main};
     }
   `,
   [SIZES.SMALL]: css`
