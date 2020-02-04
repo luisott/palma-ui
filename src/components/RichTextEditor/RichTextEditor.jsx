@@ -14,7 +14,7 @@ import { HoverToolbar } from "./HoverToolbar/HoverToolbar";
 
 import * as styles from "./RichTextEditor.styles";
 import { useTheme } from "@material-ui/core/styles";
-import { richTextStyle } from "@components/RichTextEditor/types";
+import { richTextStyle } from "./types";
 
 const findLinkEntities = (contentBlock, callback, contentState) => {
   contentBlock.findEntityRanges(character => {

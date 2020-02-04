@@ -25,7 +25,7 @@ const BLOCK_STYLES = [
 delete window.getSelection;
 window.getSelection = () => ({ type: "None" });
 
-it("renders some label", () => {
+it("renders inline and block styles labels", () => {
   const blocksFromHTML = convertFromHTML("text input");
   const state = ContentState.createFromBlockArray(
     blocksFromHTML.contentBlocks,
@@ -42,4 +42,7 @@ it("renders some label", () => {
     />
   );
   expect(getByLabelText("Bold")).toBeInTheDocument();
+  expect(getByLabelText("Italic")).toBeInTheDocument();
+  expect(getByLabelText("Header 2")).toBeInTheDocument();
+  expect(getByLabelText("Block Quote")).toBeInTheDocument();
 });
