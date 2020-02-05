@@ -5,17 +5,16 @@ import {
   commonShadow,
   shadowSurface
 } from "@styles/commonStyles";
-import { SIZES } from "@types/sizes";
+import { sizes } from "@types/sizes";
 
 export const container = theme => ({
   base: css`
     display: flex;
     padding-left: 16px;
-    padding-right: 16px;
+    padding-right: 8px;
     align-items: center;
     border: ${commonBorder};
     border-radius: ${commonBorderRadiusPx}px;
-    box-shadow: ${shadowSurface};
     height: 36px;
     transition: all ${theme.transitions.duration.shorter}ms
       ${theme.transitions.easing.easeIn};
@@ -32,17 +31,36 @@ export const container = theme => ({
       border-color: ${theme.palette.primary.main};
     }
   `,
-  [SIZES.SMALL]: css`
+  withSurface: css`
+    box-shadow: ${shadowSurface};
+  `,
+  [sizes.SMALL]: css`
     height: 36px;
   `,
-  [SIZES.MEDIUM]: css`
+  [sizes.MEDIUM]: css`
     height: 48px;
   `,
-  [SIZES.LARGE]: css`
+  [sizes.LARGE]: css`
     height: 56px;
   `
 });
 
-export const searchIcon = css`
-  margin-right: 8px;
-`;
+export const searchIcon = {
+  base: css`
+    margin-right: 8px;
+  `,
+  [sizes.LARGE]: css`
+    svg {
+      width: 1.1em;
+      height: 1.1em;
+    }
+  `
+};
+
+export const inputBase = {
+  [sizes.LARGE]: css`
+    && {
+      font-size: 1.1rem;
+    }
+  `
+};

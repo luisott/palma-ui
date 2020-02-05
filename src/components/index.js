@@ -13,4 +13,5 @@ export { Tab } from "./Tabs/Tab/Tab";
 export { TabPanel } from "./Tabs/TabPanel/TabPanel";
 export { TextField } from "./TextField/TextField";
 export { Toggle } from "./Toggle/Toggle";
+export { SearchBar } from "./SearchBar/SearchBar";
 export { RichTextEditor } from "./RichTextEditor/RichTextEditor";
