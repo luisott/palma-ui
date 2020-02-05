@@ -3,7 +3,7 @@ import { commonBorder, commonBorderRadiusPx } from "./commonStyles";
 
 export const themes = {
   light: {
-    themeName: "Light Themeeeee",
+    themeName: "Light Theme",
     overrides: {
       MuiMenu: {
         // Name of the rule

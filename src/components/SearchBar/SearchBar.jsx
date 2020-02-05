@@ -41,6 +41,13 @@ const SearchBar = ({
     }
   };
 
+  const handleClearSearch = () => {
+    setValue("");
+    if (onChange) {
+      onChange("");
+    }
+  };
+
   return (
     <div
       css={[
@@ -64,7 +71,7 @@ const SearchBar = ({
         <IconButton
           size={"small"}
           aria-label={"close"}
-          onClick={() => setValue("")}
+          onClick={handleClearSearch}
         >
           <Close />
         </IconButton>
