@@ -7,15 +7,10 @@ import {
 } from "@styles/commonStyles";
 import { sizes } from "@types/sizes";
 
-export const container = theme => ({
+export const containerWrapper = theme => ({
   base: css`
-    display: flex;
-    padding-left: 16px;
-    padding-right: 8px;
-    align-items: center;
     border: ${commonBorder};
     border-radius: ${commonBorderRadiusPx}px;
-    height: 36px;
     transition: all ${theme.transitions.duration.shorter}ms
       ${theme.transitions.easing.easeIn};
 
@@ -33,6 +28,16 @@ export const container = theme => ({
   `,
   withSurface: css`
     box-shadow: ${shadowSurface};
+  `
+});
+
+export const container = {
+  base: css`
+    display: flex;
+    padding-left: 16px;
+    padding-right: 8px;
+    align-items: center;
+    height: 36px;
   `,
   [sizes.SMALL]: css`
     height: 36px;
@@ -43,7 +48,7 @@ export const container = theme => ({
   [sizes.LARGE]: css`
     height: 56px;
   `
-});
+};
 
 export const searchIcon = {
   base: css`
@@ -58,6 +63,9 @@ export const searchIcon = {
 };
 
 export const inputBase = {
+  base: css`
+    width: 100%;
+  `,
   [sizes.LARGE]: css`
     && {
       font-size: 1.1rem;

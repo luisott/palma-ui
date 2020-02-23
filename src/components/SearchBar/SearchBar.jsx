@@ -18,7 +18,8 @@ const propTypes = {
 
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
-  withSurface: PropTypes.bool
+  withSurface: PropTypes.bool,
+  children: PropTypes.node
 };
 
 const defaultProps = {};
@@ -29,6 +30,7 @@ const SearchBar = ({
   placeholder,
   onChange,
   withSurface,
+  children,
   ...props
 }) => {
   const theme = useTheme();
@@ -51,31 +53,33 @@ const SearchBar = ({
   return (
     <div
       css={[
-        styles.container(theme).base,
-        withSurface && styles.container(theme).withSurface,
-        styles.container(theme)[size]
+        styles.containerWrapper(theme).base,
+        withSurface && styles.containerWrapper(theme).withSurface
       ]}
     >
-      <div css={[styles.searchIcon.base, styles.searchIcon[size]]}>
-        <SearchIcon color={"disabled"} />
+      <div css={[styles.container.base, styles.container[size]]}>
+        <div css={[styles.searchIcon.base, styles.searchIcon[size]]}>
+          <SearchIcon color={"disabled"} />
+        </div>
+        <InputBase
+          placeholder={placeholder}
+          inputProps={{ "aria-label": label }}
+          onChange={handleInputChange}
+          value={value}
+          css={[styles.inputBase.base, styles.inputBase[size]]}
+          {...props}
+        />
+        {!!value && (
+          <IconButton
+            size={"small"}
+            aria-label={"close"}
+            onClick={handleClearSearch}
+          >
+            <Close />
+          </IconButton>
+        )}
       </div>
-      <InputBase
-        placeholder={placeholder}
-        inputProps={{ "aria-label": label }}
-        onChange={handleInputChange}
-        value={value}
-        css={styles.inputBase[size]}
-        {...props}
-      />
-      {!!value && (
-        <IconButton
-          size={"small"}
-          aria-label={"close"}
-          onClick={handleClearSearch}
-        >
-          <Close />
-        </IconButton>
-      )}
+      {children}
     </div>
   );
 };
