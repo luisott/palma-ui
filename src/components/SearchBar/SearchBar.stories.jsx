@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { SearchBar as SearchBarComponent } from "./SearchBar";
 import { boolean, select } from "@storybook/addon-knobs";
-import { sizes } from "@types/sizes";
+import { sizes, colorVariations } from "@types";
 import { ClickAwayListener, MenuItem, MenuList } from "@material-ui/core";
 import { css } from "@emotion/core";
 
@@ -14,7 +14,6 @@ export const SearchBar = () => {
   const ref = useRef();
 
   const handleCloseResults = () => {
-    debugger;
     setOpenResults(false);
   };
 
@@ -40,6 +39,11 @@ export const SearchBar = () => {
           label={"search storybook"}
           placeholder={"Search..."}
           size={select("Size", sizes, sizes.MEDIUM)}
+          activeBorderColor={select(
+            "Active Border Color ",
+            colorVariations,
+            colorVariations.NONE
+          )}
           withSurface={boolean("With Surface", false)}
           disabled={boolean("Disabled", false)}
           onChange={handleSearchChange}

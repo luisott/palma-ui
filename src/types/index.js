@@ -1,2 +1,2 @@
-import * as sizes from "./sizes";
-export { sizes };
+export { sizes } from "./sizes";
+export { colorVariations } from "./colorVariations";

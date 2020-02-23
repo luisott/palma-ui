@@ -6,11 +6,12 @@ import Close from "@material-ui/icons/Close";
 
 import * as styles from "./SearchBar.styles";
 import { useTheme } from "@material-ui/core/styles";
-import { sizes } from "@types/sizes";
+import { sizes, colorVariations } from "@types";
 import { IconButton } from "@components/IconButton/IconButton";
 
 const propTypes = {
   size: PropTypes.oneOf(Object.values(sizes)),
+  activeBorderColor: PropTypes.oneOf(Object.values(colorVariations)),
   /**
    * Needed for accessibility
    */
@@ -19,10 +20,13 @@ const propTypes = {
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
   withSurface: PropTypes.bool,
-  children: PropTypes.node
+  children: PropTypes.node,
+  disabled: PropTypes.bool
 };
 
-const defaultProps = {};
+const defaultProps = {
+  activeBorderColor: colorVariations.NONE
+};
 
 const SearchBar = ({
   label,
@@ -31,6 +35,8 @@ const SearchBar = ({
   onChange,
   withSurface,
   children,
+  activeBorderColor,
+  disabled,
   ...props
 }) => {
   const theme = useTheme();
@@ -54,7 +60,9 @@ const SearchBar = ({
     <div
       css={[
         styles.containerWrapper(theme).base,
-        withSurface && styles.containerWrapper(theme).withSurface
+        styles.containerWrapper(theme)[activeBorderColor],
+        withSurface && styles.containerWrapper(theme).withSurface,
+        disabled && styles.containerWrapper(theme).disabled
       ]}
     >
       <div css={[styles.container.base, styles.container[size]]}>
@@ -67,6 +75,7 @@ const SearchBar = ({
           onChange={handleInputChange}
           value={value}
           css={[styles.inputBase.base, styles.inputBase[size]]}
+          disabled={disabled}
           {...props}
         />
         {!!value && (
