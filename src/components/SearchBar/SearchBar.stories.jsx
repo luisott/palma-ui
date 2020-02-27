@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { SearchBar as SearchBarComponent } from "./SearchBar";
 import { boolean, select } from "@storybook/addon-knobs";
 import { sizes, colorVariations } from "@types";
-import { ClickAwayListener, MenuItem, MenuList } from "@material-ui/core";
+import { MenuItem, MenuList } from "@material-ui/core";
 import { css } from "@emotion/core";
 
 export default {
@@ -26,37 +26,36 @@ export const SearchBar = () => {
   };
 
   return (
-    <ClickAwayListener onClickAway={handleCloseResults}>
-      <div
-        ref={ref}
-        css={css`
-          width: 300px;
-          position: absolute;
-          left: -150px;
-        `}
+    <div
+      ref={ref}
+      css={css`
+        width: 300px;
+        position: absolute;
+        left: -150px;
+      `}
+    >
+      <SearchBarComponent
+        label={"search storybook"}
+        placeholder={"Search..."}
+        size={select("Size", sizes, sizes.MEDIUM)}
+        activeBorderColor={select(
+          "Active Border Color ",
+          colorVariations,
+          colorVariations.NONE
+        )}
+        withSurface={boolean("With Surface", false)}
+        disabled={boolean("Disabled", false)}
+        onChange={handleSearchChange}
+        onClickAway={handleCloseResults}
       >
-        <SearchBarComponent
-          label={"search storybook"}
-          placeholder={"Search..."}
-          size={select("Size", sizes, sizes.MEDIUM)}
-          activeBorderColor={select(
-            "Active Border Color ",
-            colorVariations,
-            colorVariations.NONE
-          )}
-          withSurface={boolean("With Surface", false)}
-          disabled={boolean("Disabled", false)}
-          onChange={handleSearchChange}
-        >
-          {openResults && (
-            <MenuList id="menu-list-grow">
-              <MenuItem onClick={handleCloseResults}>Profile</MenuItem>
-              <MenuItem onClick={handleCloseResults}>My account</MenuItem>
-              <MenuItem onClick={handleCloseResults}>Logout</MenuItem>
-            </MenuList>
-          )}
-        </SearchBarComponent>
-      </div>
-    </ClickAwayListener>
+        {openResults && (
+          <MenuList id="menu-list-grow">
+            <MenuItem onClick={handleCloseResults}>Profile</MenuItem>
+            <MenuItem onClick={handleCloseResults}>My account</MenuItem>
+            <MenuItem onClick={handleCloseResults}>Logout</MenuItem>
+          </MenuList>
+        )}
+      </SearchBarComponent>
+    </div>
   );
 };
