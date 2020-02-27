@@ -4,7 +4,6 @@ export const commonBorderRadiusPx = 4;
 export const commonBorder = `${lightestGrey} 1px solid`;
 
 export const commonShadow = "0px 2px 8px 0px rgba(0,0,0,.2)";
-export const boxShadowOnlyOnBottom = "0px 10px 8px 0px rgba(0,0,0,.2)";
 export const shadowSurface = "0px 2px 8px -2px rgba(0, 0, 0, 0.2)";
 
 export const inputFieldColor = "secondary";

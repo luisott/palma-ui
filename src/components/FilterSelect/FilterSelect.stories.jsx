@@ -12,15 +12,17 @@ const movies = [
   { title: "The Godfather", year: 1972, id: 1 },
   { title: "The Godfather: Part II", year: 1974, id: 2 },
   { title: "The Dark Knight", year: 2008, id: 3 },
-  { title: "12 Angry Men", year: 1957, id: 4 }
+  { title: "12 Angry Men", year: 1957, id: 4 },
+  { title: "Inglourious Basterds", year: 2009 },
+  { title: "Snatch", year: 2000 },
+  { title: "3 Idiots", year: 2009 },
+  { title: "Monty Python and the Holy Grail", year: 1975 }
 ];
 
 export const filterSelect = () => (
   <div
     css={css`
       width: 300px;
-      position: absolute;
-      left: -150px;
     `}
   >
     <FilterSelect

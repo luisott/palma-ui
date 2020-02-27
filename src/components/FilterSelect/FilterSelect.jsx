@@ -4,14 +4,9 @@ import PropTypes from "prop-types";
 import * as styles from "./FilterSelect.styles";
 import { useTheme } from "@material-ui/core/styles";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import {
-  ClickAwayListener,
-  MenuItem,
-  MenuList,
-  InputBase
-} from "@material-ui/core";
-import { colorVariations } from "@types";
+import { MenuItem, MenuList, InputBase } from "@material-ui/core";
 import { IconButton } from "@components/IconButton/IconButton";
+import { ResultContainer } from "@components/FilterSelect/ResultContainer/ResultContainer";
 
 const propTypes = {
   /**
@@ -29,10 +24,6 @@ const propTypes = {
       id: PropTypes.string.isRequired
     })
   )
-};
-
-const defaultProps = {
-  activeBorderColor: colorVariations.NONE
 };
 
 const FilterSelect = ({
@@ -76,8 +67,10 @@ const FilterSelect = ({
     }
   };
 
+  const shouldShowOptions = openResults && optionsToShow.length > 0;
+
   const getOptions = () => {
-    if (!openResults || optionsToShow.length === 0) {
+    if (!shouldShowOptions) {
       return null;
     }
 
@@ -117,33 +110,31 @@ const FilterSelect = ({
   };
 
   return (
-    <ClickAwayListener onClickAway={handleCloseResults}>
-      <div
-        ref={ref}
-        css={[
-          styles.containerWrapper(theme),
-          disabled && styles.containerWrapper(theme).disabled
-        ]}
-      >
-        <div css={styles.container}>
-          <InputBase
-            placeholder={placeholder}
-            inputProps={{ "aria-label": label }}
-            onChange={handleInputChange}
-            value={value}
-            disabled={disabled}
-            css={styles.inputBase}
-            onClick={openAllResults}
-            {...props}
-          />
-          {getDropDownIcon()}
-        </div>
-        {getOptions()}
+    <div
+      css={[
+        styles.containerWrapper(theme).base,
+        shouldShowOptions && styles.containerWrapper(theme).openResultsBottom
+      ]}
+    >
+      <div css={styles.container} ref={ref}>
+        <InputBase
+          placeholder={placeholder}
+          inputProps={{ "aria-label": label }}
+          onChange={handleInputChange}
+          value={value}
+          disabled={disabled}
+          css={styles.inputBase}
+          onClick={openAllResults}
+          {...props}
+        />
+        {getDropDownIcon()}
       </div>
-    </ClickAwayListener>
+      <ResultContainer anchorEl={ref?.current} onClickAway={handleCloseResults}>
+        {getOptions()}
+      </ResultContainer>
+    </div>
   );
 };
 
 FilterSelect.propTypes = propTypes;
-FilterSelect.defaultProps = defaultProps;
 export { FilterSelect };
