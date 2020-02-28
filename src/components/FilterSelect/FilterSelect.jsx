@@ -45,16 +45,17 @@ const FilterSelect = ({
   const ref = useRef();
 
   const handleInputChange = e => {
-    setValue(e.target.value);
-    if (e.target.value) {
-      const filteredOptions = options.filter(
-        ({ title }) => title.toLowerCase().indexOf(value.toLowerCase()) > -1
+    const newValue = e.target.value;
+    if (newValue) {
+      const filteredOptions = options.filter(({ title }) =>
+        title.toLowerCase().includes(newValue.toLowerCase())
       );
       setOptionsToShow(filteredOptions);
       setOpenResults(true);
     } else {
       setOptionsToShow(options);
     }
+    setValue(newValue);
   };
 
   const handleCloseResults = () => {

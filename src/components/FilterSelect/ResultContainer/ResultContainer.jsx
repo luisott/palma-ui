@@ -16,6 +16,9 @@ const ResultContainer = ({ onClickAway, anchorEl, children, onCreate }) => {
   const [flipped, setFlipped] = useState(false);
 
   const handleOnCreatePopper = data => {
+    // This so the direction of the popper doesn't change while it's open and the scroll/resize happens
+    // Needed because the style will have to change as well in the borders and using state etc.
+    // for this is not performing well.
     data.instance.disableEventListeners();
     setFlipped(data.flipped);
     onCreate && onCreate(data.flipped);
