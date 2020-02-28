@@ -20,10 +20,20 @@ const propTypes = {
   onOptionSelected: PropTypes.func,
   options: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string.isRequired,
+      /**
+       * Used for filtering
+       * If no renderOption this is the value rendered in the options
+       */
+      name: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired
     })
-  )
+  ),
+  /**
+   * Optional renderer for option
+   * @param option
+   * @returns a string or a component with the value to show
+   */
+  renderOption: PropTypes.func
 };
 
 const FilterSelect = ({
@@ -33,6 +43,7 @@ const FilterSelect = ({
   onChange,
   disabled,
   onOptionSelected,
+  renderOption,
   ...props
 }) => {
   const theme = useTheme();
@@ -47,8 +58,8 @@ const FilterSelect = ({
   const handleInputChange = e => {
     const newValue = e.target.value;
     if (newValue) {
-      const filteredOptions = options.filter(({ title }) =>
-        title.toLowerCase().includes(newValue.toLowerCase())
+      const filteredOptions = options.filter(({ name }) =>
+        name.toLowerCase().includes(newValue.toLowerCase())
       );
       setOptionsToShow(filteredOptions);
       setOpenResults(true);
@@ -64,7 +75,7 @@ const FilterSelect = ({
 
   const pickOption = option => {
     setOpenResults(false);
-    setValue(option.title);
+    setValue(option.name);
     if (onOptionSelected) {
       onOptionSelected(option);
     }
@@ -83,9 +94,9 @@ const FilterSelect = ({
           <MenuItem
             key={option.id}
             onClick={() => pickOption(option)}
-            selected={option.title === value}
+            selected={option.name === value}
           >
-            {option.title}
+            {renderOption ? renderOption(option) : option.name}
           </MenuItem>
         ))}
       </MenuList>
