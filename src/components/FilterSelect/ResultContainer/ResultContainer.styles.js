@@ -6,8 +6,6 @@ export const popper = theme => ({
     width: calc(100% - 2px);
     border: ${commonBorder};
     border-color: ${theme.palette.secondary.main};
-  `,
-  openBottom: css`
     border-top: 0;
     border-radius: 0 0 ${commonBorderRadiusPx}px ${commonBorderRadiusPx}px;
   `,
@@ -23,10 +21,6 @@ export const paper = {
       max-height: 200px;
       overflow: scroll;
       box-shadow: none;
-    }
-  `,
-  openBottom: css`
-    && {
       border-radius: 0 0 ${commonBorderRadiusPx}px ${commonBorderRadiusPx}px;
     }
   `,

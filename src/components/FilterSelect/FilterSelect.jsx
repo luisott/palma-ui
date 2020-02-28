@@ -39,6 +39,9 @@ const FilterSelect = ({
   const [value, setValue] = useState("");
   const [optionsToShow, setOptionsToShow] = useState(options);
   const [openResults, setOpenResults] = useState(false);
+  const [resultsOrientationFlipped, setResultsOrientationFlipped] = useState(
+    false
+  );
   const ref = useRef();
 
   const handleInputChange = e => {
@@ -51,7 +54,6 @@ const FilterSelect = ({
       setOpenResults(true);
     } else {
       setOptionsToShow(options);
-      setOpenResults(false);
     }
   };
 
@@ -113,7 +115,10 @@ const FilterSelect = ({
     <div
       css={[
         styles.containerWrapper(theme).base,
-        shouldShowOptions && styles.containerWrapper(theme).openResultsBottom
+        shouldShowOptions && styles.containerWrapper(theme).openResults,
+        shouldShowOptions &&
+          resultsOrientationFlipped &&
+          styles.containerWrapper(theme).openResultsTop
       ]}
     >
       <div css={styles.container} ref={ref}>
@@ -129,7 +134,11 @@ const FilterSelect = ({
         />
         {getDropDownIcon()}
       </div>
-      <ResultContainer anchorEl={ref?.current} onClickAway={handleCloseResults}>
+      <ResultContainer
+        anchorEl={ref?.current}
+        onClickAway={handleCloseResults}
+        onCreate={flipped => setResultsOrientationFlipped(flipped)}
+      >
         {getOptions()}
       </ResultContainer>
     </div>

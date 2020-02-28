@@ -15,8 +15,12 @@ export const containerWrapper = theme => ({
       border-color: ${theme.palette.secondary.main};
     }
   `,
-  openResultsBottom: css`
+  openResults: css`
+    border-color: ${theme.palette.secondary.main};
     border-radius: ${commonBorderRadiusPx}px ${commonBorderRadiusPx}px 0 0;
+  `,
+  openResultsTop: css`
+    border-radius: 0 0 ${commonBorderRadiusPx}px ${commonBorderRadiusPx}px;
   `
 });
 
