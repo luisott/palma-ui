@@ -54,6 +54,7 @@ export const withOptionsRenderer = () => (
       label={"country picker"}
       showLabel={boolean("Show Label", false)}
       disabled={boolean("Disabled", false)}
+      dropDownIconLabel={"show options"}
       options={allCountries}
       placeholder={"Pick a country"}
       renderOption={countryOptionRender}
