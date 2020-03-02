@@ -29,7 +29,7 @@ const propTypes = {
       name: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired
     })
-  ).isRequired,
+  ),
   /**
    * Optional renderer for options
    * @param option
@@ -107,7 +107,7 @@ const FilterSelect = ({
   };
 
   const getDropDownIcon = () => {
-    if (options.length === 0) {
+    if (!options || options.length === 0) {
       return null;
     }
     return (

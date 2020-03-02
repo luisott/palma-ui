@@ -40,9 +40,15 @@ export const filterSelect = () => (
 
 const countryOptionRender = country => (
   <Typography variant="inherit" noWrap>
-    {countryToFlag(country.code)} {country.name} (+{country.phone})
+    {country.flagCode} {country.name} (+{country.phone})
   </Typography>
 );
+
+const countriesWithFlagsAndIds = allCountries.map(country => ({
+  ...country,
+  flagCode: countryToFlag(country.code),
+  id: country.code
+}));
 
 export const withOptionsRenderer = () => (
   <div
@@ -55,7 +61,7 @@ export const withOptionsRenderer = () => (
       showLabel={boolean("Show Label", false)}
       disabled={boolean("Disabled", false)}
       dropDownIconLabel={"show options"}
-      options={allCountries}
+      options={countriesWithFlagsAndIds}
       placeholder={"Pick a country"}
       renderOption={countryOptionRender}
     />
