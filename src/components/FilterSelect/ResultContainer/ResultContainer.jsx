@@ -5,9 +5,9 @@ import { useTheme } from "@material-ui/core/styles";
 import * as styles from "./ResultContainer.styles";
 
 const propTypes = {
-  onClickAway: PropTypes.func.isRequired,
+  onClickAway: PropTypes.func,
   children: PropTypes.node,
-  anchorEl: PropTypes.object,
+  anchorEl: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
   onCreate: PropTypes.func
 };
 
@@ -26,6 +26,16 @@ const ResultContainer = ({ onClickAway, anchorEl, children, onCreate }) => {
 
   if (!children) return null;
 
+  const renderChildren = () => {
+    if (onClickAway) {
+      return (
+        <ClickAwayListener onClickAway={onClickAway}>
+          {children}
+        </ClickAwayListener>
+      );
+    }
+    return children;
+  };
   return (
     <Popper
       role={undefined}
@@ -38,9 +48,7 @@ const ResultContainer = ({ onClickAway, anchorEl, children, onCreate }) => {
       }}
     >
       <Paper css={[styles.paper.base, flipped && styles.paper.openTop]}>
-        <ClickAwayListener onClickAway={onClickAway}>
-          {children}
-        </ClickAwayListener>
+        {renderChildren()}
       </Paper>
     </Popper>
   );

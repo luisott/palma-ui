@@ -139,7 +139,8 @@
       "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
       "@components": "<rootDir>/src/components",
       "@styles": "<rootDir>/src/styles",
-      "@types": "<rootDir>/src/types"
+      "@types": "<rootDir>/src/types",
+      "@data": "<rootDir>/src/data"
     },
     "moduleFileExtensions": [
       "web.js",

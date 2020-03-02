@@ -1,16 +1,15 @@
 import { css } from "@emotion/core";
+import { formInputLabel } from "@styles/commonStyles";
 
-export const textFieldStyles = {
-  base: css`
-    && label {
-      position: unset;
-      z-index: unset;
-      transform: unset;
-      margin-bottom: 8px;
-    }
+export const textFieldStyles = css`
+  && label {
+    position: unset;
+    z-index: unset;
+    transform: unset;
+    ${formInputLabel};
+  }
 
-    && legend {
-      width: 0 !important;
-    }
-  `
-};
+  && legend {
+    width: 0 !important;
+  }
+`;

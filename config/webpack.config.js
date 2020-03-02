@@ -298,6 +298,7 @@ module.exports = function(webpackEnv) {
         "@components": `${paths.appSrc}/components`,
         "@styles": `${paths.appSrc}/styles`,
         "@types": `${paths.appSrc}/types`,
+        "@data": `${paths.appSrc}/data`,
         // Allows for better profiling with ReactDevTools
         ...(isEnvProductionProfile && {
           "react-dom$": "react-dom/profiling",

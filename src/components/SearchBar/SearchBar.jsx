@@ -22,7 +22,7 @@ const propTypes = {
   withSurface: PropTypes.bool,
   children: PropTypes.node,
   disabled: PropTypes.bool,
-  onClickAway: PropTypes.func
+  onClickAway: PropTypes.func.isRequired
 };
 
 const defaultProps = {

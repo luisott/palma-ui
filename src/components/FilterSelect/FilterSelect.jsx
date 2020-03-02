@@ -2,20 +2,22 @@ import React, { useRef, useState } from "react";
 import PropTypes from "prop-types";
 
 import * as styles from "./FilterSelect.styles";
-import { useTheme } from "@material-ui/core/styles";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { MenuItem, MenuList, InputBase } from "@material-ui/core";
+import { MenuItem, MenuList, InputBase, InputLabel } from "@material-ui/core";
 import { IconButton } from "@components/IconButton/IconButton";
-import { ResultContainer } from "@components/FilterSelect/ResultContainer/ResultContainer";
+import { ResultContainer } from "./ResultContainer/ResultContainer";
+import { SelectContainer } from "./SelectContainer/SelectContainer";
+import { formInputLabel } from "@styles/commonStyles";
 
 const propTypes = {
   /**
    * Needed for accessibility
    */
   label: PropTypes.string.isRequired,
+  dropDownIconLabel: PropTypes.string.isRequired,
 
+  showLabel: PropTypes.bool,
   placeholder: PropTypes.string,
-  onChange: PropTypes.func,
   disabled: PropTypes.bool,
   onOptionSelected: PropTypes.func,
   options: PropTypes.arrayOf(
@@ -27,9 +29,9 @@ const propTypes = {
       name: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired
     })
-  ),
+  ).isRequired,
   /**
-   * Optional renderer for option
+   * Optional renderer for options
    * @param option
    * @returns a string or a component with the value to show
    */
@@ -40,13 +42,13 @@ const FilterSelect = ({
   label,
   placeholder,
   options,
-  onChange,
   disabled,
   onOptionSelected,
   renderOption,
+  showLabel,
+  dropDownIconLabel,
   ...props
 }) => {
-  const theme = useTheme();
   const [value, setValue] = useState("");
   const [optionsToShow, setOptionsToShow] = useState(options);
   const [openResults, setOpenResults] = useState(false);
@@ -95,6 +97,7 @@ const FilterSelect = ({
             key={option.id}
             onClick={() => pickOption(option)}
             selected={option.name === value}
+            autoFocus={option.name === value}
           >
             {renderOption ? renderOption(option) : option.name}
           </MenuItem>
@@ -104,14 +107,15 @@ const FilterSelect = ({
   };
 
   const getDropDownIcon = () => {
-    if (!options || options.length === 0) {
+    if (options.length === 0) {
       return null;
     }
     return (
       <IconButton
         size={"small"}
-        aria-label={"show options"}
+        aria-label={dropDownIconLabel}
         onClick={openAllResults}
+        disabled={disabled}
       >
         <ExpandMoreIcon />
       </IconButton>
@@ -119,40 +123,45 @@ const FilterSelect = ({
   };
 
   const openAllResults = () => {
-    setOptionsToShow(options);
-    setOpenResults(true);
+    if (!disabled) {
+      setOptionsToShow(options);
+      setOpenResults(true);
+    }
   };
 
   return (
-    <div
-      css={[
-        styles.containerWrapper(theme).base,
-        shouldShowOptions && styles.containerWrapper(theme).openResults,
-        shouldShowOptions &&
-          resultsOrientationFlipped &&
-          styles.containerWrapper(theme).openResultsTop
-      ]}
-    >
-      <div css={styles.container} ref={ref}>
-        <InputBase
-          placeholder={placeholder}
-          inputProps={{ "aria-label": label }}
-          onChange={handleInputChange}
-          value={value}
-          disabled={disabled}
-          css={styles.inputBase}
-          onClick={openAllResults}
-          {...props}
-        />
-        {getDropDownIcon()}
-      </div>
-      <ResultContainer
-        anchorEl={ref?.current}
-        onClickAway={handleCloseResults}
-        onCreate={flipped => setResultsOrientationFlipped(flipped)}
+    <div>
+      {showLabel && (
+        <InputLabel disabled={disabled} css={formInputLabel}>
+          {label}
+        </InputLabel>
+      )}
+      <SelectContainer
+        openResultsTop={resultsOrientationFlipped}
+        openResults={openResults}
+        disabled={disabled}
       >
-        {getOptions()}
-      </ResultContainer>
+        <div css={styles.container} ref={ref}>
+          <InputBase
+            placeholder={placeholder}
+            inputProps={{ "aria-label": label }}
+            onChange={handleInputChange}
+            value={value}
+            disabled={disabled}
+            css={styles.inputBase}
+            onClick={openAllResults}
+            {...props}
+          />
+          {getDropDownIcon()}
+        </div>
+        <ResultContainer
+          anchorEl={ref?.current}
+          onClickAway={handleCloseResults}
+          onCreate={flipped => setResultsOrientationFlipped(flipped)}
+        >
+          {getOptions()}
+        </ResultContainer>
+      </SelectContainer>
     </div>
   );
 };

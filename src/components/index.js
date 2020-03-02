@@ -15,3 +15,4 @@ export { TextField } from "./TextField/TextField";
 export { Toggle } from "./Toggle/Toggle";
 export { SearchBar } from "./SearchBar/SearchBar";
 export { RichTextEditor } from "./RichTextEditor/RichTextEditor";
+export { FilterSelect } from "./FilterSelect/FilterSelect";

@@ -1,8 +1,9 @@
 import React from "react";
-import { text } from "@storybook/addon-knobs";
+import { boolean, text } from "@storybook/addon-knobs";
 import { FilterSelect } from "./FilterSelect";
 import { css } from "@emotion/core";
-import { allCountries, countryToFlag } from "../../data/countries";
+import { allCountries, countryToFlag } from "@data/countries";
+import Typography from "@material-ui/core/Typography";
 
 export default {
   title: "Components/FilterSelect"
@@ -28,14 +29,20 @@ export const filterSelect = () => (
   >
     <FilterSelect
       label={"some label"}
+      dropDownIconLabel={"show options"}
       options={movies}
       placeholder={text("Placeholder", "Pick a value or search...")}
+      disabled={boolean("Disabled", false)}
+      showLabel={boolean("Show Label", false)}
     />
   </div>
 );
 
-const countryOptionRender = ({ name, code, phone }) =>
-  `${countryToFlag(code)} ${name} (+${phone})`;
+const countryOptionRender = country => (
+  <Typography variant="inherit" noWrap>
+    {countryToFlag(country.code)} {country.name} (+{country.phone})
+  </Typography>
+);
 
 export const withOptionsRenderer = () => (
   <div
@@ -45,6 +52,8 @@ export const withOptionsRenderer = () => (
   >
     <FilterSelect
       label={"country picker"}
+      showLabel={boolean("Show Label", false)}
+      disabled={boolean("Disabled", false)}
       options={allCountries}
       placeholder={"Pick a country"}
       renderOption={countryOptionRender}

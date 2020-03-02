@@ -8,7 +8,8 @@ module.exports = {
     config.resolve.alias = {
       "@components": `${paths.appSrc}/components`,
       "@styles": `${paths.appSrc}/styles`,
-      "@types": `${paths.appSrc}/types`
+      "@types": `${paths.appSrc}/types`,
+      "@data": `${paths.appSrc}/data`
     };
     config.module.rules.push(
       // First, run the linter.
