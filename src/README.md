@@ -40,7 +40,7 @@ You can import only the components you need to minimize bundle size. More inform
 
 
 ### Add your own material theme (optional)
-This library can be themed using material ui themes. At the root component of your application (e.g. `App.js`) do:
+This library can be themed using material ui themes. At the root component of your application do:
 ~~~js
 import React from "react";
 
