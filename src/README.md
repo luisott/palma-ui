@@ -1,5 +1,11 @@
-# Palma UI
+<h1 align="center">Palma UI</h1>
+
+<div align="center">
 Component library built in React and using [Material UI](https://material-ui.com) components.
+
+[![GitHub license](https://img.shields.io/github/license/luisott/palma-ui)](LICENSE) [![npm version](https://badgen.net/npm/v/express)](https://www.npmjs.com/package/palma-ui)  [![issues](https://img.shields.io/github/issues/luisott/palma-ui)](https://github.com/luisott/palma-ui/issues) [![version](https://img.shields.io/npm/v/palma-ui)](https://www.npmjs.com/package/palma-ui) ![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
+
+</div>
 
 This library offers new components not present in Material like `RichTextEditor`, `FilterSelect` and `SearchBar`. 
 It also redefines some of the default styles to offer a more modern and minimal design (e.g. less/simpler shadows, 
@@ -59,7 +65,7 @@ export default App;
 
 More information on Material UI themes and how to define them [here](https://material-ui.com/customization/theming/). 
 
-# Developing
+## Developing
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -102,3 +108,6 @@ Runs storybook on `http://localhost:9009`
 
 Builds a static page for storybook with index in `palma-ui/.out/index.html`      
       
+## License
+
+Palma UI is [MIT licensed](LICENSE).
