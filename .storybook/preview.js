@@ -9,6 +9,7 @@ import { addParameters } from "@storybook/react";
 import { addReadme, configureReadme } from "storybook-readme";
 import themeDecorator from "./themeDecorator";
 import { Card, Container, CardContent } from "@components";
+import { StylesProvider } from "@material-ui/core/styles";
 
 addParameters({
   options: {
@@ -74,6 +75,13 @@ configureReadme({
   )
 });
 
+const InjectEmotionStylesFirst = ({ children }) => (
+  <StylesProvider injectFirst>{children}</StylesProvider>
+);
+
+addDecorator(storyFn => (
+  <InjectEmotionStylesFirst>{storyFn()}</InjectEmotionStylesFirst>
+));
 addDecorator(withInfo);
 addDecorator(themeDecorator);
 addDecorator(addReadme);

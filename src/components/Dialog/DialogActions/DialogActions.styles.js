@@ -2,21 +2,17 @@ import { css } from "@emotion/core";
 
 export const dialogActionsStyles = {
   base: css`
-    && {
-      padding: 16px 24px;
-    }
+    padding: 16px 24px;
   `,
   mobile: css`
-    && {
-      flex-direction: column;
+    flex-direction: column;
 
-      button {
-        width: 100%;
-        margin-left: 0;
+    button {
+      width: 100%;
+      margin-left: 0;
 
-        & :not(:first-child) {
-          margin-top: 10px;
-        }
+      & :not(:first-child) {
+        margin-top: 10px;
       }
     }
   `

@@ -17,16 +17,12 @@ export const popper = theme => ({
 
 export const paper = {
   base: css`
-    && {
-      max-height: 200px;
-      overflow: scroll;
-      box-shadow: none;
-      border-radius: 0 0 ${commonBorderRadiusPx}px ${commonBorderRadiusPx}px;
-    }
+    max-height: 200px;
+    overflow: scroll;
+    box-shadow: none;
+    border-radius: 0 0 ${commonBorderRadiusPx}px ${commonBorderRadiusPx}px;
   `,
   openTop: css`
-    && {
-      border-radius: ${commonBorderRadiusPx}px ${commonBorderRadiusPx}px 0 0;
-    }
+    border-radius: ${commonBorderRadiusPx}px ${commonBorderRadiusPx}px 0 0;
   `
 };
