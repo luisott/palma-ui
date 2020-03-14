@@ -1,4 +1,4 @@
-# Maple UI
+# Palma UI
 Component library built in React and using [Material UI](https://material-ui.com) components.
 
 This library offers new components not present in Material like `RichTextEditor`, `FilterSelect` and `SearchBar`. 
