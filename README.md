@@ -18,14 +18,14 @@ It also allows you to pull only components that you are using, read more about i
 which helps keep the size of this library small.
 
 
-## Installation [WIP]
-`npm install ui-components --save`  
+## Installation
+`npm install palma-ui --save`  
 
-`yarn add ui-components --save`
+`yarn add palma-ui --save`
 
-## Usage [WIP]
+## Usage
 
-`import {Button} from "ui-components"`
+`import {Button} from "palma-ui"`
 
 You can import only the components you need to minimize bundle size. More information [here](https://material-ui.com/guides/minimizing-bundle-size)
 
@@ -100,5 +100,5 @@ Runs storybook on `http://localhost:9009`
 
 `npm run build-storybook`
 
-Builds a static page for storybook with index in `ui-components/.out/index.html`      
+Builds a static page for storybook with index in `palma-ui/.out/index.html`      
       
