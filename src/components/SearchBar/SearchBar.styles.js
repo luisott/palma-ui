@@ -90,6 +90,8 @@ export const inputBase = {
     width: 100%;
   `,
   [sizes.LARGE]: css`
-    font-size: 1.1rem;
+    && {
+      font-size: 1.1rem;
+    }
   `
 };

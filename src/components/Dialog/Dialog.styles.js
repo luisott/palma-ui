@@ -1,6 +1,8 @@
 import { css } from "@emotion/core";
 
 export const closeButtonStyle = css`
-  position: absolute;
-  right: 0;
+  && {
+    position: absolute;
+    right: 0;
+  }
 `;

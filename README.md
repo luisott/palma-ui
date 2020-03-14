@@ -1,22 +1,31 @@
 # UI Components
 Component library built in React and using [Material UI](https://material-ui.com) components.
 
-This library offers new components not present in Material like `RichTextEditor`, `FilterSelect` and `SearchBar`. 
-It also redefines some of the default styles to offer a more modern and minimal design (e.g. less/simpler shadows, 
-smoother transitions and less color changes in interactions). 
+This library attempts to provide a more modern, minimalistic and out-of-the-box functionality that when using only 
+Material UI. 
 
-This library should be used in addition to Material UI in your project as it's not meant to replace it, just compliment it with
-new components and styles.
+This is done by wrapping some of the already provided components in Material with predefined configurations and styles to result in 
+less/simpler shadows, smoother transitions and better looking components. 
 
-Inspiration for this library came from [Semantic UI](https://react.semantic-ui.com/), 
+It includes new components and pre-built layouts that are common to most applications. New components like a 
+`RichTextEditor`, `PhoneInput`, `CreditCardInput` and new layouts like login/signup and account settings.
+
+UI Components is a complementary UI library and should be used together with Material UI in your project 
+(since it doesn't wrap every single component that Material provides, just those that I felt needed a better look, 
+functionality and developer experience).
+
+Inspiration implementing this library come from [Semantic UI](https://react.semantic-ui.com/), 
 [Ant](https://ant.design/), [Atlassian](https://atlassian.design) and others.
 
 
 ## Why based on Material UI?
-Material UI is one of the the most mature, popular, extensive, polished, accessible, and documented UI libraries out there. 
-It also allows you to pull only components that you are using, read more about it [here](https://material-ui.com/guides/minimizing-bundle-size/), 
-which helps keep the size of this library small.
+Material UI is one of the the most mature, popular, extensive, polished, and documented UI libraries out there, and it has been for a 
+long time. It provides components with functionality that require lots of time to implement from scratch (e.g. dropdown
+ menus that will open up when there is no room on the bottom of the screen, accessibility features, etc).
 
+
+And why build something that has been done and tested already? Better spend the time building new/innovative features 
+that add value to your users.
 
 ## Installation [WIP]
 `npm install ui-components --save`  
