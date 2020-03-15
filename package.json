@@ -3,16 +3,23 @@
   "version": "1.0.0",
   "private": false,
   "description": "Component library built in React and using Material UI",
-  "keywords": ["ui", "components", "material", "react"],
+  "keywords": [
+    "ui",
+    "components",
+    "material",
+    "react"
+  ],
   "bugs": {
     "url": "https://github.com/luisott/palma-ui/issues"
   },
   "homepage": "https://github.com/luisott/palma-ui.git",
   "license": "MIT",
-  "author": {"name" : "Luis Silva"},
+  "author": {
+    "name": "Luis Silva"
+  },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/luisott/palma-ui.git"
+    "type": "git",
+    "url": "https://github.com/luisott/palma-ui.git"
   },
   "sideEffects": false,
   "module": "./src/components/index.js",
@@ -56,6 +63,7 @@
     "jest-resolve": "24.9.0",
     "jest-watch-typeahead": "0.4.2",
     "mini-css-extract-plugin": "0.8.0",
+    "np": "^6.2.0",
     "optimize-css-assets-webpack-plugin": "5.0.3",
     "pnp-webpack-plugin": "1.5.0",
     "postcss-flexbugs-fixes": "4.1.0",
