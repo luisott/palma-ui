@@ -1,7 +1,7 @@
 import React from "react";
 import DeleteIcon from "@material-ui/icons/Delete";
 import KeyboardArrowDown from "@material-ui/icons/KeyboardArrowDown";
-import ButtonGroup from "./ButtonGroup/ButtonGroup";
+import { ButtonGroup } from "./ButtonGroup";
 
 import { text, boolean, select } from "@storybook/addon-knobs";
 import { Button } from "./Button";
