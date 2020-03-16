@@ -22,7 +22,8 @@
     "url": "https://github.com/luisott/palma-ui.git"
   },
   "sideEffects": false,
-  "module": "./src/components/index.js",
+  "main": "build/index.js",
+  "module": "build/index.js",
   "dependencies": {
     "@babel/core": "7.7.4",
     "@emotion/babel-preset-css-prop": "^10.0.27",
@@ -63,7 +64,6 @@
     "jest-resolve": "24.9.0",
     "jest-watch-typeahead": "0.4.2",
     "mini-css-extract-plugin": "0.8.0",
-    "np": "^6.2.0",
     "optimize-css-assets-webpack-plugin": "5.0.3",
     "pnp-webpack-plugin": "1.5.0",
     "postcss-flexbugs-fixes": "4.1.0",
@@ -92,8 +92,11 @@
     "workbox-webpack-plugin": "4.3.1"
   },
   "scripts": {
+    "build": "npm run build:esm",
+    "build:esm": "cross-env NODE_ENV=production babel ./src/components --out-dir ./build --ignore \"**/*.test.js\",\"**/*.stories.jsx\",\"**/README.md\" --copy-files --no-copy-ignored",
+    "release": "npm build && npm publish build --tag latest",
     "test": "node scripts/test.js --watchAll=false",
-    "test-watch": "node scripts/test.js",
+    "test:watch": "node scripts/test.js",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook-github-pages": "build-storybook -s public",
     "build-storybook": "build-storybook -s public",
@@ -112,6 +115,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
     "@storybook/addon-actions": "^5.3.9",
     "@storybook/addon-centered": "^5.3.1",
     "@storybook/addon-console": "^1.2.1",
@@ -122,6 +126,7 @@
     "@storybook/preset-create-react-app": "^1.5.2",
     "@storybook/react": "^5.3.6",
     "babel-plugin-import": "^1.13.0",
+    "cross-env": "^7.0.2",
     "eslint-plugin-react": "^7.16.0",
     "prettier": "1.19.1",
     "storybook-readme": "^5.0.8"
@@ -182,7 +187,8 @@
   },
   "babel": {
     "presets": [
-      "react-app"
+      "react-app",
+      "@babel/react"
     ]
   }
 }
