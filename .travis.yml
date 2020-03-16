@@ -4,7 +4,7 @@ node_js: '12'
 
 # Script that is run before the script phase
 before_script:
-  - yarn build-storybook-github-pages
+  - yarn build-storybook
 
 # Deployment information
 deploy:
