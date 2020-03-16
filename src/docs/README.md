@@ -3,7 +3,7 @@
 <div align="center">
 Component library built in React and using [Material UI](https://material-ui.com) components.
 
-[![GitHub license](https://img.shields.io/github/license/luisott/palma-ui)](../../LICENSE)
+[![GitHub license](https://img.shields.io/github/license/luisott/palma-ui)](LICENSE)
 [![issues](https://img.shields.io/github/issues/luisott/palma-ui)](https://github.com/luisott/palma-ui/issues)
 [![version](https://img.shields.io/npm/v/palma-ui)](https://www.npmjs.com/package/palma-ui)
 ![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
@@ -20,6 +20,8 @@ new components and styles.
 Inspiration for this library came from [Semantic UI](https://react.semantic-ui.com/), 
 [Ant](https://ant.design/), [Atlassian](https://atlassian.design) and others.
 
+## Live storybook
+View a live version of the storybook [here](https://luisott.github.io/palma-ui)
 
 ## Why based on Material UI?
 Material UI is one of the the most mature, popular, extensive, polished, accessible, and documented UI libraries out there. 
@@ -82,18 +84,14 @@ Runs tests
 
 Launches the test runner in the interactive watch mode.<br />
 
-`npm run analyze`
-
-Analyze bundle size
-
 `npm run storybook`
 
 Runs storybook on `http://localhost:9009`
 
 `npm run build-storybook`
 
-Builds a static page for storybook with index in `palma-ui/.out/index.html`      
-      
+Builds a static page for storybook with index in `storybook-static/index.html`      
+
 ## License
 
-Palma UI is [MIT licensed](../../LICENSE).
+Palma UI is [MIT licensed](LICENSE).

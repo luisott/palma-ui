@@ -99,8 +99,7 @@
     "test:watch": "node scripts/test.js",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook-github-pages": "build-storybook -s public",
-    "build-storybook": "build-storybook -s public",
-    "analyze": "source-map-explorer 'build/static/js/*.js'"
+    "build-storybook": "build-storybook -s public"
   },
   "browserslist": {
     "production": [
