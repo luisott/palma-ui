@@ -23,7 +23,7 @@
   },
   "sideEffects": false,
   "main": "build/index.js",
-  "module": "build/index.js",
+  "module": "build/esm/index.js",
   "dependencies": {
     "@babel/core": "7.7.4",
     "@emotion/babel-preset-css-prop": "^10.0.27",
@@ -92,14 +92,16 @@
     "workbox-webpack-plugin": "4.3.1"
   },
   "scripts": {
-    "build": "npm run build:esm",
-    "build:esm": "cross-env NODE_ENV=production babel ./src/components --out-dir ./build --ignore \"**/*.test.js\",\"**/*.stories.jsx\",\"**/README.md\" --copy-files --no-copy-ignored",
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "BABEL_ENV=esm babel ./src/components --source-maps --extensions \".js,.jsx\" --out-dir ./build/esm --ignore \"**/*.test.js\",\"**/*.stories.jsx\" --copy-files --no-copy-ignored",
+    "build:cjs": "BABEL_ENV=cjs babel ./src/components --source-maps --extensions \".js,.jsx\" --out-dir ./build --ignore \"**/*.test.js\",\"**/*.stories.jsx\" --copy-files --no-copy-ignored --presets=@babel/env",
     "release": "npm build && npm publish build --tag latest",
     "test": "node scripts/test.js --watchAll=false",
     "test:watch": "node scripts/test.js",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook-github-pages": "build-storybook -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "clean": "rimraf build"
   },
   "browserslist": {
     "production": [
@@ -184,9 +186,11 @@
       "jest-watch-typeahead/testname"
     ]
   },
+  "files": [
+    "build"
+  ],
   "babel": {
     "presets": [
-      "react-app",
       "@babel/react"
     ]
   }
