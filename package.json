@@ -1,6 +1,6 @@
 {
   "name": "palma-ui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": false,
   "description": "Component library built in React and using Material UI",
   "keywords": [
