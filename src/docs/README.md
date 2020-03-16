@@ -3,7 +3,7 @@
 <div align="center">
 Component library built in React and using [Material UI](https://material-ui.com) components.
 
-[![GitHub license](https://img.shields.io/github/license/luisott/palma-ui)](LICENSE)
+[![GitHub license](https://img.shields.io/github/license/luisott/palma-ui)](../../LICENSE)
 [![issues](https://img.shields.io/github/issues/luisott/palma-ui)](https://github.com/luisott/palma-ui/issues)
 [![version](https://img.shields.io/npm/v/palma-ui)](https://www.npmjs.com/package/palma-ui)
 ![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
@@ -96,4 +96,4 @@ Builds a static page for storybook with index in `palma-ui/.out/index.html`
       
 ## License
 
-Palma UI is [MIT licensed](LICENSE).
+Palma UI is [MIT licensed](../../LICENSE).
