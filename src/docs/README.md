@@ -14,8 +14,11 @@ This library offers new components not present in Material like `RichTextEditor`
 It also redefines some of the default styles to offer a more modern and minimal design (e.g. less/simpler shadows, 
 smoother transitions and less color changes in interactions). 
 
-This library should be used in addition to Material UI in your project as it's not meant to replace it, just compliment it with
-new components and styles.
+Palma UI should be used in addition to Material UI in your project as it's not meant to replace it, just compliment it with
+new components and styles.  
+
+This library allows for tree shaking so that only the components you use end up in your bundle, read more 
+[here](https://material-ui.com/guides/minimizing-bundle-size)
 
 Inspiration for this library came from [Semantic UI](https://react.semantic-ui.com/), 
 [Ant](https://ant.design/), [Atlassian](https://atlassian.design) and others.
@@ -37,9 +40,6 @@ which helps keep the size of this library small.
 ## Usage
 
 `import {Button} from "palma-ui"`
-
-You can import only the components you need to minimize bundle size. More information [here](https://material-ui.com/guides/minimizing-bundle-size)
-
 
 ### Add your own material theme (optional)
 This library can be themed using material ui themes. At the root component of your application do:
