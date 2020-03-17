@@ -27,7 +27,9 @@
   "sideEffects": false,
   "main": "build/index.js",
   "module": "build/esm/index.js",
-  "files": ["build"],
+  "files": [
+    "build"
+  ],
   "dependencies": {
     "@babel/core": "7.7.4",
     "@emotion/babel-preset-css-prop": "^10.0.27",
@@ -133,6 +135,7 @@
     "@storybook/preset-create-react-app": "^1.5.2",
     "@storybook/react": "^5.3.6",
     "babel-plugin-import": "^1.13.0",
+    "babel-plugin-module-resolver": "^4.0.0",
     "cross-env": "^7.0.2",
     "eslint-plugin-react": "^7.16.0",
     "prettier": "1.19.1",
@@ -194,6 +197,16 @@
   "babel": {
     "presets": [
       "@babel/react"
+    ],
+    "plugins": [
+      ["module-resolver", {
+        "root": ["./src"],
+        "alias": {
+          "@styles": "./src/styles",
+          "@types": "./src/types",
+          "@data": "./src/data"
+        }
+      }]
     ]
   }
 }
