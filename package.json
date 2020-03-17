@@ -21,9 +21,7 @@
     "type": "git",
     "url": "https://github.com/luisott/palma-ui.git"
   },
-  "sideEffects": false,
   "main": "build/index.js",
-  "module": "build/esm/index.js",
   "dependencies": {
     "@babel/core": "7.7.4",
     "@emotion/babel-preset-css-prop": "^10.0.27",
@@ -72,10 +70,8 @@
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "4.0.1",
     "prop-types": "^15.7.2",
-    "react": "^16.12.0",
     "react-app-polyfill": "^1.0.5",
     "react-dev-utils": "^10.0.0",
-    "react-dom": "^16.12.0",
     "react-scripts": "3.3.0",
     "resolve": "1.12.2",
     "resolve-url-loader": "3.1.1",
@@ -92,16 +88,21 @@
     "workbox-webpack-plugin": "4.3.1"
   },
   "scripts": {
-    "build": "npm run build:esm && npm run build:cjs",
-    "build:esm": "BABEL_ENV=esm babel ./src/components --source-maps --extensions \".js,.jsx\" --out-dir ./build/esm --ignore \"**/*.test.js\",\"**/*.stories.jsx\" --copy-files --no-copy-ignored",
-    "build:cjs": "BABEL_ENV=cjs babel ./src/components --source-maps --extensions \".js,.jsx\" --out-dir ./build --ignore \"**/*.test.js\",\"**/*.stories.jsx\" --copy-files --no-copy-ignored --presets=@babel/env",
+    "build": "npm run build:esm && npm run build:cjs && npm run build:copy-files",
+    "build:esm": "BABEL_ENV=esm babel ./src/components --extensions \".js,.jsx\" --out-dir ./build/esm --ignore \"**/*.test.js\",\"**/*.stories.jsx\" --copy-files --no-copy-ignored",
+    "build:cjs": "BABEL_ENV=cjs babel ./src/components --extensions \".js,.jsx\" --out-dir ./build --ignore \"**/*.test.js\",\"**/*.stories.jsx\" --copy-files --no-copy-ignored --presets=@babel/env",
     "release": "npm build && npm publish build --tag latest",
     "test": "node scripts/test.js --watchAll=false",
     "test:watch": "node scripts/test.js",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook-github-pages": "build-storybook -s public",
     "build-storybook": "build-storybook -s public",
-    "clean": "rimraf build"
+    "prebuild": "rimraf build",
+    "build:copy-files": "node scripts/copy-files.js"
+  },
+  "peerDependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   },
   "browserslist": {
     "production": [
