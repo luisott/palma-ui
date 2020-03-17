@@ -1,7 +1,7 @@
 <h1 align="center">Palma UI</h1>
 
 <div align="center">
-Component library built in React and using [Material UI](https://material-ui.com) components.
+Component library built in React and using <a href="https://material-ui.com">Material UI</a> components.
 
 [![GitHub license](https://img.shields.io/github/license/luisott/palma-ui)](LICENSE)
 [![issues](https://img.shields.io/github/issues/luisott/palma-ui)](https://github.com/luisott/palma-ui/issues)
