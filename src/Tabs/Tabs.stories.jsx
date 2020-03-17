@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Typography } from "@material-ui/core";
 import { Tabs as TabsComponent } from "./Tabs";
-import { Tab } from "./Tab/Tab";
-import { TabPanel } from "@components/Tabs/TabPanel/TabPanel";
+import { Tab } from "./Tab";
+import { TabPanel } from "./TabPanel";
 import { boolean } from "@storybook/addon-knobs";
 import { css } from "@emotion/core";
 

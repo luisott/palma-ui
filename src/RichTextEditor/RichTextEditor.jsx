@@ -10,7 +10,7 @@ import {
   CompositeDecorator
 } from "draft-js";
 import { convertToHTML } from "draft-convert";
-import { HoverToolbar } from "./HoverToolbar/HoverToolbar";
+import { HoverToolbar } from "./HoverToolbar";
 
 import * as styles from "./RichTextEditor.styles";
 import { useTheme } from "@material-ui/core/styles";

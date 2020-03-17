@@ -4,7 +4,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 import PropTypes from "prop-types";
 import * as styles from "./TextField.styles";
-import { inputFieldColor, inputFieldVariant } from "../../styles/commonStyles";
+import { inputFieldColor, inputFieldVariant } from "@styles/commonStyles";
 
 const propTypes = {
   /**

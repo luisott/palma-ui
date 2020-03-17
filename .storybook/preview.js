@@ -8,7 +8,7 @@ import { withInfo } from "@storybook/addon-info";
 import { addParameters } from "@storybook/react";
 import { addReadme, configureReadme } from "storybook-readme";
 import themeDecorator from "./themeDecorator";
-import { Card, Container, CardContent } from "@components";
+import { Card, Container, CardContent } from "../src";
 
 addParameters({
   options: {

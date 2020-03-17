@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 import * as styles from "./FilterSelect.styles";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { MenuItem, MenuList, InputBase, InputLabel } from "@material-ui/core";
-import { IconButton } from "@components/IconButton/IconButton";
-import { ResultContainer } from "./ResultContainer/ResultContainer";
-import { SelectContainer } from "./SelectContainer/SelectContainer";
+import { IconButton } from "../IconButton";
+import { ResultContainer } from "./ResultContainer";
+import { SelectContainer } from "./SelectContainer";
 import { formInputLabel } from "@styles/commonStyles";
 
 const propTypes = {

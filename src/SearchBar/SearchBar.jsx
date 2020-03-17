@@ -7,7 +7,7 @@ import Close from "@material-ui/icons/Close";
 import * as styles from "./SearchBar.styles";
 import { useTheme } from "@material-ui/core/styles";
 import { sizes, colorVariations } from "@types";
-import { IconButton } from "@components/IconButton/IconButton";
+import { IconButton } from "../IconButton";
 
 const propTypes = {
   size: PropTypes.oneOf(Object.values(sizes)),
