@@ -1,7 +1,6 @@
 {
   "name": "palma-ui",
-  "version": "1.0.3",
-  "private": false,
+  "version": "1.0.4",
   "description": "Component library built in React and using Material UI",
   "keywords": [
     "ui",
@@ -24,6 +23,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "private": false,
+  "sideEffects": false,
+  "main": "build/index.js",
+  "module": "build/esm/index.js",
+  "files": ["build"],
   "dependencies": {
     "@babel/core": "7.7.4",
     "@emotion/babel-preset-css-prop": "^10.0.27",
@@ -90,7 +94,7 @@
     "workbox-webpack-plugin": "4.3.1"
   },
   "scripts": {
-    "build": "npm run build:esm && npm run build:cjs && npm run build:copy-files",
+    "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "cross-env NODE_ENV=production BABEL_ENV=esm babel ./src --extensions \".js,.jsx\" --out-dir ./build/esm --ignore \"**/*.test.js\",\"**/*.stories.jsx\"  --copy-files --no-copy-ignored",
     "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel ./src --extensions \".js,.jsx\" --out-dir ./build --ignore \"**/*.test.js\",\"**/*.stories.jsx\"  --copy-files --no-copy-ignored --presets=@babel/env",
     "release": "npm build && npm publish build --tag latest",
@@ -99,8 +103,7 @@
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook-github-pages": "build-storybook -s public",
     "build-storybook": "build-storybook -s public",
-    "prebuild": "rimraf build",
-    "build:copy-files": "node scripts/copy-files.js"
+    "prebuild": "rimraf build"
   },
   "peerDependencies": {
     "react": "^16.12.0",
