@@ -21,6 +21,9 @@
     "type": "git",
     "url": "https://github.com/luisott/palma-ui.git"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {
     "@babel/core": "7.7.4",
     "@emotion/babel-preset-css-prop": "^10.0.27",
@@ -88,8 +91,8 @@
   },
   "scripts": {
     "build": "npm run build:esm && npm run build:cjs && npm run build:copy-files",
-    "build:esm": "cross-env NODE_ENV=production BABEL_ENV=esm babel ./src --extensions \".js,.jsx\" --out-dir ./build/esm --ignore \"**/*.test.js\",\"**/*.stories.jsx\"",
-    "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel ./src --extensions \".js,.jsx\" --out-dir ./build --ignore \"**/*.test.js\",\"**/*.stories.jsx\" --presets=@babel/env",
+    "build:esm": "cross-env NODE_ENV=production BABEL_ENV=esm babel ./src --extensions \".js,.jsx\" --out-dir ./build/esm --ignore \"**/*.test.js\",\"**/*.stories.jsx\"  --copy-files --no-copy-ignored",
+    "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel ./src --extensions \".js,.jsx\" --out-dir ./build --ignore \"**/*.test.js\",\"**/*.stories.jsx\"  --copy-files --no-copy-ignored --presets=@babel/env",
     "release": "npm build && npm publish build --tag latest",
     "test": "node scripts/test.js --watchAll=false",
     "test:watch": "node scripts/test.js",
@@ -164,7 +167,6 @@
     "moduleNameMapper": {
       "^react-native$": "react-native-web",
       "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
-      "@components": "<rootDir>/src/components",
       "@styles": "<rootDir>/src/styles",
       "@types": "<rootDir>/src/types",
       "@data": "<rootDir>/src/data"
