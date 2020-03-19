@@ -7,6 +7,7 @@ Component library built in React and using <a href="https://material-ui.com">Mat
 [![issues](https://img.shields.io/github/issues/luisott/palma-ui)](https://github.com/luisott/palma-ui/issues)
 [![version](https://img.shields.io/npm/v/palma-ui)](https://www.npmjs.com/package/palma-ui)
 ![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
+![Size](https://badgen.net/bundlephobia/minzip/palma-ui)
 
 </div>
 

@@ -1,6 +1,6 @@
 {
   "name": "palma-ui",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Component library built in React and using Material UI",
   "keywords": [
     "ui",
@@ -40,6 +40,9 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
+    "@babel/core": "7.7.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.8.3",
+    "@emotion/babel-preset-css-prop": "^10.0.27",
     "@storybook/addon-actions": "^5.3.9",
     "@storybook/addon-centered": "^5.3.1",
     "@storybook/addon-console": "^1.2.1",
@@ -49,14 +52,6 @@
     "@storybook/addons": "^5.3.6",
     "@storybook/preset-create-react-app": "^1.5.2",
     "@storybook/react": "^5.3.6",
-    "babel-plugin-import": "^1.13.0",
-    "babel-plugin-module-resolver": "^4.0.0",
-    "cross-env": "^7.0.2",
-    "eslint-plugin-react": "^7.16.0",
-    "prettier": "1.19.1",
-    "storybook-readme": "^5.0.8",
-    "@babel/core": "7.7.4",
-    "@emotion/babel-preset-css-prop": "^10.0.27",
     "@svgr/webpack": "4.3.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.0",
@@ -64,10 +59,13 @@
     "babel-eslint": "10.0.3",
     "babel-jest": "^24.9.0",
     "babel-loader": "8.0.6",
+    "babel-plugin-import": "^1.13.0",
+    "babel-plugin-module-resolver": "^4.0.0",
     "babel-plugin-named-asset-import": "^0.3.5",
     "babel-preset-react-app": "^9.1.0",
     "camelcase": "^5.3.1",
     "case-sensitive-paths-webpack-plugin": "2.2.0",
+    "cross-env": "^7.0.2",
     "css-loader": "3.2.0",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
@@ -77,6 +75,7 @@
     "eslint-plugin-flowtype": "3.13.0",
     "eslint-plugin-import": "2.18.2",
     "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^1.6.1",
     "file-loader": "4.3.0",
     "fs-extra": "^8.1.0",
@@ -94,6 +93,7 @@
     "postcss-normalize": "8.0.1",
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "4.0.1",
+    "prettier": "1.19.1",
     "react-app-polyfill": "^1.0.5",
     "react-dev-utils": "^10.0.0",
     "react-scripts": "3.3.0",
@@ -102,6 +102,7 @@
     "sass-loader": "8.0.0",
     "semver": "6.3.0",
     "source-map-explorer": "^2.2.2",
+    "storybook-readme": "^5.0.8",
     "style-loader": "1.0.0",
     "terser-webpack-plugin": "2.2.1",
     "ts-pnp": "1.1.5",
@@ -197,6 +198,7 @@
       "@babel/react"
     ],
     "plugins": [
+      ["@babel/plugin-proposal-optional-chaining"],
       [
         "module-resolver",
         {
