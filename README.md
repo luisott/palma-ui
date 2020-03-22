@@ -45,8 +45,9 @@ which helps keep the size of this library small.
 
 `import {Button} from "palma-ui"`
 
-and use it as:  
-```<Button>Some label</Button>```
+### Styling components
+Components can be styled just like in material-ui (using JSS, CSS or your preferred styled-components library). 
+Read more about [here](https://material-ui.com/guides/interoperability/)
 
 ### Add your own material theme (optional)
 This library can be themed using material ui themes. At the root component of your application do:
