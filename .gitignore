@@ -24,3 +24,10 @@ yarn-error.log*
 
 # storybook static page
 /storybook-static
+
+# IDE
+/.idea
+
+# Mac stuff
+.DS_Store
+
