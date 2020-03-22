@@ -8,6 +8,9 @@ Component library built in React and using <a href="https://material-ui.com">Mat
 [![version](https://img.shields.io/npm/v/palma-ui)](https://www.npmjs.com/package/palma-ui)
 ![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
 ![Size](https://badgen.net/bundlephobia/minzip/palma-ui)
+![Node.js CI](https://github.com/luisott/palma-ui/workflows/Node.js%20CI/badge.svg)
+![Storybook](https://github.com/luisott/palma-ui/workflows/Storybook/badge.svg)
+
 
 </div>
 
@@ -42,6 +45,9 @@ which helps keep the size of this library small.
 
 `import {Button} from "palma-ui"`
 
+and use it as:  
+```<Button>Some label</Button>```
+
 ### Add your own material theme (optional)
 This library can be themed using material ui themes. At the root component of your application do:
 ~~~js
@@ -52,6 +58,7 @@ import {
   responsiveFontSizes,
   ThemeProvider
 } from "@material-ui/core/styles";
+import {Button} from "palma-ui";
 
 import { yourTheme } from "<location for your theme>";
 
@@ -60,7 +67,7 @@ const theme = responsiveFontSizes(createMuiTheme(yourTheme));
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      {}
+      <Button>Some label</Button>
     </ThemeProvider>
   );
 }

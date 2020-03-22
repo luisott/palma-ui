@@ -45,6 +45,9 @@ which helps keep the size of this library small.
 
 `import {Button} from "palma-ui"`
 
+and use it as:  
+```<Button>Some label</Button>```
+
 ### Add your own material theme (optional)
 This library can be themed using material ui themes. At the root component of your application do:
 ~~~js
@@ -55,6 +58,7 @@ import {
   responsiveFontSizes,
   ThemeProvider
 } from "@material-ui/core/styles";
+import {Button} from "palma-ui";
 
 import { yourTheme } from "<location for your theme>";
 
@@ -63,7 +67,7 @@ const theme = responsiveFontSizes(createMuiTheme(yourTheme));
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      {}
+      <Button>Some label</Button>
     </ThemeProvider>
   );
 }
