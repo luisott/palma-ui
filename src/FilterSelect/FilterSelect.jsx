@@ -7,7 +7,7 @@ import { MenuItem, MenuList, InputBase, InputLabel } from "@material-ui/core";
 import { IconButton } from "../IconButton";
 import { ResultContainer } from "./ResultContainer";
 import { SelectContainer } from "./SelectContainer";
-import { formInputLabel } from "@styles/commonStyles";
+import { formInputLabel } from "../styles/commonStyles";
 
 const propTypes = {
   /**

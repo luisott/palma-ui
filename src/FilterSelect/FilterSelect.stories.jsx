@@ -1,8 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import { boolean, text } from "@storybook/addon-knobs";
 import { FilterSelect } from "./FilterSelect";
 import { css } from "@emotion/core";
-import { allCountries, countryToFlag } from "@data/countries";
+import { allCountries, countryToFlag } from "../data/countries";
 import Typography from "@material-ui/core/Typography";
 
 export default {
@@ -21,6 +23,47 @@ const movies = [
   { name: "Monty Python and the Holy Grail", year: 1975, id: "8" }
 ];
 
+const countryOptionRender = country => (
+  <Typography variant="inherit" noWrap>
+    {country.flagCode} {country.name} (+{country.phone})
+  </Typography>
+);
+
+const customInputDivStyle = css`
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+`;
+
+const CustomInputComponent = ({ value, placeholder }) => {
+  const country = countriesWithFlagsAndIds.find(({ name }) => name === value);
+  if (country) {
+    return (
+      <div css={customInputDivStyle}>
+        {country.flagCode} (+{country.phone})
+      </div>
+    );
+  }
+  return (
+    <div css={customInputDivStyle}>
+      <Typography noWrap>{placeholder}</Typography>
+    </div>
+  );
+};
+
+CustomInputComponent.propTypes = {
+  value: PropTypes.string,
+  placeholder: PropTypes.string
+};
+
+const countriesWithFlagsAndIds = allCountries.map(country => ({
+  ...country,
+  flagCode: countryToFlag(country.code),
+  id: country.code
+}));
+
 export const filterSelect = () => (
   <div
     css={css`
@@ -38,18 +81,6 @@ export const filterSelect = () => (
   </div>
 );
 
-const countryOptionRender = country => (
-  <Typography variant="inherit" noWrap>
-    {country.flagCode} {country.name} (+{country.phone})
-  </Typography>
-);
-
-const countriesWithFlagsAndIds = allCountries.map(country => ({
-  ...country,
-  flagCode: countryToFlag(country.code),
-  id: country.code
-}));
-
 export const withOptionsRenderer = () => (
   <div
     css={css`
@@ -64,6 +95,24 @@ export const withOptionsRenderer = () => (
       options={countriesWithFlagsAndIds}
       placeholder={"Pick a country"}
       renderOption={countryOptionRender}
+    />
+  </div>
+);
+
+export const withCustomInputComponent = () => (
+  <div
+    css={css`
+      width: 300px;
+    `}
+  >
+    <FilterSelect
+      label={"country picker"}
+      showLabel={boolean("Show Label", false)}
+      disabled={boolean("Disabled", false)}
+      dropDownIconLabel={"show options"}
+      options={countriesWithFlagsAndIds}
+      placeholder={"Pick a country"}
+      inputComponent={CustomInputComponent}
     />
   </div>
 );
