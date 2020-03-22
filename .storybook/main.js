@@ -1,10 +1,8 @@
-const paths = require("../config/paths");
+const paths = require("./paths");
 
 module.exports = {
   stories: ["../src/**/*.stories.js", "../src/**/*.stories.jsx"],
   webpackFinal: config => {
-    // Copy pasted this from config/webpack.config.js
-    // TODO: Import the config here instead
     config.resolve.alias = {
       "@styles": `${paths.appSrc}/styles`,
       "@types": `${paths.appSrc}/types`,
