@@ -195,10 +195,13 @@
   },
   "babel": {
     "presets": [
+      "react-app",
       "@babel/react"
     ],
     "plugins": [
-      ["@babel/plugin-proposal-optional-chaining"],
+      [
+        "@babel/plugin-proposal-optional-chaining"
+      ],
       [
         "module-resolver",
         {
