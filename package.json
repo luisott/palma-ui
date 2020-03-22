@@ -195,7 +195,7 @@
   },
   "babel": {
     "presets": [
-      "react-app",
+      "@babel/preset-env",
       "@babel/react"
     ],
     "plugins": [
