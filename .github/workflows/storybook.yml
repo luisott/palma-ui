@@ -1,0 +1,27 @@
+# This action builds storybook and pushes the content of palma-ui/storybook-static to branch gh-pages
+# See more here https://github.com/storybookjs/storybook-deployer
+
+name: Storybook
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm run deploy-storybook -- --ci
+        env:
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
