@@ -63,7 +63,6 @@ export const MenuIcon = () => {
         id="simple-menu"
         anchorEl={anchorEl}
         open={open}
-        onClose={handleClose}
         horizontalAlignment={select(
           "Horizontal Alignment",
           ["left", "center", "right"],

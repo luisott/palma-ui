@@ -41,6 +41,7 @@ const getMenuProps = (openUp, horizontalAlignment = "center") => {
     css: styles.menu,
     keepMounted: true,
     variant: "menu",
+    getContentAnchorEl: null,
     ...anchorProps
   };
 };

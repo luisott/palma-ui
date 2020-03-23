@@ -12,4 +12,5 @@ export const inputFieldVariant = "outlined";
 
 export const formInputLabel = css`
   margin-bottom: 8px;
+  font-size: 1rem;
 `;

@@ -1,15 +1,14 @@
 import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 
-import * as styles from "./FilterSelect.styles";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { MenuList, InputBase, InputLabel } from "@material-ui/core";
+import { ExpandMore, ExpandLess } from "@material-ui/icons";
+import { MenuList, ClickAwayListener } from "@material-ui/core";
 import { MenuItem } from "../MenuItem";
 
 import { IconButton } from "../IconButton";
 import { ResultContainer } from "./ResultContainer";
-import { SelectContainer } from "./SelectContainer";
-import { formInputLabel } from "../styles/commonStyles";
+import { TextField } from "../TextField";
+import InputAdornment from "@material-ui/core/InputAdornment";
 
 const propTypes = {
   /**
@@ -54,9 +53,6 @@ const FilterSelect = ({
   const [value, setValue] = useState("");
   const [optionsToShow, setOptionsToShow] = useState(options);
   const [openResults, setOpenResults] = useState(false);
-  const [resultsOrientationFlipped, setResultsOrientationFlipped] = useState(
-    false
-  );
   const ref = useRef();
 
   const handleInputChange = e => {
@@ -74,6 +70,7 @@ const FilterSelect = ({
   };
 
   const handleCloseResults = () => {
+    setValue("");
     setOpenResults(false);
   };
 
@@ -119,51 +116,44 @@ const FilterSelect = ({
         onClick={openAllResults}
         disabled={disabled}
       >
-        <ExpandMoreIcon />
+        {openResults ? <ExpandLess /> : <ExpandMore />}
       </IconButton>
     );
   };
 
   const openAllResults = () => {
     if (!disabled) {
-      setOptionsToShow(options);
-      setOpenResults(true);
+      if (!openResults) {
+        setOptionsToShow(options);
+      }
+      setOpenResults(!openResults);
     }
   };
 
   return (
-    <div>
-      {showLabel && (
-        <InputLabel disabled={disabled} css={formInputLabel}>
-          {label}
-        </InputLabel>
-      )}
-      <SelectContainer
-        openResultsTop={resultsOrientationFlipped}
-        openResults={openResults}
-        disabled={disabled}
-      >
-        <div css={styles.container} ref={ref}>
-          <InputBase
+    <div ref={ref}>
+      <ClickAwayListener onClickAway={handleCloseResults}>
+        <div>
+          <TextField
+            id={label}
+            label={showLabel ? label : null}
             placeholder={placeholder}
-            inputProps={{ "aria-label": label }}
             onChange={handleInputChange}
             value={value}
             disabled={disabled}
-            css={styles.inputBase}
             onClick={openAllResults}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  {getDropDownIcon()}
+                </InputAdornment>
+              )
+            }}
             {...props}
           />
-          {getDropDownIcon()}
         </div>
-        <ResultContainer
-          anchorEl={ref?.current}
-          onClickAway={handleCloseResults}
-          onCreate={flipped => setResultsOrientationFlipped(flipped)}
-        >
-          {getOptions()}
-        </ResultContainer>
-      </SelectContainer>
+      </ClickAwayListener>
+      <ResultContainer anchorEl={ref?.current}>{getOptions()}</ResultContainer>
     </div>
   );
 };
