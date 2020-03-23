@@ -13,3 +13,5 @@ export { Select } from "./Select";
 export { Tabs, Tab, TabPanel } from "./Tabs";
 export { TextField } from "./TextField";
 export { Toggle } from "./Toggle";
+export { Menu, getMenuProps } from "./Menu";
+export { MenuItem } from "./MenuItem";

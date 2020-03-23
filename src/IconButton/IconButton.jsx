@@ -12,7 +12,13 @@ const propTypes = {
 const IconButton = props => {
   const theme = useTheme();
 
-  return <MaterialIconButton css={styles.iconButtonStyles(theme)} {...props} />;
+  return (
+    <MaterialIconButton
+      disableTouchRipple={true}
+      css={styles.iconButtonStyles(theme)}
+      {...props}
+    />
+  );
 };
 
 IconButton.propTypes = propTypes;
