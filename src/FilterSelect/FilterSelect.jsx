@@ -130,8 +130,14 @@ const FilterSelect = ({
     }
   };
 
+  const handleKeyDown = event => {
+    if (event.key === "Escape") {
+      setOpenResults(false);
+    }
+  };
+
   return (
-    <div ref={ref}>
+    <div ref={ref} onKeyDown={handleKeyDown}>
       <ClickAwayListener onClickAway={handleCloseResults}>
         <div>
           <TextField
