@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { TextField } from "../TextField";
 import { allCountries, countryToFlag } from "../data/countries";
 import Typography from "@material-ui/core/Typography";
 
 import * as styles from "./PhoneInput.styles";
-import { Select } from "../Select";
 import { MenuItem } from "../MenuItem";
+import { InputGroup, InputGroupInput, InputGroupSelect } from "../InputGroup";
+import { getMenuProps } from "../Menu";
 
 const countriesWithFlagsAndIds = allCountries.map(country => ({
   ...country,
@@ -56,29 +56,27 @@ const PhoneInput = props => {
     ));
   };
 
+  const commonMenuProps = getMenuProps();
+  const menuProps = {
+    ...commonMenuProps
+  };
+
   return (
-    <div>
-      <Select
+    <InputGroup>
+      <InputGroupSelect
         id={"country picker"}
         labelId={"country picker"}
-        disabled={false}
         renderValue={getCountryOption}
+        MenuProps={menuProps}
+        css={styles.menu}
         value={"AF"}
       >
         {getOptions()}
-      </Select>
-      <TextField
-        id={"some-id"}
-        label={"bla"}
-        disabled={false}
-        error={false}
-        fullWidth={false}
-        placeholder={"Placeholder"}
-        required={false}
-      >
+      </InputGroupSelect>
+      <InputGroupInput id={"some-id"} label={"bla"} placeholder={"Placeholder"}>
         <div>asdasdad</div>
-      </TextField>
-    </div>
+      </InputGroupInput>
+    </InputGroup>
   );
 };
 

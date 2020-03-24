@@ -2,8 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Menu as MenuMaterial } from "@material-ui/core";
 
-import * as styles from "./Menu.styles";
-
 const propTypes = {
   openUp: PropTypes.bool,
   horizontalAlignment: PropTypes.oneOf(["left", "right", "center"])
@@ -38,7 +36,6 @@ const getMenuProps = (openUp, horizontalAlignment = "center") => {
       };
 
   return {
-    css: styles.menu,
     keepMounted: true,
     variant: "menu",
     getContentAnchorEl: null,

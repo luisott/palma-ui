@@ -14,7 +14,7 @@ export const dialogActionsStyles = {
         width: 100%;
         margin-left: 0;
 
-        & :not(:first-child) {
+        & :not(:first-of-type) {
           margin-top: 10px;
         }
       }

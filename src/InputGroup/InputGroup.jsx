@@ -2,13 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 import * as styles from "./InputGroup.styles";
 import { useTheme } from "@material-ui/core/styles";
+import InputLabel from "@material-ui/core/InputLabel";
+import { formInputLabel } from "../styles/commonStyles";
 
 const propTypes = {
   disabled: PropTypes.bool,
+  label: PropTypes.string,
   children: PropTypes.arrayOf(PropTypes.node).isRequired
 };
 
-const InputGroup = ({ disabled, children, ...rest }) => {
+const InputGroup = ({ disabled, label, children, ...rest }) => {
   const theme = useTheme();
 
   const getChildren = () => {
@@ -26,8 +29,11 @@ const InputGroup = ({ disabled, children, ...rest }) => {
   };
 
   return (
-    <div css={styles.container} {...rest}>
-      {getChildren()}
+    <div css={styles.container}>
+      {label && <InputLabel css={formInputLabel}>{label}</InputLabel>}
+      <div css={styles.childrenWrapper} {...rest}>
+        {getChildren()}
+      </div>
     </div>
   );
 };

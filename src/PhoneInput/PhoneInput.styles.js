@@ -7,3 +7,12 @@ export const countryInput = css`
   display: flex;
   align-items: center;
 `;
+
+export const menu = css`
+  max-heigh: 200px;
+  max-width: 200px;
+  .MuiMenu-paper {
+    max-heigh: 200px;
+    max-width: 200px;
+  }
+`;

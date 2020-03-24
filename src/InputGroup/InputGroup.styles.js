@@ -8,6 +8,10 @@ import { lightestGrey } from "../styles/colors";
 
 export const container = css`
   display: flex;
+  flex-direction: column;
+`;
+export const childrenWrapper = css`
+  display: flex;
   height: ${commonInputHeightPx}px;
 `;
 
@@ -26,7 +30,7 @@ export const childContainer = theme => css`
     border-color: ${theme.palette.secondary.main};
   }
 
-  &:not(:first-child) {
+  &:not(:first-of-type) {
     border-left-color: transparent;
     margin-left: -1px;
     :hover,
@@ -36,11 +40,11 @@ export const childContainer = theme => css`
       border-left-color: ${theme.palette.secondary.main};
     }
   }
-  &:last-child {
+  &:last-of-type {
     border-top-right-radius: ${commonBorderRadiusPx}px;
     border-bottom-right-radius: ${commonBorderRadiusPx}px;
   }
-  &:first-child {
+  &:first-of-type {
     border-top-left-radius: ${commonBorderRadiusPx}px;
     border-bottom-left-radius: ${commonBorderRadiusPx}px;
   }
@@ -54,7 +58,7 @@ export const childContainerDisabled = css`
     border-color: ${lightestGrey};
   }
 
-  &:not(:first-child) {
+  &:not(:first-of-type) {
     :hover,
     :active,
     :focus,
