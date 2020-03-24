@@ -98,21 +98,3 @@ export const withOptionsRenderer = () => (
     />
   </div>
 );
-
-export const withCustomInputComponent = () => (
-  <div
-    css={css`
-      width: 300px;
-    `}
-  >
-    <FilterSelect
-      label={"country picker"}
-      showLabel={boolean("Show Label", false)}
-      disabled={boolean("Disabled", false)}
-      dropDownIconLabel={"show options"}
-      options={countriesWithFlagsAndIds}
-      placeholder={"Pick a country"}
-      inputComponent={CustomInputComponent}
-    />
-  </div>
-);

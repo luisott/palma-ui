@@ -4,6 +4,8 @@ import { css } from "@emotion/core";
 export const commonBorderRadiusPx = 4;
 export const commonBorder = `${lightestGrey} 1px solid`;
 
+export const commonInputHeightPx = 40;
+
 export const commonShadow = "0px 2px 8px 0px rgba(0,0,0,.2)";
 export const shadowSurface = "0px 2px 8px -2px rgba(0, 0, 0, 0.2)";
 
@@ -14,3 +16,5 @@ export const formInputLabel = css`
   margin-bottom: 8px;
   font-size: 1rem;
 `;
+
+export const inputPaddingSidesPx = 14;

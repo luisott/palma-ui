@@ -15,3 +15,4 @@ export { TextField } from "./TextField";
 export { Toggle } from "./Toggle";
 export { Menu, getMenuProps } from "./Menu";
 export { MenuItem } from "./MenuItem";
+export { InputGroup, InputGroupInput, InputGroupSelect } from "./InputGroup";

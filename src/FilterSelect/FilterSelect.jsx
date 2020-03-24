@@ -70,7 +70,6 @@ const FilterSelect = ({
   };
 
   const handleCloseResults = () => {
-    setValue("");
     setOpenResults(false);
   };
 
