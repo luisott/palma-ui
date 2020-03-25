@@ -8,57 +8,54 @@ import { MenuItem } from "../MenuItem";
 import { InputGroup, InputGroupInput, InputGroupSelect } from "../InputGroup";
 import { getMenuProps } from "../Menu";
 
+// TODO: Add label
+// TODO: MAke uncontrolled
+// TODO: Format north american numbers with (XXX) XXX-XXXX and all others with XXXXXXXXXXXXXX
+
 const countriesWithFlagsAndIds = allCountries.map(country => ({
   ...country,
   flagCode: countryToFlag(country.code),
   id: country.code
 }));
 
-const CountryFlagInputComponent = ({ value, placeholder }) => {
-  const country = countriesWithFlagsAndIds.find(({ name }) => name === value);
-  if (country) {
-    return (
-      <div css={styles.countryInput}>
-        {country.flagCode} (+{country.phone})
-      </div>
-    );
-  }
-  return (
-    <div css={styles.countryInput}>
-      <Typography noWrap>{placeholder}</Typography>
-    </div>
-  );
-};
-
-CountryFlagInputComponent.propTypes = {
-  value: PropTypes.string,
-  placeholder: PropTypes.string
-};
-
 const propTypes = {
-  someBoolean: PropTypes.bool
+  someBoolean: PropTypes.bool,
+  defaultCountryId: PropTypes.string
 };
 
-const defaultProps = {};
+const defaultProps = {
+  defaultCountryId: "CA"
+};
 
-const PhoneInput = props => {
-  const getCountryOption = countryId => (
-    <Typography variant="inherit" noWrap>
-      {countryId}
-    </Typography>
-  );
+const PhoneInput = ({ defaultCountryId }) => {
+  const getSelectedCountry = countryId => {
+    const selectedCountry = countriesWithFlagsAndIds.find(
+      ({ id }) => id === countryId
+    );
+    if (!selectedCountry) {
+      return null;
+    }
+    return (
+      <Typography variant="inherit" noWrap>
+        {selectedCountry.flagCode} (+{selectedCountry.phone})
+      </Typography>
+    );
+  };
 
   const getOptions = () => {
     return countriesWithFlagsAndIds.map(country => (
-      <MenuItem key={country.id} id={country.id}>
-        {country.flagCode} {country.name} (+{country.phone})
+      <MenuItem key={country.id} value={country.id}>
+        <div css={styles.countryMenuItem}>
+          {country.flagCode} {country.name} (+{country.phone})
+        </div>
       </MenuItem>
     ));
   };
 
-  const commonMenuProps = getMenuProps();
+  const commonMenuProps = getMenuProps(false, "left");
   const menuProps = {
-    ...commonMenuProps
+    ...commonMenuProps,
+    disablePortal: true
   };
 
   return (
@@ -66,14 +63,14 @@ const PhoneInput = props => {
       <InputGroupSelect
         id={"country picker"}
         labelId={"country picker"}
-        renderValue={getCountryOption}
+        renderValue={getSelectedCountry}
         MenuProps={menuProps}
+        defaultValue={defaultCountryId}
         css={styles.menu}
-        value={"AF"}
       >
         {getOptions()}
       </InputGroupSelect>
-      <InputGroupInput id={"some-id"} label={"bla"} placeholder={"Placeholder"}>
+      <InputGroupInput id={"some-id"} placeholder={"Placeholder"}>
         <div>asdasdad</div>
       </InputGroupInput>
     </InputGroup>

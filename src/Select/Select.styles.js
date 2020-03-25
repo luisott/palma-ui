@@ -3,9 +3,7 @@ import { commonInputHeightPx } from "../styles/commonStyles";
 
 export const selectStyle = css`
   height: ${commonInputHeightPx}px;
-  && {
-    & div {
-      background-color: unset;
-    }
+  .MuiSelect-select:focus {
+    background-color: unset;
   }
 `;

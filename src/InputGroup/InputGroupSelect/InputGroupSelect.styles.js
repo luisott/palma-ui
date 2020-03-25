@@ -6,4 +6,10 @@ export const select = css`
     display: flex;
     align-items: center;
   }
+
+  && {
+    .MuiSelect-select {
+      padding-right: 20px;
+    }
+  }
 `;

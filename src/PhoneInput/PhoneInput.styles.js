@@ -1,4 +1,9 @@
 import { css } from "@emotion/core";
+import {
+  commonBorder,
+  commonBorderRadiusPx,
+  inputPaddingSidesPx
+} from "../styles/commonStyles";
 
 export const countryInput = css`
   cursor: pointer;
@@ -8,11 +13,25 @@ export const countryInput = css`
   align-items: center;
 `;
 
+export const countryMenuItem = css`
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
 export const menu = css`
-  max-heigh: 200px;
-  max-width: 200px;
+  .MuiSelect-root {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
   .MuiMenu-paper {
-    max-heigh: 200px;
-    max-width: 200px;
+    max-height: 200px;
+    max-width: 252px;
+    border: ${commonBorder};
+    border-radius: ${commonBorderRadiusPx}px;
+    margin-left: -${inputPaddingSidesPx}px;
+  }
+  .MuiMenu-list {
+    border: 0;
   }
 `;

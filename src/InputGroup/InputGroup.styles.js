@@ -22,7 +22,6 @@ export const childContainer = theme => css`
   border: ${commonBorder};
   transition: border-color ${theme.transitions.duration.shorter}ms
     ${theme.transitions.easing.easeIn};
-
   :hover,
   :active,
   :focus,
