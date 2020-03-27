@@ -1,15 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Menu as MenuMaterial } from "@material-ui/core";
-
-const propTypes = {
-  openUp: PropTypes.bool,
-  horizontalAlignment: PropTypes.oneOf(["left", "right", "center"])
-};
-
-const defaultProps = {
-  horizontalAlignment: "center"
-};
+import * as styles from "./Menu.styles";
 
 // Exported props to be used in Select component
 const getMenuProps = (openUp, horizontalAlignment = "center") => {
@@ -43,9 +35,27 @@ const getMenuProps = (openUp, horizontalAlignment = "center") => {
   };
 };
 
-const Menu = ({ openUp, horizontalAlignment, ...rest }) => {
+const propTypes = {
+  openUp: PropTypes.bool,
+  horizontalAlignment: PropTypes.oneOf(["left", "right", "center"]),
+  /**
+   * Adds margin on top and bottom
+   * for extra space between the trigger element and the menu (e.g. for a menu button)
+   */
+  addMargin: PropTypes.bool
+};
+
+const defaultProps = {
+  horizontalAlignment: "center"
+};
+
+const Menu = ({ openUp, horizontalAlignment, addMargin, ...rest }) => {
   return (
-    <MenuMaterial {...getMenuProps(openUp, horizontalAlignment)} {...rest} />
+    <MenuMaterial
+      {...getMenuProps(openUp, horizontalAlignment)}
+      css={addMargin && styles.marginStyle}
+      {...rest}
+    />
   );
 };
 

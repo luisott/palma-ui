@@ -35,6 +35,7 @@ export const MenuButton = () => {
         open={open}
         onClose={handleClose}
         openUp={boolean("Open Up", false)}
+        addMargin={true}
       >
         <MenuItem onClick={handleClose}>Profile</MenuItem>
         <MenuItem onClick={handleClose}>My account</MenuItem>
@@ -63,6 +64,7 @@ export const MenuIcon = () => {
         id="simple-menu"
         anchorEl={anchorEl}
         open={open}
+        addMargin={true}
         horizontalAlignment={select(
           "Horizontal Alignment",
           ["left", "center", "right"],
