@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { getAllCountriesWithFlagMap } from "../data/countries";
 import Typography from "@material-ui/core/Typography";
+import InputMask from "react-input-mask";
 
 import * as styles from "./PhoneInput.styles";
 import { MenuItem } from "../MenuItem";
 import { InputGroup, InputGroupInput, InputGroupSelect } from "../InputGroup";
 import { getMenuProps } from "../Menu";
 
-// TODO: Format north american numbers with (XXX) XXX-XXXX and all others with XXXXXXXXXXXXXX
 // TODO: Remove hardcoded strings for labels etc.
 // TODO: Scroll down to selected
 // TODO: Search by text
@@ -99,7 +99,8 @@ const PhoneInput = ({
   label,
   initialPhoneNumber,
   onChange,
-  disabled
+  disabled,
+  ...rest
 }) => {
   const [country, setCountryCode] = useState(
     getCountryFromNumber(initialPhoneNumber)
@@ -133,9 +134,14 @@ const PhoneInput = ({
 
   const handleLocalPhoneNumberChange = event => {
     setLocalNumber(event.target.value);
-    onChange && onChange(`${country.phone}${event.target.value}`);
+    onChange &&
+      onChange(`${country.phone}${event.target.value.replace(/\D/g, "")}`);
   };
 
+  const inputMask =
+    country.code === "US" || country.code === "CA"
+      ? "(999) 999-9999"
+      : "999999999999999"; // 15 digits max for any phone number
   return (
     <InputGroup label={label} disabled={disabled}>
       <InputGroupSelect
@@ -151,12 +157,16 @@ const PhoneInput = ({
       >
         {countryMenuItems}
       </InputGroupSelect>
-      <InputGroupInput
-        id={"number"}
-        disabled={disabled}
+      <InputMask
+        mask={inputMask}
         value={localNumber}
         onChange={handleLocalPhoneNumberChange}
-      />
+        disabled={disabled}
+        maskPlaceholder={null}
+        alwaysShowMask={true}
+      >
+        <InputGroupInput id={"number"} type={"tel"} {...rest} />
+      </InputMask>
     </InputGroup>
   );
 };
