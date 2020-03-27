@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { allCountries, countryToFlag } from "../data/countries";
 import Typography from "@material-ui/core/Typography";
@@ -59,12 +59,35 @@ const getPhoneWithoutCountryCode = value => {
   return cleanNumber;
 };
 
+const menuProps = {
+  ...getMenuProps(false, "left"),
+  disablePortal: true
+};
+
+const countryMenuItems = countriesWithFlagsAndIds.map(country => (
+  <MenuItem key={country.id} value={country.id}>
+    <div css={styles.countryMenuItem}>
+      {country.flagCode} {country.name} (+{country.phone})
+    </div>
+  </MenuItem>
+));
+
 const propTypes = {
+  /**
+   * When two countries share the same country code (e.g. US and CA) which one to prefer
+   * initially when this component tried to decode initialPhoneNumber
+   */
   defaultCountryId: PropTypes.string,
   label: PropTypes.string,
   disabled: PropTypes.bool,
-  phoneNumber: PropTypes.string,
-  onChange: PropTypes.func.isRequired
+  /**
+   * A string but we are going to strip out anything that's not a number from it
+   */
+  initialPhoneNumber: PropTypes.string,
+  /**
+   * Returns a string with the new phone number (all numbers in the string)
+   */
+  onChange: PropTypes.func
 };
 
 const defaultProps = {
@@ -74,12 +97,21 @@ const defaultProps = {
 const PhoneInput = ({
   defaultCountryId,
   label,
-  phoneNumber,
+  initialPhoneNumber,
   onChange,
   disabled
 }) => {
-  const country = getCountryFromNumber(phoneNumber);
-  const localNumber = getPhoneWithoutCountryCode(phoneNumber);
+  const [country, setCountryCode] = useState(
+    getCountryFromNumber(initialPhoneNumber)
+  );
+  const [localNumber, setLocalNumber] = useState(
+    getPhoneWithoutCountryCode(initialPhoneNumber)
+  );
+
+  useEffect(() => {
+    setCountryCode(getCountryFromNumber(initialPhoneNumber));
+    setLocalNumber(getPhoneWithoutCountryCode(initialPhoneNumber));
+  }, [initialPhoneNumber]);
 
   const renderSelectedCountry = countryId => {
     const selectedCountry = getCountryWithId(countryId);
@@ -93,28 +125,15 @@ const PhoneInput = ({
     );
   };
 
-  const getOptions = () => {
-    return countriesWithFlagsAndIds.map(country => (
-      <MenuItem key={country.id} value={country.id}>
-        <div css={styles.countryMenuItem}>
-          {country.flagCode} {country.name} (+{country.phone})
-        </div>
-      </MenuItem>
-    ));
-  };
-
   const handleCountryChange = event => {
-    onChange(`${event.target.value}${localNumber}`);
+    const selectedCountry = getCountryWithId(event.target.value);
+    setCountryCode(selectedCountry);
+    onChange && onChange(`${selectedCountry.code}${localNumber}`);
   };
 
   const handleLocalPhoneNumberChange = event => {
-    onChange(`${country.phone}${event.target.value}`);
-  };
-
-  const commonMenuProps = getMenuProps(false, "left");
-  const menuProps = {
-    ...commonMenuProps,
-    disablePortal: true
+    setLocalNumber(event.target.value);
+    onChange && onChange(`${country.code}${event.target.value}`);
   };
 
   return (
@@ -127,10 +146,10 @@ const PhoneInput = ({
         defaultValue={defaultCountryId}
         css={styles.menu}
         disabled={disabled}
-        value={country?.id}
+        value={country.code}
         onChange={handleCountryChange}
       >
-        {getOptions()}
+        {countryMenuItems}
       </InputGroupSelect>
       <InputGroupInput
         id={"number"}
