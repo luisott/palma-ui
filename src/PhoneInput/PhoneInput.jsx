@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
-import { allCountries, countryToFlag } from "../data/countries";
+import { getAllCountriesWithFlagMap } from "../data/countries";
 import Typography from "@material-ui/core/Typography";
 
 import * as styles from "./PhoneInput.styles";
@@ -8,46 +8,44 @@ import { MenuItem } from "../MenuItem";
 import { InputGroup, InputGroupInput, InputGroupSelect } from "../InputGroup";
 import { getMenuProps } from "../Menu";
 
-// TODO: MAke uncontrolled
 // TODO: Format north american numbers with (XXX) XXX-XXXX and all others with XXXXXXXXXXXXXX
 // TODO: Remove hardcoded strings for labels etc.
-// TODO: Pass down options to do dense padding in both here and input group
+// TODO: Scroll down to selected
+// TODO: Search by text
 
 const DEFAULT_COUNTRY_ID = "CA";
 
-const countriesWithFlagsAndIds = allCountries.map(country => ({
-  ...country,
-  flagCode: countryToFlag(country.code),
-  id: country.code
-}));
+const countriesWithFlagsMap = getAllCountriesWithFlagMap();
 
 const getCountryFromNumber = (
   value,
   preferredCountryId = DEFAULT_COUNTRY_ID
 ) => {
-  const justDigits = getCleanNumber(value);
-  if (justDigits === "") {
-    return getCountryWithId(preferredCountryId);
+  const cleanNumber = getCleanNumber(value);
+  if (cleanNumber === "") {
+    return countriesWithFlagsMap[preferredCountryId];
   }
-  const countriesWithCode = countriesWithFlagsAndIds.filter(({ phone }) =>
-    justDigits.startsWith(phone)
+  const countriesWithCode = Object.keys(countriesWithFlagsMap).filter(code =>
+    cleanNumber.startsWith(code)
   );
+  if (countriesWithCode.length === 0) {
+    return countriesWithFlagsMap[preferredCountryId];
+  }
   if (countriesWithCode.length > 1 && preferredCountryId) {
-    const preferredCountry = countriesWithCode.find(
-      ({ id }) => id === preferredCountryId
+    const preferredCountryCode = countriesWithCode.find(
+      code => code === preferredCountryId
     );
-    if (preferredCountry) {
-      return preferredCountry;
+    if (preferredCountryCode) {
+      return countriesWithFlagsMap[preferredCountryCode];
     }
   }
-  return countriesWithCode[0];
+  return countriesWithFlagsMap[countriesWithCode[0]];
 };
 
-const getCountryWithId = countryId =>
-  countriesWithFlagsAndIds.find(({ id }) => id === countryId);
-
+// Get rid of all non numbers except - as it's used for some caribbean islands
+// to share the 1 with US and CA (e.g. US Virgin Islands use 1-340)
 const getCleanNumber = phoneNumber => {
-  return phoneNumber ? phoneNumber.replace(/\D/g, "") : "";
+  return phoneNumber ? phoneNumber.replace(/[^0-9-]/g, "") : "";
 };
 
 const getPhoneWithoutCountryCode = value => {
@@ -64,10 +62,12 @@ const menuProps = {
   disablePortal: true
 };
 
-const countryMenuItems = countriesWithFlagsAndIds.map(country => (
-  <MenuItem key={country.id} value={country.id}>
+const countryMenuItems = Object.keys(countriesWithFlagsMap).map(countryCode => (
+  <MenuItem key={countryCode} value={countryCode}>
     <div css={styles.countryMenuItem}>
-      {country.flagCode} {country.name} (+{country.phone})
+      {countriesWithFlagsMap[countryCode].flagCode}{" "}
+      {countriesWithFlagsMap[countryCode].name} (+
+      {countriesWithFlagsMap[countryCode].phone})
     </div>
   </MenuItem>
 ));
@@ -114,7 +114,7 @@ const PhoneInput = ({
   }, [initialPhoneNumber]);
 
   const renderSelectedCountry = countryId => {
-    const selectedCountry = getCountryWithId(countryId);
+    const selectedCountry = countriesWithFlagsMap[countryId];
     if (!selectedCountry) {
       return null;
     }
@@ -126,7 +126,7 @@ const PhoneInput = ({
   };
 
   const handleCountryChange = event => {
-    const selectedCountry = getCountryWithId(event.target.value);
+    const selectedCountry = countriesWithFlagsMap[event.target.value];
     setCountryCode(selectedCountry);
     onChange && onChange(`${selectedCountry.code}${localNumber}`);
   };

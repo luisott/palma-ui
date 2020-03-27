@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { boolean, text } from "@storybook/addon-knobs";
 import { FilterSelect } from "./FilterSelect";
 import { css } from "@emotion/core";
-import { allCountries, countryToFlag } from "../data/countries";
+import { allCountriesArray, countryToFlag } from "../data/countries";
 import Typography from "@material-ui/core/Typography";
 
 export default {
@@ -58,7 +58,7 @@ CustomInputComponent.propTypes = {
   placeholder: PropTypes.string
 };
 
-const countriesWithFlagsAndIds = allCountries.map(country => ({
+const countriesWithFlagsAndIds = allCountriesArray.map(country => ({
   ...country,
   flagCode: countryToFlag(country.code),
   id: country.code

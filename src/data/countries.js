@@ -12,7 +12,7 @@ export const countryToFlag = isoCode => {
 };
 
 // From https://bitbucket.org/atlassian/atlaskit-mk-2/raw/4ad0e56649c3e6c973e226b7efaeb28cb240ccb0/packages/core/select/src/data/countries.js
-export const allCountries = [
+export const allCountriesArray = [
   { name: "Afghanistan", code: "AF", phone: "93" },
   { name: "Alland Islands", code: "AX", phone: "358" },
   { name: "Albania", code: "AL", phone: "355" },
@@ -308,14 +308,23 @@ export const allCountries = [
   { name: "Zimbabwe", code: "ZW", phone: "263" }
 ];
 
+export const getAllCountriesWithFlagMap = () =>
+  allCountriesArray.reduce((map, country) => {
+    map[country.code] = {
+      ...country,
+      flagCode: countryToFlag(country.code)
+    };
+    return map;
+  }, {});
+
 // separate countries into groups
 export const groupedCountries = (label, options) => [
   {
     label: "Suggested",
-    options: allCountries.filter(c => c.suggested)
+    options: allCountriesArray.filter(c => c.suggested)
   },
   {
     label: "All countries",
-    options: allCountries.filter(c => !c.suggested)
+    options: allCountriesArray.filter(c => !c.suggested)
   }
 ];
