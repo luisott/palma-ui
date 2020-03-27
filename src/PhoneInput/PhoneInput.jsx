@@ -9,10 +9,6 @@ import { MenuItem } from "../MenuItem";
 import { InputGroup, InputGroupInput, InputGroupSelect } from "../InputGroup";
 import { getMenuProps } from "../Menu";
 
-// TODO: Remove hardcoded strings for labels etc.
-// TODO: Scroll down to selected
-// TODO: Search by text
-
 const DEFAULT_COUNTRY_ID = "CA";
 
 const countriesWithFlagsMap = getAllCountriesWithFlagMap();
@@ -63,7 +59,7 @@ const menuProps = {
 };
 
 const countryMenuItems = Object.keys(countriesWithFlagsMap).map(countryCode => (
-  <MenuItem key={countryCode} value={countryCode}>
+  <MenuItem key={countryCode} value={countryCode} autoFocus={true}>
     <div css={styles.countryMenuItem}>
       {countriesWithFlagsMap[countryCode].flagCode}{" "}
       {countriesWithFlagsMap[countryCode].name} (+
@@ -87,7 +83,13 @@ const propTypes = {
   /**
    * Returns a string with the new phone number (all numbers in the string)
    */
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  /**
+   * This stuff needed for accessibility
+   */
+  countryPickerId: PropTypes.string,
+  countryPickerLabelId: PropTypes.string,
+  numberInputId: PropTypes.string
 };
 
 const defaultProps = {
@@ -100,6 +102,9 @@ const PhoneInput = ({
   initialPhoneNumber,
   onChange,
   disabled,
+  countryPickerId,
+  countryPickerLabelId,
+  numberInputId,
   ...rest
 }) => {
   const [country, setCountryCode] = useState(
@@ -145,8 +150,8 @@ const PhoneInput = ({
   return (
     <InputGroup label={label} disabled={disabled}>
       <InputGroupSelect
-        id={"country picker"}
-        labelId={"country picker"}
+        id={countryPickerId}
+        labelId={countryPickerLabelId}
         renderValue={renderSelectedCountry}
         MenuProps={menuProps}
         defaultValue={defaultCountryId}
@@ -165,7 +170,7 @@ const PhoneInput = ({
         maskPlaceholder={null}
         alwaysShowMask={true}
       >
-        <InputGroupInput id={"number"} type={"tel"} {...rest} />
+        <InputGroupInput id={numberInputId} type={"tel"} {...rest} />
       </InputMask>
     </InputGroup>
   );
