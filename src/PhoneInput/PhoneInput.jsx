@@ -128,12 +128,12 @@ const PhoneInput = ({
   const handleCountryChange = event => {
     const selectedCountry = countriesWithFlagsMap[event.target.value];
     setCountryCode(selectedCountry);
-    onChange && onChange(`${selectedCountry.code}${localNumber}`);
+    onChange && onChange(`${selectedCountry.phone}${localNumber}`);
   };
 
   const handleLocalPhoneNumberChange = event => {
     setLocalNumber(event.target.value);
-    onChange && onChange(`${country.code}${event.target.value}`);
+    onChange && onChange(`${country.phone}${event.target.value}`);
   };
 
   return (
