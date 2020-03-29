@@ -14,9 +14,10 @@ Component library built in React and using <a href="https://material-ui.com">Mat
 
 </div>
 
-This library offers new components not present in Material like `RichTextEditor`, `FilterSelect` and `SearchBar`. 
-It also redefines some of the default styles to offer a more modern and minimal design (e.g. less/simpler shadows, 
-smoother transitions and less color changes in interactions). 
+This library offers new components not present in Material like `RichTextEditor`, `FilterSelect`, `SearchBar`, 
+`ButtonGroup`, `PhoneInput`. 
+It also redefines some of the default styles (if used with provided theme) to offer a more modern and minimal design 
+(e.g. less/simpler shadows, smoother transitions and less color changes in interactions). 
 
 Palma UI should be used in addition to Material UI in your project as it's not meant to replace it, just compliment it with
 new components and styles.  
@@ -27,13 +28,17 @@ This library allows for tree shaking so that only the components you use end up 
 Inspiration for this library came from [Semantic UI](https://react.semantic-ui.com/), 
 [Ant](https://ant.design/), [Atlassian](https://atlassian.design) and others.
 
-## Live storybook
-View a live version of the storybook [here](https://luisott.github.io/palma-ui)
+## Why use this library
+If your project is using Material UI and you need other components not provided by material or would like better looking
+selects, dropdowns, toggles and appbar
 
 ## Why based on Material UI?
 Material UI is one of the the most mature, popular, extensive, polished, accessible, and documented UI libraries out there. 
 It also allows you to pull only components that you are using, read more about it [here](https://material-ui.com/guides/minimizing-bundle-size/), 
 which helps keep the size of this library small.
+
+## Live storybook
+View a live version of the storybook [here](https://luisott.github.io/palma-ui)
 
 
 ## Installation
