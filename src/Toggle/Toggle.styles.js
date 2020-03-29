@@ -1,7 +1,7 @@
 import { css } from "@emotion/core";
 
 const heightPx = 26;
-export const toggleStyles = theme => css`
+export const toggleStyles = (theme, color = "primary") => css`
   && {
     width: 42px;
     height: ${heightPx + 3}px;
@@ -39,7 +39,7 @@ export const toggleStyles = theme => css`
     }
 
     & .MuiSwitch-colorPrimary.Mui-checked + .MuiSwitch-track {
-      background-color: ${theme.palette.primary.main};
+      background-color: ${theme.palette[color].main};
     }
   }
 `;

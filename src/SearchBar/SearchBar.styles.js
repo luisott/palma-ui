@@ -6,9 +6,8 @@ import {
   shadowSurface
 } from "@styles/commonStyles";
 import { sizes } from "@types/sizes";
-import { colorVariations } from "@types/colorVariations";
 
-export const containerWrapper = theme => ({
+export const containerWrapper = (theme, color = "primary") => ({
   base: css`
     border: ${commonBorder};
     border-radius: ${commonBorderRadiusPx}px;
@@ -22,26 +21,14 @@ export const containerWrapper = theme => ({
       box-shadow: ${commonShadow};
     }
   `,
+  withBorder: css`
+    :focus,
+    :focus-within {
+      border-color: ${theme.palette[color].main};
+    }
+  `,
   withSurface: css`
     box-shadow: ${shadowSurface};
-  `,
-  [colorVariations.PRIMARY]: css`
-    :focus,
-    :focus-within {
-      border-color: ${theme.palette.primary.main};
-    }
-  `,
-  [colorVariations.SECONDARY]: css`
-    :focus,
-    :focus-within {
-      border-color: ${theme.palette.secondary.main};
-    }
-  `,
-  [colorVariations.ERROR]: css`
-    :focus,
-    :focus-within {
-      border-color: ${theme.palette.error.main};
-    }
   `,
   disabled: css`
     box-shadow: none;

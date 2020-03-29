@@ -14,15 +14,20 @@ const propTypes = {
   /**
    * Needed for accessibility
    */
-  ariaLabel: PropTypes.string.isRequired
+  ariaLabel: PropTypes.string.isRequired,
+  color: PropTypes.oneOf(["primary", "secondary"])
 };
 
-const Toggle = ({ value, ariaLabel, ...rest }) => {
+const defaultProps = {
+  color: "primary"
+};
+
+const Toggle = ({ value, ariaLabel, color, ...rest }) => {
   const theme = useTheme();
 
   return (
     <Switch
-      css={styles.toggleStyles(theme)}
+      css={styles.toggleStyles(theme, color)}
       value={value}
       inputProps={{ "aria-label": ariaLabel }}
       color={"primary"}
@@ -32,4 +37,5 @@ const Toggle = ({ value, ariaLabel, ...rest }) => {
 };
 
 Toggle.propTypes = propTypes;
+Toggle.defaultProps = defaultProps;
 export { Toggle };

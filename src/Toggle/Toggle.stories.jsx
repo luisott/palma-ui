@@ -1,5 +1,5 @@
 import React from "react";
-import { boolean, text } from "@storybook/addon-knobs";
+import { boolean, select, text } from "@storybook/addon-knobs";
 import { Toggle } from "./Toggle";
 import { FormControlLabel } from "@material-ui/core";
 
@@ -12,6 +12,7 @@ export const toggle = () => (
     value="someValue"
     ariaLabel="Switch A"
     disabled={boolean("Disabled", false)}
+    color={select("Color", ["primary", "secondary"], "primary")}
   />
 );
 

@@ -41,8 +41,8 @@ export const SearchBar = () => {
         size={select("Size", sizes, sizes.MEDIUM)}
         activeBorderColor={select(
           "Active Border Color ",
-          colorVariations,
-          colorVariations.NONE
+          ["primary", "secondary", "error"],
+          null
         )}
         withSurface={boolean("With Surface", false)}
         disabled={boolean("Disabled", false)}
