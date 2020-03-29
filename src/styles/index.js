@@ -1,5 +1,5 @@
 import * as colors from "./colors";
-import * as themes from "./themes";
 import * as commonStyles from "./commonStyles";
+export { themes } from "./themes";
 
-export { colors, themes, commonStyles };
+export { colors, commonStyles };

@@ -1,16 +1,15 @@
 import { css } from "@emotion/core";
 import {
   commonBorder,
-  commonBorderRadiusPx,
   commonShadow,
   shadowSurface
-} from "@styles/commonStyles";
+} from "../styles/commonStyles";
 import { sizes } from "@types/sizes";
 
 export const containerWrapper = (theme, color = "primary") => ({
   base: css`
     border: ${commonBorder};
-    border-radius: ${commonBorderRadiusPx}px;
+    border-radius: ${theme.shape.borderRadius}px;
     transition: all ${theme.transitions.duration.shorter}ms
       ${theme.transitions.easing.easeIn};
 

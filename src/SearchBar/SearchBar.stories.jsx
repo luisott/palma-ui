@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { SearchBar as SearchBarComponent } from "./SearchBar";
 import { boolean, select } from "@storybook/addon-knobs";
-import { sizes, colorVariations } from "@types";
+import { sizes } from "@types";
 import { MenuList } from "@material-ui/core";
 import { MenuItem } from "../MenuItem";
 import { css } from "@emotion/core";

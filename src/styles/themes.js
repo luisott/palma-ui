@@ -1,5 +1,4 @@
-import { primary, secondary, danger } from "./colors";
-import { commonBorder, commonBorderRadiusPx } from "./commonStyles";
+import { commonBorder } from "./commonStyles";
 
 export const themes = {
   light: {
@@ -27,7 +26,7 @@ export const themes = {
         },
         list: {
           border: commonBorder,
-          borderRadius: `${commonBorderRadiusPx}px`
+          borderRadius: `4px`
         }
       }
     },
@@ -41,13 +40,13 @@ export const themes = {
     },
     palette: {
       primary: {
-        main: primary
+        main: "#0847a5"
       },
       secondary: {
-        main: secondary
+        main: "#424242"
       },
       error: {
-        main: danger
+        main: "#cc0e00"
       }
       //palette.background.default
     },
@@ -60,7 +59,7 @@ export const themes = {
         "    sans-serif"
     },
     shape: {
-      borderRadius: commonBorderRadiusPx
+      borderRadius: 4
     }
   }
 };

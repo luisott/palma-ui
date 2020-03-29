@@ -49,21 +49,20 @@ which helps keep the size of this library small.
 Components can be styled just like in material-ui (using JSS, CSS or your preferred styled-components library). 
 Read more about [here](https://material-ui.com/guides/interoperability/)
 
-### Add your own material theme (optional)
+### Add your own material theme (optional but recommended)
 This library can be themed using material ui themes. At the root component of your application do:
 ~~~js
 import React from "react";
 
 import {
   createMuiTheme,
-  responsiveFontSizes,
   ThemeProvider
 } from "@material-ui/core/styles";
-import {Button} from "palma-ui";
+import { Button } from "palma-ui";
 
 import { yourTheme } from "<location for your theme>";
 
-const theme = responsiveFontSizes(createMuiTheme(yourTheme));
+const theme = createMuiTheme(yourTheme);
 
 function App() {
   return (
@@ -76,6 +75,8 @@ function App() {
 export default App;
 
 ~~~
+
+You can see the theme used in the storybook [here](https://github.com/luisott/palma-ui/blob/master/src/styles/themes.js)
 
 More information on Material UI themes and how to define them [here](https://material-ui.com/customization/theming/). 
 

@@ -72,7 +72,7 @@ export const Color = () => {
                   <div
                     css={css`
                       width: 48px;
-                      heigh: 48px;
+                      height: 48px;
                       background-color: ${theme.palette[intention][variant]};
                       border-radius: ${theme.shape.borderRadius}px;
                       margin-right: 16px;
