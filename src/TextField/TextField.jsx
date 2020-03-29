@@ -11,7 +11,7 @@ const propTypes = {
    * Needed for accessibility
    */
   id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired
+  label: PropTypes.string
 };
 
 const TextField = ({ id, label, ...rest }) => {

@@ -20,6 +20,7 @@ it("renders empty by default", () => {
       options={movies}
       label={"some label"}
       dropDownIconLabel={"show options"}
+      showLabel={true}
     />
   );
   expect(getByLabelText("show options")).toBeInTheDocument();

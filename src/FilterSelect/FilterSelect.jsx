@@ -109,14 +109,17 @@ const FilterSelect = ({
       return null;
     }
     return (
-      <IconButton
-        size={"small"}
-        aria-label={dropDownIconLabel}
-        onClick={openAllResults}
-        disabled={disabled}
-      >
-        {openResults ? <ExpandLess /> : <ExpandMore />}
-      </IconButton>
+      <InputAdornment position="end">
+        <IconButton
+          size={"small"}
+          aria-label={dropDownIconLabel}
+          onClick={openAllResults}
+          disabled={disabled}
+          edge={"end"}
+        >
+          {openResults ? <ExpandLess /> : <ExpandMore />}
+        </IconButton>
+      </InputAdornment>
     );
   };
 
@@ -148,11 +151,7 @@ const FilterSelect = ({
             disabled={disabled}
             onClick={openAllResults}
             InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  {getDropDownIcon()}
-                </InputAdornment>
-              )
+              endAdornment: getDropDownIcon()
             }}
             {...props}
           />
