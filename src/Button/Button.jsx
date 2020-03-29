@@ -9,27 +9,29 @@ import { BUTTON_VARIANTS } from "./types";
 const propTypes = {
   loading: PropTypes.bool,
   variant: PropTypes.oneOf(Object.values(BUTTON_VARIANTS)),
-  children: PropTypes.node
+  children: PropTypes.node,
+  color: PropTypes.oneOf(["primary", "secondary", "default", "inherit"])
 };
 
 const defaultProps = {
-  variant: BUTTON_VARIANTS.outlined
+  variant: BUTTON_VARIANTS.outlined,
+  color: "primary"
 };
 
-const Button = ({ variant, loading, children, ...rest }) => {
+const Button = ({ variant, loading, children, color, ...rest }) => {
   const theme = useTheme();
 
   const buttonStyle = [
-    styles.buttonStyles(theme).base,
-    styles.buttonStyles(theme)[variant]
+    styles.buttonStyles(theme, color).base,
+    styles.buttonStyles(theme, color)[variant]
   ];
 
   const getProgressIndicator = () => {
     if (!loading) return null;
 
     const progressIndicatorStyle = [
-      styles.progressIndicatorStyles.base,
-      styles.progressIndicatorStyles[variant]
+      styles.progressIndicatorStyles(theme, color).base,
+      styles.progressIndicatorStyles(theme, color)[variant]
     ];
 
     return (
@@ -43,7 +45,7 @@ const Button = ({ variant, loading, children, ...rest }) => {
 
   return (
     <MaterialButton
-      color="primary"
+      color={color}
       css={buttonStyle}
       disableElevation
       variant={variant}

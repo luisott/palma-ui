@@ -11,11 +11,11 @@ export const iconButtonStyles = (theme, containerColor = "primary") => ({
   filled: css`
     && {
       background-color: ${theme.palette[containerColor].main};
-      color: white;
+      color: ${theme.palette[containerColor].contrastText};
 
       :hover {
         background-color: ${theme.palette[containerColor].dark};
-        color: white;
+        color: ${theme.palette[containerColor].contrastText};
       }
     }
   `,

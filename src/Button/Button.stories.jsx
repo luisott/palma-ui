@@ -16,6 +16,11 @@ export const button = () => (
     disabled={boolean("Disabled", false)}
     loading={boolean("Loading", false)}
     variant={select("Variant", ["text", "outlined", "contained"], "contained")}
+    color={select(
+      "Color",
+      ["primary", "secondary", "default", "inherit"],
+      "primary"
+    )}
     startIcon={boolean("Left icon", false) && <DeleteIcon />}
     endIcon={boolean("Right icon", false) && <KeyboardArrowDown />}
   >
