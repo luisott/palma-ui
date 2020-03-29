@@ -17,3 +17,4 @@ export { Menu, getMenuProps } from "./Menu";
 export { MenuItem } from "./MenuItem";
 export { InputGroup, InputGroupInput, InputGroupSelect } from "./InputGroup";
 export { PhoneInput } from "./PhoneInput";
+export { hexToRgba } from "./utils";
