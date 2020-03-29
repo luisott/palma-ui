@@ -1,21 +1,21 @@
 import React, { useState } from "react";
-import { boolean } from "@storybook/addon-knobs";
+import { boolean, select } from "@storybook/addon-knobs";
 import { AppBar } from "./AppBar";
 import { css } from "@emotion/core";
 import { IconButton } from "../IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
-import { Tabs, Tab } from "../Tabs";
-import * as styles from "./AppBar.styles";
+import AccountCircle from "@material-ui/icons/AccountCircle";
 import {
   Typography,
-  Avatar,
   Toolbar,
-  Drawer,
   ListItemText,
   List,
   ListItem
 } from "@material-ui/core";
+import { AppBarTabs } from "./AppBarTabs";
+import { AppBarTab } from "./AppBarTab";
+import { AppBarMenuDrawer } from "./AppBarMenuDrawer";
 
 export default {
   title: "Components/AppBar"
@@ -51,35 +51,68 @@ const menuIconStyle = css`
 `;
 
 const closeIconStyle = css`
+  align-self: flex-start;
+
   && {
-    align-self: flex-end;
+    margin-left: 12px;
+    color: white;
+  }
+`;
+
+const sideMenuStyle = css`
+  color: white;
+`;
+
+const sideMenuListItem = css`
+  && {
+    padding-left: 50px;
+  }
+`;
+
+const appMenuDrawerStyle = css`
+  .MuiPaper-root {
+    width: 100%;
+  }
+`;
+
+const accountCircle = css`
+  && {
+    width: 32px;
+    height: 32px;
   }
 `;
 
 export const appBarDesktop = () => (
   <div css={storyStyleWrapper}>
-    <AppBar>
-      <Toolbar variant={"dense"}>
+    <AppBar color={select("Color", ["primary", "secondary"], "primary")}>
+      <Toolbar>
         <Typography variant="h5" css={logoWrapperStyle}>
           LOGO
         </Typography>
-        <Tabs
+        <AppBarTabs
           value={0}
-          css={styles.appBarStyle}
           aria-label="simple tabs example"
           centered={boolean("Centered", false)}
           variant={boolean("Full Width", false) ? "fullWidth" : null}
         >
-          <Tab label="Item One" ariaLabelPrefix={"ariaLabelPrefix"} index={0} />
-          <Tab label="Item Two" ariaLabelPrefix={"ariaLabelPrefix"} index={1} />
-          <Tab
+          <AppBarTab
+            label="Item One"
+            ariaLabelPrefix={"ariaLabelPrefix"}
+            index={0}
+          />
+          <AppBarTab
+            label="Item Two"
+            ariaLabelPrefix={"ariaLabelPrefix"}
+            index={1}
+          />
+          <AppBarTab
             label="Item Three"
             ariaLabelPrefix={"ariaLabelPrefix"}
             index={2}
           />
-        </Tabs>
-        <IconButton aria-label="user" edge="end" color="inherit">
-          <Avatar />
+        </AppBarTabs>
+        <IconButton aria-label="user" edge="end" color="inherit" size={"small"}>
+          <AccountCircle css={accountCircle} />
         </IconButton>
       </Toolbar>
     </AppBar>
@@ -94,9 +127,11 @@ export const AppBarMobile = () => {
     setOpen(true);
   };
 
+  const color = select("Color", ["primary", "secondary"], "primary");
+
   return (
     <div css={storyMobileStyleWrapper}>
-      <AppBar>
+      <AppBar color={color}>
         <Toolbar variant={"dense"}>
           <IconButton
             css={menuIconStyle}
@@ -110,23 +145,34 @@ export const AppBarMobile = () => {
           <Typography variant="h5" css={logoWrapperStyle}>
             LOGO
           </Typography>
-          <IconButton aria-label="user" edge="end" color="inherit">
-            <Avatar />
+          <IconButton
+            aria-label="user"
+            edge="end"
+            color="inherit"
+            size={"small"}
+          >
+            <AccountCircle css={accountCircle} />
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Drawer anchor="top" open={open} onClose={handleClose}>
+      <AppBarMenuDrawer
+        anchor="left"
+        color={color}
+        open={open}
+        onClose={handleClose}
+        css={appMenuDrawerStyle}
+      >
         <IconButton css={closeIconStyle}>
           <CloseIcon onClick={handleClose} />
         </IconButton>
-        <List>
+        <List css={sideMenuStyle}>
           {["Item One", "Item Two", "Item Three"].map(text => (
-            <ListItem button key={text}>
+            <ListItem button key={text} css={sideMenuListItem}>
               <ListItemText primary={text} />
             </ListItem>
           ))}
         </List>
-      </Drawer>
+      </AppBarMenuDrawer>
     </div>
   );
 };

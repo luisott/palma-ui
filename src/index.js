@@ -1,4 +1,4 @@
-export { AppBar } from "./AppBar";
+export { AppBar, AppBarTab, AppBarTabs } from "./AppBar";
 export { Button, ButtonGroup } from "./Button";
 export { Card, CardHeader, CardContent } from "./Card";
 export { Checkbox } from "./Checkbox";
