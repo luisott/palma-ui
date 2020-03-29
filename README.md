@@ -43,12 +43,6 @@ which helps keep the size of this library small.
 
 ## Usage
 
-`import {Button} from "palma-ui"`
-
-### Styling components
-Components can be styled just like in material-ui (using JSS, CSS or your preferred styled-components library). 
-Read more about [here](https://material-ui.com/guides/interoperability/)
-
 ### Add your own material theme (optional but recommended)
 This library can be themed using material ui themes. At the root component of your application do:
 ~~~js
@@ -60,7 +54,7 @@ import {
 } from "@material-ui/core/styles";
 import { Button } from "palma-ui";
 
-import { yourTheme } from "<location for your theme>";
+import { yourTheme } from "<location for your theme>"; // You can also start with the one in src/styles/themes.js
 
 const theme = createMuiTheme(yourTheme);
 
@@ -79,6 +73,11 @@ export default App;
 You can see the theme used in the storybook [here](https://github.com/luisott/palma-ui/blob/master/src/styles/themes.js)
 
 More information on Material UI themes and how to define them [here](https://material-ui.com/customization/theming/). 
+
+### Styling components
+Components can be styled just like in material-ui (using JSS, CSS or your preferred styled-components library). 
+Read more about [here](https://material-ui.com/guides/interoperability/)
+
 
 ## Developing
 
