@@ -10,7 +10,7 @@ const propTypes = {
   loading: PropTypes.bool,
   variant: PropTypes.oneOf(Object.values(BUTTON_VARIANTS)),
   children: PropTypes.node,
-  color: PropTypes.oneOf(["primary", "secondary", "default", "inherit"])
+  color: PropTypes.oneOf(["primary", "secondary"])
 };
 
 const defaultProps = {

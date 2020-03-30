@@ -9,9 +9,16 @@ import {
 } from "@material-ui/core";
 import { BUTTON_VARIANTS } from "../Button/types";
 import { DialogActions } from "./DialogActions";
+import Readme from "./README.md";
 
 export default {
-  title: "Components/Dialog"
+  title: "Components/Dialog",
+  parameters: {
+    readme: {
+      // Show readme before story
+      content: Readme
+    }
+  }
 };
 
 export const Dialog = () => {

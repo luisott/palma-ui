@@ -5,9 +5,16 @@ import { Card } from "./Card";
 import { CardContent } from "./CardContent/CardContent";
 import { CardHeader } from "./CardHeader/CardHeader";
 import { Typography } from "@material-ui/core";
+import Readme from "./README.md";
 
 export default {
-  title: "Components/Card"
+  title: "Components/Card",
+  parameters: {
+    readme: {
+      // Show readme before story
+      content: Readme
+    }
+  }
 };
 
 export const card = () => (

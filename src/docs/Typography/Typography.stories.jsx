@@ -8,14 +8,8 @@ export default {
   parameters: {
     readme: {
       // Show readme before story
-      content: TypographyReadme,
-      disable: false
-    },
-    centered: { disable: true },
-    info: { disable: true }
-    // options: {
-    //   showPanel: false
-    // }
+      content: TypographyReadme
+    }
   }
 };
 

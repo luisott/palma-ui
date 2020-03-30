@@ -8,11 +8,7 @@ const propTypes = {
 
 const Checkbox = ({ ariaLabel, ...props }) => {
   return (
-    <MaterialCheckbox
-      inputProps={{ "aria-label": ariaLabel }}
-      color="primary"
-      {...props}
-    />
+    <MaterialCheckbox inputProps={{ "aria-label": ariaLabel }} {...props} />
   );
 };
 

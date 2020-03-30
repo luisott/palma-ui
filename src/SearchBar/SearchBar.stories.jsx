@@ -5,9 +5,16 @@ import { sizes } from "@types";
 import { MenuList } from "@material-ui/core";
 import { MenuItem } from "../MenuItem";
 import { css } from "@emotion/core";
+import Readme from "./README.md";
 
 export default {
-  title: "Components/SearchBar"
+  title: "Components/SearchBar",
+  parameters: {
+    readme: {
+      // Show readme before story
+      content: Readme
+    }
+  }
 };
 
 export const SearchBar = () => {
@@ -31,8 +38,8 @@ export const SearchBar = () => {
       ref={ref}
       css={css`
         width: 300px;
+        margin-bottom: 100px;
         position: absolute;
-        left: -150px;
       `}
     >
       <SearchBarComponent
@@ -50,7 +57,12 @@ export const SearchBar = () => {
         onClickAway={handleCloseResults}
       >
         {openResults && (
-          <MenuList id="menu-list-grow">
+          <MenuList
+            id="menu-list-grow"
+            css={css`
+              background-color: white;
+            `}
+          >
             <MenuItem onClick={handleCloseResults}>Profile</MenuItem>
             <MenuItem onClick={handleCloseResults}>My account</MenuItem>
             <MenuItem onClick={handleCloseResults}>Logout</MenuItem>

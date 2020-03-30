@@ -3,9 +3,16 @@ import { text, boolean } from "@storybook/addon-knobs";
 import { MenuItem } from "../MenuItem";
 
 import { TextField } from "./TextField";
+import Readme from "./README.md";
 
 export default {
-  title: "Components/TextField"
+  title: "Components/TextField",
+  parameters: {
+    readme: {
+      // Show readme before story
+      content: Readme
+    }
+  }
 };
 
 export const textField = () => (

@@ -5,9 +5,16 @@ import { boolean, select } from "@storybook/addon-knobs";
 import { Menu } from "./Menu";
 import { IconButton } from "../IconButton";
 import ExpandMore from "@material-ui/icons/ExpandMore";
+import Readme from "./README.md";
 
 export default {
-  title: "Components/Menu"
+  title: "Components/Menu",
+  parameters: {
+    readme: {
+      // Show readme before story
+      content: Readme
+    }
+  }
 };
 
 export const MenuButton = () => {
@@ -35,6 +42,11 @@ export const MenuButton = () => {
         open={open}
         onClose={handleClose}
         openUp={boolean("Open Up", false)}
+        horizontalAlignment={select(
+          "Horizontal Alignment",
+          ["left", "center", "right"],
+          "right"
+        )}
         addMargin={true}
       >
         <MenuItem onClick={handleClose}>Profile</MenuItem>
@@ -57,7 +69,12 @@ export const MenuIcon = () => {
 
   return (
     <>
-      <IconButton aria-label={"some-label"} onClick={handleOpen} size={"small"}>
+      <IconButton
+        aria-label={"some-label"}
+        onClick={handleOpen}
+        type="filled"
+        size={"medium"}
+      >
         <ExpandMore />
       </IconButton>
       <Menu
@@ -65,6 +82,7 @@ export const MenuIcon = () => {
         anchorEl={anchorEl}
         open={open}
         addMargin={true}
+        openUp={boolean("Open Up", false)}
         horizontalAlignment={select(
           "Horizontal Alignment",
           ["left", "center", "right"],

@@ -36,7 +36,11 @@ const propTypes = {
    * @param option
    * @returns a string or a component with the value to show
    */
-  renderOption: PropTypes.func
+  renderOption: PropTypes.func,
+  /**
+   * Options to pass to the Popper component (https://material-ui.com/components/popper/)
+   */
+  popperOptions: PropTypes.object
 };
 
 const FilterSelect = ({
@@ -48,6 +52,7 @@ const FilterSelect = ({
   renderOption,
   showLabel,
   dropDownIconLabel,
+  popperOptions,
   ...props
 }) => {
   const [value, setValue] = useState("");
@@ -157,7 +162,9 @@ const FilterSelect = ({
           />
         </div>
       </ClickAwayListener>
-      <ResultContainer anchorEl={ref?.current}>{getOptions()}</ResultContainer>
+      <ResultContainer anchorEl={ref?.current} {...popperOptions}>
+        {getOptions()}
+      </ResultContainer>
     </div>
   );
 };

@@ -44,9 +44,9 @@ const getCleanNumber = phoneNumber => {
   return phoneNumber ? phoneNumber.replace(/[^0-9-]/g, "") : "";
 };
 
-const getPhoneWithoutCountryCode = value => {
+const getPhoneWithoutCountryCode = (value, preferredCountryId) => {
   const cleanNumber = getCleanNumber(value);
-  const country = getCountryFromNumber(value);
+  const country = getCountryFromNumber(value, preferredCountryId);
   if (country) {
     return cleanNumber.replace(country.phone, "");
   }
@@ -108,16 +108,16 @@ const PhoneInput = ({
   ...rest
 }) => {
   const [country, setCountryCode] = useState(
-    getCountryFromNumber(initialPhoneNumber)
+    getCountryFromNumber(initialPhoneNumber, defaultCountryId)
   );
   const [localNumber, setLocalNumber] = useState(
     getPhoneWithoutCountryCode(initialPhoneNumber)
   );
 
   useEffect(() => {
-    setCountryCode(getCountryFromNumber(initialPhoneNumber));
+    setCountryCode(getCountryFromNumber(initialPhoneNumber, defaultCountryId));
     setLocalNumber(getPhoneWithoutCountryCode(initialPhoneNumber));
-  }, [initialPhoneNumber]);
+  }, [initialPhoneNumber, defaultCountryId]);
 
   const renderSelectedCountry = countryId => {
     const selectedCountry = countriesWithFlagsMap[countryId];

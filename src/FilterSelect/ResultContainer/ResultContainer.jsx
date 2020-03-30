@@ -8,21 +8,22 @@ const propTypes = {
   anchorEl: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
 };
 
-const ResultContainer = ({ anchorEl, children }) => {
+const ResultContainer = ({ anchorEl, children, ...rest }) => {
   if (!children) return null;
 
   return (
     <Popper
-      role={undefined}
       open={!!children}
       anchorEl={anchorEl}
-      disablePortal={true}
+      disablePortal={false}
       css={styles.popper}
+      placement={"bottom-start"}
       modifiers={{
         flip: {
           enabled: true
         }
       }}
+      {...rest}
     >
       <Paper css={styles.paper}>{children}</Paper>
     </Popper>

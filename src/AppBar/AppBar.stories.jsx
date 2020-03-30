@@ -16,22 +16,27 @@ import {
 import { AppBarTabs } from "./AppBarTabs";
 import { AppBarTab } from "./AppBarTab";
 import { AppBarMenuDrawer } from "./AppBarMenuDrawer";
+import Readme from "./README.md";
 
 export default {
-  title: "Components/AppBar"
+  title: "Components/AppBar",
+  parameters: {
+    readme: {
+      // Show readme before story
+      content: Readme
+    }
+  }
 };
 
 const storyStyleWrapper = css`
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
   display: flex;
   align-items: center;
   overflow: auto;
   margin-left: 20px;
   margin-right: 20px;
+  min-width: 300px;
+  max-width: 800px;
+  flex: auto 1 1;
 `;
 
 const storyMobileStyleWrapper = css`

@@ -2,9 +2,16 @@ import React from "react";
 import { Select } from "./Select";
 import { MenuItem } from "../MenuItem";
 import { boolean } from "@storybook/addon-knobs";
+import Readme from "./README.md";
 
 export default {
-  title: "Components/Select"
+  title: "Components/Select",
+  parameters: {
+    readme: {
+      // Show readme before story
+      content: Readme
+    }
+  }
 };
 
 export const select = () => (

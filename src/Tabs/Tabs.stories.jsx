@@ -5,9 +5,16 @@ import { Tab } from "./Tab";
 import { TabPanel } from "./TabPanel";
 import { boolean } from "@storybook/addon-knobs";
 import { css } from "@emotion/core";
+import Readme from "./README.md";
 
 export default {
-  title: "Components/Tabs"
+  title: "Components/Tabs",
+  parameters: {
+    readme: {
+      // Show readme before story
+      content: Readme
+    }
+  }
 };
 
 const contentStyle = css`

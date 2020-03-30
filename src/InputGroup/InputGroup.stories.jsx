@@ -4,9 +4,16 @@ import { InputGroup } from "./InputGroup";
 import { MenuItem } from "../MenuItem";
 import { InputGroupSelect } from "./InputGroupSelect";
 import { InputGroupInput } from "./InputGroupInput";
+import Readme from "./README.md";
 
 export default {
-  title: "Components/InputGroup"
+  title: "Components/InputGroup",
+  parameters: {
+    readme: {
+      // Show readme before story
+      content: Readme
+    }
+  }
 };
 
 export const inputGroup = () => {

@@ -13,12 +13,14 @@ import {
   FormatUnderlined,
   Title
 } from "@material-ui/icons";
+import Readme from "./README.md";
 
 export default {
   title: "Components/RichTextEditor",
   parameters: {
-    info: {
-      text: `This component uses https://draftjs.org/`
+    readme: {
+      // Show readme before story
+      content: Readme
     }
   }
 };

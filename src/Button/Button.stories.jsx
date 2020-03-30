@@ -6,9 +6,16 @@ import { ButtonGroup } from "./ButtonGroup";
 import { text, boolean, select } from "@storybook/addon-knobs";
 import { Button } from "./Button";
 import { css } from "@emotion/core";
+import Readme from "./README.md";
 
 export default {
-  title: "Components/Button"
+  title: "Components/Button",
+  parameters: {
+    readme: {
+      // Show readme before story
+      content: Readme
+    }
+  }
 };
 
 export const button = () => (
@@ -16,11 +23,7 @@ export const button = () => (
     disabled={boolean("Disabled", false)}
     loading={boolean("Loading", false)}
     variant={select("Variant", ["text", "outlined", "contained"], "contained")}
-    color={select(
-      "Color",
-      ["primary", "secondary", "default", "inherit"],
-      "primary"
-    )}
+    color={select("Color", ["primary", "secondary"], "primary")}
     startIcon={boolean("Left icon", false) && <DeleteIcon />}
     endIcon={boolean("Right icon", false) && <KeyboardArrowDown />}
   >
@@ -36,18 +39,25 @@ export const splitButton = () => {
   );
 
   const disabled = boolean("Disabled", false);
+
+  const color = select("Color", ["primary", "secondary"], "primary");
+
   return (
     <ButtonGroup
       disabled={disabled}
       variant={variant}
       aria-label="split button"
+      color={color}
     >
-      <Button variant={variant}>{text("Label", "Button Label")}</Button>
+      <Button variant={variant} color={color}>
+        {text("Label", "Button Label")}
+      </Button>
       <Button
         aria-label="select merge strategy"
         aria-haspopup="menu"
         variant={variant}
         disabled={disabled}
+        color={color}
       >
         <KeyboardArrowDown
           css={css`

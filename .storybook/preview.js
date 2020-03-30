@@ -8,7 +8,6 @@ import { withInfo } from "@storybook/addon-info";
 import { addParameters } from "@storybook/react";
 import { addReadme, configureReadme } from "storybook-readme";
 import themeDecorator from "./themeDecorator";
-import { Card, Container, CardContent } from "../src";
 
 addParameters({
   options: {
@@ -18,7 +17,9 @@ addParameters({
      */
     showRoots: true
   },
-  readme: { disable: true }
+  readme: { disable: false },
+  centered: { disable: true },
+  info: { disable: true }
 });
 
 /**
@@ -31,52 +32,17 @@ configureReadme({
    * Vue: Vue component
    */
   StoryPreview: ({ children }) => (
-    <Container
-      css={css`
-        margin-bottom: 48px;
-      `}
+    <div
+      style={{ display: "flex", "justify-content": "center", margin: "50px 0" }}
     >
-      <Card
-        css={css`
-          && {
-            border-top: 0;
-            border-radius: 0 4px 4px 0;
-          }
-        `}
-      >
-        <CardContent>{children}</CardContent>
-      </Card>
-    </Container>
-  ),
-
-  /**
-   * Wrapper for content and sidebar docs. Usually used to set some styles
-   * React: React.ReactNode
-   * Vue: Vue component
-   */
-  DocPreview: ({ children }) => (
-    <Container
-      css={css`
-        margin-top: 40px;
-      `}
-    >
-      <Card
-        css={css`
-          && {
-            border-bottom: 0;
-            border-radius: 4px 0 0 4px;
-          }
-        `}
-      >
-        <CardContent>{children}</CardContent>
-      </Card>
-    </Container>
+      {children}
+    </div>
   )
 });
 
 addDecorator(withInfo);
-addDecorator(themeDecorator);
 addDecorator(addReadme);
+addDecorator(themeDecorator);
 addDecorator(centered);
 addDecorator((storyFn, context) => withConsole()(storyFn)(context));
 addDecorator(withKnobs);

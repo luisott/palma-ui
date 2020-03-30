@@ -2,9 +2,16 @@ import React, { useState } from "react";
 import { text, boolean } from "@storybook/addon-knobs";
 import { RadioGroup, FormControl, FormLabel } from "@material-ui/core";
 import { Radio } from "./Radio";
+import Readme from "./README.md";
 
 export default {
-  title: "Components/Radio"
+  title: "Components/Radio",
+  parameters: {
+    readme: {
+      // Show readme before story
+      content: Readme
+    }
+  }
 };
 
 export const radio = () =>
