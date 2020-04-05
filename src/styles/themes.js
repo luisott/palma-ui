@@ -48,7 +48,6 @@ export const themes = {
       error: {
         main: "#cc0e00"
       }
-      //palette.background.default
     },
     typography: {
       htmlFontSize: 14,

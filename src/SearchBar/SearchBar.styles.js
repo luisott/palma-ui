@@ -62,6 +62,7 @@ export const container = {
 export const searchIcon = {
   base: css`
     margin-right: 8px;
+    display: flex;
   `,
   [sizes.LARGE]: css`
     svg {

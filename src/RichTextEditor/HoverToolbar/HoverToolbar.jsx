@@ -5,6 +5,7 @@ import * as styles from "./HoverToolbar.styles";
 import PropTypes from "prop-types";
 import { Tooltip } from "@material-ui/core";
 import { richTextStyle } from "../../RichTextEditor/types";
+import useTheme from "@material-ui/core/styles/useTheme";
 
 const propTypes = {
   onInlineStyleButtonClicked: PropTypes.func.isRequired,
@@ -24,6 +25,8 @@ const HoverToolbar = ({
   blockStyles
 }) => {
   const ref = useRef();
+
+  const theme = useTheme();
 
   useEffect(() => {
     const el = ref.current;
@@ -60,7 +63,7 @@ const HoverToolbar = ({
 
   return (
     <Portal>
-      <div ref={ref} css={styles.menu}>
+      <div ref={ref} css={styles.menu(theme)}>
         {inlineStyles.map(({ Icon, style, label }) => (
           <Tooltip key={style} title={label}>
             <span

@@ -37,7 +37,7 @@ export const MenuButton = () => {
         Open Menu
       </Button>
       <Menu
-        id="simple-menu"
+        id="simple-menu-button"
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
@@ -78,11 +78,12 @@ export const MenuIcon = () => {
         <ExpandMore />
       </IconButton>
       <Menu
-        id="simple-menu"
+        id="simple-menu-icon"
         anchorEl={anchorEl}
         open={open}
         addMargin={true}
         openUp={boolean("Open Up", false)}
+        onClose={handleClose}
         horizontalAlignment={select(
           "Horizontal Alignment",
           ["left", "center", "right"],

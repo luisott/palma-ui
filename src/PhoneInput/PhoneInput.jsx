@@ -8,6 +8,7 @@ import * as styles from "./PhoneInput.styles";
 import { MenuItem } from "../MenuItem";
 import { InputGroup, InputGroupInput, InputGroupSelect } from "../InputGroup";
 import { getMenuProps } from "../Menu";
+import useTheme from "@material-ui/core/styles/useTheme";
 
 const DEFAULT_COUNTRY_ID = "CA";
 
@@ -107,6 +108,8 @@ const PhoneInput = ({
   numberInputId,
   ...rest
 }) => {
+  const theme = useTheme();
+
   const [country, setCountryCode] = useState(
     getCountryFromNumber(initialPhoneNumber, defaultCountryId)
   );
@@ -155,7 +158,7 @@ const PhoneInput = ({
         renderValue={renderSelectedCountry}
         MenuProps={menuProps}
         defaultValue={defaultCountryId}
-        css={styles.menu}
+        css={styles.menu(theme)}
         disabled={disabled}
         value={country.code}
         onChange={handleCountryChange}

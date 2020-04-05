@@ -1,7 +1,6 @@
 import { lightestGrey } from "./colors";
 import { css } from "@emotion/core";
 
-export const commonBorderRadiusPx = 4;
 export const commonBorder = `${lightestGrey} 1px solid`;
 
 export const commonInputHeightPx = 40;

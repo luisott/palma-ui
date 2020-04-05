@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Menu as MenuMaterial } from "@material-ui/core";
 import * as styles from "./Menu.styles";
+import useTheme from "@material-ui/core/styles/useTheme";
 
 // Exported props to be used in Select component
 const getMenuProps = (openUp, horizontalAlignment = "center") => {
@@ -50,10 +51,12 @@ const defaultProps = {
 };
 
 const Menu = ({ openUp, horizontalAlignment, addMargin, ...rest }) => {
+  const theme = useTheme();
+
   return (
     <MenuMaterial
       {...getMenuProps(openUp, horizontalAlignment)}
-      css={addMargin && styles.marginStyle}
+      css={[styles.menu(theme), addMargin && styles.marginStyle]}
       {...rest}
     />
   );

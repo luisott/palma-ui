@@ -1,10 +1,10 @@
 import { css } from "@emotion/core";
-import { commonBorder, commonBorderRadiusPx } from "@styles/commonStyles";
+import { commonBorder } from "@styles/commonStyles";
 
-export const popper = css`
+export const popper = theme => css`
   margin: 6px 0 6px 0;
   border: ${commonBorder};
-  border-radius: ${commonBorderRadiusPx}px;
+  border-radius: ${theme.shape.borderRadius}px;
 `;
 
 export const paper = css`

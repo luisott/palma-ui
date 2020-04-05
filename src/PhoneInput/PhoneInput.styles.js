@@ -1,9 +1,5 @@
 import { css } from "@emotion/core";
-import {
-  commonBorder,
-  commonBorderRadiusPx,
-  inputPaddingSidesPx
-} from "../styles/commonStyles";
+import { commonBorder, inputPaddingSidesPx } from "../styles/commonStyles";
 
 export const countryInput = css`
   cursor: pointer;
@@ -18,7 +14,7 @@ export const countryMenuItem = css`
   text-overflow: ellipsis;
 `;
 
-export const menu = css`
+export const menu = theme => css`
   .MuiSelect-root {
     height: 100%;
     display: flex;
@@ -28,7 +24,7 @@ export const menu = css`
     max-height: 200px;
     max-width: 252px;
     border: ${commonBorder};
-    border-radius: ${commonBorderRadiusPx}px;
+    border-radius: ${theme.shape.borderRadius}px;
     margin-left: -${inputPaddingSidesPx}px;
   }
   .MuiMenu-list {

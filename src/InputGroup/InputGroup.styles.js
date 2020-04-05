@@ -1,9 +1,5 @@
 import { css } from "@emotion/core";
-import {
-  commonInputHeightPx,
-  commonBorderRadiusPx,
-  commonBorder
-} from "../styles/commonStyles";
+import { commonInputHeightPx, commonBorder } from "../styles/commonStyles";
 import { lightestGrey } from "../styles/colors";
 
 export const container = css`
@@ -40,12 +36,12 @@ export const childContainer = theme => css`
     }
   }
   &:last-of-type {
-    border-top-right-radius: ${commonBorderRadiusPx}px;
-    border-bottom-right-radius: ${commonBorderRadiusPx}px;
+    border-top-right-radius: ${theme.shape.borderRadius}px;
+    border-bottom-right-radius: ${theme.shape.borderRadius}px;
   }
   &:first-of-type {
-    border-top-left-radius: ${commonBorderRadiusPx}px;
-    border-bottom-left-radius: ${commonBorderRadiusPx}px;
+    border-top-left-radius: ${theme.shape.borderRadius}px;
+    border-bottom-left-radius: ${theme.shape.borderRadius}px;
   }
 `;
 
