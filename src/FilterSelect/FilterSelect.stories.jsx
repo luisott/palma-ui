@@ -77,6 +77,7 @@ export const filterSelect = () => (
     placeholder={text("Placeholder", "Pick a value or search...")}
     disabled={boolean("Disabled", false)}
     showLabel={boolean("Show Label", false)}
+    color={select("Color", ["primary", "secondary"], "secondary")}
     popperOptions={{
       placement: select(
         "Results placement",
@@ -92,6 +93,7 @@ export const withOptionsRenderer = () => (
     label={"movie picker"}
     showLabel={boolean("Show Label", false)}
     disabled={boolean("Disabled", false)}
+    color={select("Color", ["primary", "secondary"], "secondary")}
     dropDownIconLabel={"show options"}
     options={movies}
     placeholder={"Pick a movie"}

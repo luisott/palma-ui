@@ -8,17 +8,18 @@ import { formInputLabel } from "../styles/commonStyles";
 const propTypes = {
   disabled: PropTypes.bool,
   label: PropTypes.string,
-  children: PropTypes.arrayOf(PropTypes.node).isRequired
+  children: PropTypes.arrayOf(PropTypes.node).isRequired,
+  color: PropTypes.oneOf(["primary", "secondary"])
 };
 
-const InputGroup = ({ disabled, label, children, ...rest }) => {
+const InputGroup = ({ disabled, label, color, children, ...rest }) => {
   const theme = useTheme();
 
   const getChildren = () => {
     return children.map((child, index) => (
       <div
         css={[
-          styles.childContainer(theme),
+          styles.childContainer(theme, color),
           disabled && styles.childContainerDisabled
         ]}
         key={`input-${index}`}

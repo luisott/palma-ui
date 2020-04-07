@@ -1,5 +1,5 @@
 import React from "react";
-import { text, boolean } from "@storybook/addon-knobs";
+import { text, boolean, select } from "@storybook/addon-knobs";
 import { InputGroup } from "./InputGroup";
 import { MenuItem } from "../MenuItem";
 import { InputGroupSelect } from "./InputGroupSelect";
@@ -19,7 +19,11 @@ export default {
 export const inputGroup = () => {
   const disabled = boolean("Disabled", false);
   return (
-    <InputGroup label={text("Label", "")} disabled={disabled}>
+    <InputGroup
+      label={text("Label", "")}
+      disabled={disabled}
+      color={select("Color", ["primary", "secondary"], "secondary")}
+    >
       <InputGroupSelect
         id={"some-id"}
         labelId={"some-id"}

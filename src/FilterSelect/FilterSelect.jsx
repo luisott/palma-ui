@@ -53,7 +53,7 @@ const FilterSelect = ({
   showLabel,
   dropDownIconLabel,
   popperOptions,
-  ...props
+  ...rest
 }) => {
   const [value, setValue] = useState("");
   const [optionsToShow, setOptionsToShow] = useState(options);
@@ -158,7 +158,7 @@ const FilterSelect = ({
             InputProps={{
               endAdornment: getDropDownIcon()
             }}
-            {...props}
+            {...rest}
           />
         </div>
       </ClickAwayListener>

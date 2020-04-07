@@ -1,5 +1,5 @@
 import React from "react";
-import { text, boolean } from "@storybook/addon-knobs";
+import { text, boolean, select } from "@storybook/addon-knobs";
 import { MenuItem } from "../MenuItem";
 
 import { TextField } from "./TextField";
@@ -27,6 +27,7 @@ export const textField = () => (
     placeholder={text("Placeholder", "Placeholder")}
     required={boolean("Required", false)}
     select={boolean("Select", false)}
+    color={select("Color", ["primary", "secondary"], "secondary")}
   >
     <MenuItem key={0} value={0}>
       One

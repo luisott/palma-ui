@@ -1,7 +1,7 @@
 import React from "react";
 import { Select } from "./Select";
 import { MenuItem } from "../MenuItem";
-import { boolean } from "@storybook/addon-knobs";
+import { boolean, select } from "@storybook/addon-knobs";
 import Readme from "./README.md";
 
 export default {
@@ -14,12 +14,13 @@ export default {
   }
 };
 
-export const select = () => (
+export const selectDefault = () => (
   <Select
     id={"some-id"}
     labelId={"some-id"}
     defaultValue={0}
     disabled={boolean("Disabled", false)}
+    color={select("Color", ["primary", "secondary"], "secondary")}
   >
     <MenuItem key={0} value={0}>
       One
@@ -44,6 +45,7 @@ export const selectWithCustomValueRender = () => {
       defaultValue={0}
       disabled={boolean("Disabled", false)}
       renderValue={renderValue}
+      color={select("Color", ["primary", "secondary"], "secondary")}
     >
       <MenuItem key={0} value={0}>
         One

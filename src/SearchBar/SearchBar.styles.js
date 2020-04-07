@@ -1,9 +1,5 @@
 import { css } from "@emotion/core";
-import {
-  commonBorder,
-  commonShadow,
-  shadowSurface
-} from "../styles/commonStyles";
+import { commonBorder, commonShadow } from "../styles/commonStyles";
 import { sizes } from "@types/sizes";
 
 export const containerWrapper = (theme, color = "primary") => ({
@@ -27,7 +23,7 @@ export const containerWrapper = (theme, color = "primary") => ({
     }
   `,
   withSurface: css`
-    box-shadow: ${shadowSurface};
+    box-shadow: 0px 2px 8px -2px rgba(0, 0, 0, 0.2);
   `,
   disabled: css`
     box-shadow: none;

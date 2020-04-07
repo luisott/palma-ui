@@ -10,7 +10,7 @@ export const childrenWrapper = css`
   display: flex;
 `;
 
-export const childContainer = theme => css`
+export const childContainer = (theme, color = "secondary") => css`
   height: 100%;
   display: flex;
   align-items: center;
@@ -21,7 +21,7 @@ export const childContainer = theme => css`
   :active,
   :focus,
   :focus-within {
-    border-color: ${theme.palette.secondary.main};
+    border-color: ${theme.palette[color].main};
   }
 
   &:not(:first-of-type) {
@@ -31,7 +31,7 @@ export const childContainer = theme => css`
     :active,
     :focus,
     :focus-within {
-      border-left-color: ${theme.palette.secondary.main};
+      border-left-color: ${theme.palette[color].main};
     }
   }
   &:last-of-type {

@@ -22,6 +22,7 @@ export const UncontrolledPhoneInput = () => {
       initialPhoneNumber={text("Phone number", "16137775454")}
       onChange={action("changed")}
       defaultCountryId={select("Default country id", ["CA", "US"], "US")}
+      color={select("Color", ["primary", "secondary"], "secondary")}
     />
   );
 };

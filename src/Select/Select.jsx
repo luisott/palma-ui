@@ -1,8 +1,8 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { Select as MaterialSelect, OutlinedInput } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import { selectStyle } from "./Select.styles";
-import { inputFieldColor, inputFieldVariant } from "../styles/commonStyles";
 import { getMenuProps } from "../Menu";
 import useTheme from "@material-ui/core/styles/useTheme";
 
@@ -10,25 +10,22 @@ const menuProps = {
   ...getMenuProps(),
   disablePortal: true
 };
-
-const Select = props => {
+const propTypes = {
+  color: PropTypes.oneOf(["primary", "secondary"])
+};
+const Select = ({ color, ...rest }) => {
   const theme = useTheme();
   return (
     <MaterialSelect
-      variant={inputFieldVariant}
+      variant="outlined"
       IconComponent={ExpandMoreIcon}
       css={selectStyle(theme)}
-      input={
-        <OutlinedInput
-          color={inputFieldColor}
-          notched={false}
-          margin={"dense"}
-        />
-      }
+      input={<OutlinedInput notched={false} margin={"dense"} color={color} />}
       MenuProps={menuProps}
-      {...props}
+      color={color}
+      {...rest}
     />
   );
 };
-
+Select.propTypes = propTypes;
 export { Select };

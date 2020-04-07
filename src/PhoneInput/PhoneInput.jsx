@@ -151,7 +151,7 @@ const PhoneInput = ({
       ? "(999) 999-9999"
       : "999999999999999"; // 15 digits max for any phone number
   return (
-    <InputGroup label={label} disabled={disabled}>
+    <InputGroup label={label} disabled={disabled} {...rest}>
       <InputGroupSelect
         id={countryPickerId}
         labelId={countryPickerLabelId}
@@ -173,7 +173,7 @@ const PhoneInput = ({
         maskPlaceholder={null}
         alwaysShowMask={true}
       >
-        <InputGroupInput id={numberInputId} type={"tel"} {...rest} />
+        <InputGroupInput id={numberInputId} type={"tel"} />
       </InputMask>
     </InputGroup>
   );
