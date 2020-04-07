@@ -1,7 +1,10 @@
 import { css } from "@emotion/core";
+import { menuMargin } from "../styles/commonStyles";
 
 export const marginStyle = css`
-  margin: 7px 0;
+  .MuiMenu-paper {
+    margin: ${menuMargin};
+  }
 `;
 
 export const menu = theme => css`

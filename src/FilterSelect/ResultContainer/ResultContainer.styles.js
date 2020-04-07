@@ -1,8 +1,9 @@
 import { css } from "@emotion/core";
 import { commonBorder } from "@styles/commonStyles";
+import { menuMargin } from "../../styles/commonStyles";
 
 export const popper = theme => css`
-  margin: 6px 0 6px 0;
+  margin: ${menuMargin};
   border: ${commonBorder};
   border-radius: ${theme.shape.borderRadius}px;
 `;

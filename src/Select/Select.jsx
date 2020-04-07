@@ -18,7 +18,13 @@ const Select = props => {
       variant={inputFieldVariant}
       IconComponent={ExpandMoreIcon}
       css={selectStyle(theme)}
-      input={<OutlinedInput color={inputFieldColor} />}
+      input={
+        <OutlinedInput
+          color={inputFieldColor}
+          notched={false}
+          margin={"dense"}
+        />
+      }
       MenuProps={menuProps}
       {...props}
     />

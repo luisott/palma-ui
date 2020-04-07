@@ -1,5 +1,5 @@
 import { css } from "@emotion/core";
-import { commonInputHeightPx, commonBorder } from "../styles/commonStyles";
+import { commonBorder } from "../styles/commonStyles";
 import { lightestGrey } from "../styles/colors";
 
 export const container = css`
@@ -8,7 +8,6 @@ export const container = css`
 `;
 export const childrenWrapper = css`
   display: flex;
-  height: ${commonInputHeightPx}px;
 `;
 
 export const childContainer = theme => css`

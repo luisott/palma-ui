@@ -1,5 +1,5 @@
 import { css } from "@emotion/core";
-import { commonBorder, inputPaddingSidesPx } from "../styles/commonStyles";
+import { commonBorder } from "../styles/commonStyles";
 
 export const countryInput = css`
   cursor: pointer;
@@ -25,7 +25,6 @@ export const menu = theme => css`
     max-width: 252px;
     border: ${commonBorder};
     border-radius: ${theme.shape.borderRadius}px;
-    margin-left: -${inputPaddingSidesPx}px;
   }
   .MuiMenu-list {
     border: 0;
