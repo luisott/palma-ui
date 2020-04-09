@@ -9,7 +9,6 @@ Component library built in React and using <a href="https://material-ui.com">Mat
 ![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
 ![Size](https://badgen.net/bundlephobia/minzip/palma-ui)
 [![Node.js CI](https://github.com/luisott/palma-ui/workflows/Node.js%20CI/badge.svg)](https://github.com/luisott/palma-ui/actions?query=workflow%3A%22Node.js+CI%22)
-[![Storybook](https://github.com/luisott/palma-ui/workflows/Storybook/badge.svg)](https://github.com/luisott/palma-ui/actions?query=workflow%3AStorybook)
 [![PeerDependencies](https://david-dm.org/luisott/palma-ui/master/peer-status.svg)](https://david-dm.org/luisott/palma-ui/master?type=peer)
 [![Dependencies](https://david-dm.org/luisott/palma-ui/master/status.svg)](https://david-dm.org/luisott/palma-ui/master)
 [![DevDependencies](https://david-dm.org/luisott/palma-ui/master/dev-status.svg)](https://david-dm.org/luisott/palma-ui/master?type=dev)
