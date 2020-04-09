@@ -20,10 +20,6 @@ export const themes = {
         }
       },
       MuiMenu: {
-        // Name of the rule
-        paper: {
-          boxShadow: "none"
-        },
         list: {
           border: commonBorder,
           borderRadius: `4px`

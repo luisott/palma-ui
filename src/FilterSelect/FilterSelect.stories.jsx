@@ -85,6 +85,7 @@ export const filterSelect = () => (
         "bottom-start"
       )
     }}
+    elevation={select("Elevation", [0, 1, 2, 3, 4, 5, 6, 7, 8], 0)}
   />
 );
 
@@ -105,5 +106,6 @@ export const withOptionsRenderer = () => (
         "bottom-start"
       )
     }}
+    elevation={select("Elevation", [0, 1, 2, 3, 4, 5, 6, 7, 8], 0)}
   />
 );

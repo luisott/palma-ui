@@ -12,6 +12,5 @@ export const paper = css`
   && {
     max-height: 200px;
     overflow: scroll;
-    box-shadow: none;
   }
 `;

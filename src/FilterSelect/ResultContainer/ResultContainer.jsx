@@ -6,10 +6,14 @@ import useTheme from "@material-ui/core/styles/useTheme";
 
 const propTypes = {
   children: PropTypes.node,
-  anchorEl: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
+  anchorEl: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+  /**
+   * Elevation property for the paper component (https://material-ui.com/api/paper/)
+   */
+  elevation: PropTypes.number
 };
 
-const ResultContainer = ({ anchorEl, children, ...rest }) => {
+const ResultContainer = ({ anchorEl, children, elevation, ...rest }) => {
   const theme = useTheme();
   if (!children) return null;
 
@@ -27,7 +31,9 @@ const ResultContainer = ({ anchorEl, children, ...rest }) => {
       }}
       {...rest}
     >
-      <Paper css={styles.paper}>{children}</Paper>
+      <Paper css={styles.paper} elevation={elevation}>
+        {children}
+      </Paper>
     </Popper>
   );
 };

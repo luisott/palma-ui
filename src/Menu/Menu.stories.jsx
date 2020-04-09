@@ -48,6 +48,7 @@ export const MenuButton = () => {
           "right"
         )}
         addMargin={true}
+        elevation={select("Elevation", [0, 1, 2, 3, 4, 5, 6, 7, 8], 0)}
       >
         <MenuItem onClick={handleClose}>Profile</MenuItem>
         <MenuItem onClick={handleClose}>My account</MenuItem>
@@ -89,6 +90,7 @@ export const MenuIcon = () => {
           ["left", "center", "right"],
           "right"
         )}
+        elevation={select("Elevation", [0, 1, 2, 3, 4, 5, 6, 7, 8], 0)}
       >
         <MenuItem onClick={handleClose}>Profile</MenuItem>
         <MenuItem onClick={handleClose}>My account</MenuItem>

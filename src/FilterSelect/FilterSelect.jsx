@@ -40,7 +40,11 @@ const propTypes = {
   /**
    * Options to pass to the Popper component (https://material-ui.com/components/popper/)
    */
-  popperOptions: PropTypes.object
+  popperOptions: PropTypes.object,
+  /**
+   * Elevation property for the paper component (https://material-ui.com/api/paper/)
+   */
+  elevation: PropTypes.number
 };
 
 const FilterSelect = ({
@@ -53,6 +57,7 @@ const FilterSelect = ({
   showLabel,
   dropDownIconLabel,
   popperOptions,
+  elevation,
   ...rest
 }) => {
   const [value, setValue] = useState("");
@@ -162,7 +167,11 @@ const FilterSelect = ({
           />
         </div>
       </ClickAwayListener>
-      <ResultContainer anchorEl={ref?.current} {...popperOptions}>
+      <ResultContainer
+        anchorEl={ref?.current}
+        elevation={elevation}
+        {...popperOptions}
+      >
         {getOptions()}
       </ResultContainer>
     </div>

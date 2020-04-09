@@ -1,14 +1,6 @@
 import { css } from "@emotion/core";
 import { commonBorder } from "../styles/commonStyles";
 
-export const countryInput = css`
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-`;
-
 export const countryMenuItem = css`
   overflow: hidden;
   text-overflow: ellipsis;
