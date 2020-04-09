@@ -10,6 +10,9 @@ Component library built in React and using <a href="https://material-ui.com">Mat
 ![Size](https://badgen.net/bundlephobia/minzip/palma-ui)
 [![Node.js CI](https://github.com/luisott/palma-ui/workflows/Node.js%20CI/badge.svg)](https://github.com/luisott/palma-ui/actions?query=workflow%3A%22Node.js+CI%22)
 [![Storybook](https://github.com/luisott/palma-ui/workflows/Storybook/badge.svg)](https://github.com/luisott/palma-ui/actions?query=workflow%3AStorybook)
+[![PeerDependencies](https://david-dm.org/luisott/palma-ui/master/peer-status.svg)](https://david-dm.org/luisott/palma-ui/master?type=peer)
+[![Dependencies](https://david-dm.org/luisott/palma-ui/master/status.svg)](https://david-dm.org/luisott/palma-ui/master)
+[![DevDependencies](https://david-dm.org/luisott/palma-ui/master/dev-status.svg)](https://david-dm.org/luisott/palma-ui/master?type=dev)
 
 
 </div>
@@ -19,8 +22,8 @@ This library offers new components not present in Material like `RichTextEditor`
 It also redefines some of the default styles (if used with provided theme) to offer a more modern and minimal design 
 (e.g. less/simpler shadows, smoother transitions and less color changes in interactions). 
 
-Palma UI should be used in addition to Material UI in your project as it's not meant to replace it, just compliment it with
-new components and styles.  
+Palma UI needs to be used in addition to Material UI in your project as it's not meant to replace it, just compliment it with
+new components and different styles.  
 
 This library allows for tree shaking so that only the components you use end up in your bundle, read more 
 [here](https://material-ui.com/guides/minimizing-bundle-size)
@@ -48,8 +51,11 @@ View a live version of the storybook [here](https://luisott.github.io/palma-ui)
 
 ## Usage
 
-### Add your own material theme (optional but recommended)
-This library can be themed using material ui themes. At the root component of your application do:
+### Add your own material theme
+This library can be themed using material ui themes. You will at least want to add the primary an secondary
+colors of your application (see a good starting theme [here](https://github.com/luisott/palma-ui/blob/master/src/styles/themes.js).  
+
+To add a theme at the root component of your application do:
 ~~~js
 import React from "react";
 
@@ -59,9 +65,18 @@ import {
 } from "@material-ui/core/styles";
 import { Button } from "palma-ui";
 
-import { yourTheme } from "<location for your theme>"; // You can also start with the one in src/styles/themes.js
 
-const theme = createMuiTheme(yourTheme);
+const theme = createMuiTheme({
+ themeName: "Light Theme",
+ palette: {
+   primary: {
+     main: "#0847a5"
+   },
+   secondary: {
+     main: "#424242"
+   }
+ }
+});
 
 function App() {
   return (
@@ -74,8 +89,6 @@ function App() {
 export default App;
 
 ~~~
-
-You can see the theme used in the storybook [here](https://github.com/luisott/palma-ui/blob/master/src/styles/themes.js)
 
 More information on Material UI themes and how to define them [here](https://material-ui.com/customization/theming/). 
 
