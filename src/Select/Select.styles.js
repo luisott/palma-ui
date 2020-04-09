@@ -1,7 +1,7 @@
 import { css } from "@emotion/core";
 import { menuMargin } from "../styles/commonStyles";
 
-export const selectStyle = theme => css`
+export const select = theme => css`
   .MuiSelect-select:focus {
     background-color: unset;
   }

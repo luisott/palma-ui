@@ -15,13 +15,21 @@ export const childContainer = (theme, color = "secondary") => css`
   display: flex;
   align-items: center;
   border: ${commonBorder};
-  transition: border-color ${theme.transitions.duration.shorter}ms
+  box-sizing: content-box;
+  transition: all ${theme.transitions.duration.shorter}ms
     ${theme.transitions.easing.easeIn};
   :hover,
   :active,
   :focus,
   :focus-within {
     border-color: ${theme.palette[color].main};
+  }
+
+  :active,
+  :focus,
+  :focus-within {
+    box-shadow: 0 0 0 1px ${theme.palette[color].main};
+    z-index: 1;
   }
 
   &:not(:first-of-type) {

@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Select as MaterialSelect, OutlinedInput } from "@material-ui/core";
+import { Select as MaterialSelect } from "@material-ui/core";
+import { OutlinedInput } from "../OutlinedInput";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { selectStyle } from "./Select.styles";
+import * as styles from "./Select.styles";
 import { getMenuProps } from "../Menu";
 import useTheme from "@material-ui/core/styles/useTheme";
 
@@ -13,14 +14,18 @@ const menuProps = {
 const propTypes = {
   color: PropTypes.oneOf(["primary", "secondary"])
 };
+
+const defaultProps = {
+  color: "primary"
+};
 const Select = ({ color, ...rest }) => {
   const theme = useTheme();
   return (
     <MaterialSelect
       variant="outlined"
       IconComponent={ExpandMoreIcon}
-      css={selectStyle(theme)}
-      input={<OutlinedInput notched={false} margin={"dense"} color={color} />}
+      css={styles.select(theme)}
+      input={<OutlinedInput color={color} />}
       MenuProps={menuProps}
       color={color}
       {...rest}
@@ -28,4 +33,5 @@ const Select = ({ color, ...rest }) => {
   );
 };
 Select.propTypes = propTypes;
+Select.defaultProps = defaultProps;
 export { Select };

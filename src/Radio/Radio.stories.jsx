@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { text, boolean } from "@storybook/addon-knobs";
+import { text, boolean, select } from "@storybook/addon-knobs";
 import { RadioGroup, FormControl, FormLabel } from "@material-ui/core";
 import { Radio } from "./Radio";
 import Readme from "./README.md";
@@ -24,7 +24,11 @@ export const radio = () =>
 
     const label = text("Radio group label", "Radio group label");
     return (
-      <FormControl component="fieldset" disabled={boolean("Disabled", false)}>
+      <FormControl
+        component="fieldset"
+        disabled={boolean("Disabled", false)}
+        color={select("Color", ["primary", "secondary"], "secondary")}
+      >
         <FormLabel hidden={boolean("Hide label", false)} component="legend">
           {label}
         </FormLabel>

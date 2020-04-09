@@ -1,5 +1,6 @@
 import React from "react";
 import { TextField as MaterialTextField } from "@material-ui/core";
+import useTheme from "@material-ui/core/styles/useTheme";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 import PropTypes from "prop-types";
@@ -10,17 +11,31 @@ const propTypes = {
    * Needed for accessibility
    */
   id: PropTypes.string.isRequired,
-  label: PropTypes.string
+  label: PropTypes.string,
+  color: PropTypes.oneOf(["primary", "secondary"]),
+  disabled: PropTypes.bool,
+  error: PropTypes.bool
 };
 
-const TextField = ({ id, label, ...rest }) => {
+const defaultProps = {
+  color: "primary"
+};
+
+const TextField = ({ id, label, color, disabled, error, ...rest }) => {
+  const theme = useTheme();
   return (
     <MaterialTextField
       id={id}
       label={label}
       variant="outlined"
-      css={styles.textFieldStyles}
+      css={[
+        styles.textField,
+        !disabled && !error && styles.activeNonError(theme, color)
+      ]}
       size={"small"}
+      disabled={disabled}
+      error={error}
+      color={color}
       InputProps={{
         notched: false
       }}
@@ -33,4 +48,5 @@ const TextField = ({ id, label, ...rest }) => {
 };
 
 TextField.propTypes = propTypes;
+TextField.defaultProps = defaultProps;
 export { TextField };
