@@ -1,5 +1,4 @@
 import React from "react";
-import { css } from "@emotion/core";
 import { addDecorator } from "@storybook/react";
 import centered from "@storybook/addon-centered/react";
 import { withKnobs } from "@storybook/addon-knobs";
@@ -23,7 +22,7 @@ addParameters({
 });
 
 /**
- * Trying to make the docs look a bit more like what the app would look like for consistency
+ * Center the story
  */
 configureReadme({
   /**
@@ -33,7 +32,7 @@ configureReadme({
    */
   StoryPreview: ({ children }) => (
     <div
-      style={{ display: "flex", "justify-content": "center", margin: "50px 0" }}
+      style={{ display: "flex", justifyContent: "center", margin: "50px 0" }}
     >
       {children}
     </div>

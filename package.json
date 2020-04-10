@@ -1,6 +1,6 @@
 {
   "name": "palma-ui",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Component library built in React and using Material UI",
   "keywords": [
     "ui",
@@ -43,6 +43,7 @@
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-optional-chaining": "^7.9.0",
+    "@babel/plugin-transform-object-assign": "^7.8.3",
     "@emotion/babel-preset-css-prop": "^10.0.27",
     "@storybook/addon-actions": "^5.3.18",
     "@storybook/addon-centered": "^5.3.18",
@@ -64,6 +65,8 @@
     "babel-plugin-import": "^1.13.0",
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-plugin-named-asset-import": "^0.3.6",
+    "babel-plugin-optimize-clsx": "^2.6.0",
+    "babel-plugin-transform-dev-warning": "^0.1.1",
     "babel-preset-react-app": "^9.1.2",
     "cross-env": "^7.0.2",
     "eslint": "^6.6.0",
@@ -85,8 +88,8 @@
   },
   "scripts": {
     "build": "npm run build:esm && npm run build:cjs",
-    "build:esm": "cross-env NODE_ENV=production BABEL_ENV=esm babel ./src --extensions \".js,.jsx\" --out-dir ./build/esm --ignore \"**/*.test.js\",\"**/*.stories.jsx\"  --copy-files --no-copy-ignored",
-    "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel ./src --extensions \".js,.jsx\" --out-dir ./build --ignore \"**/*.test.js\",\"**/*.stories.jsx\"  --copy-files --no-copy-ignored --presets=@babel/env",
+    "build:esm": "cross-env NODE_ENV=production BABEL_ENV=esm babel --config-file ./babel.config.js ./src --out-dir ./build/esm --ignore \"**/*.test.js\",\"**/*.stories.jsx\"",
+    "build:cjs": "cross-env NODE_ENV=production BABEL_ENV=cjs babel --config-file ./babel.config.js ./src --out-dir ./build --ignore \"**/*.test.js\",\"**/*.stories.jsx\"",
     "release": "npm build && npm publish build --tag latest",
     "test": "node scripts/test.js --watchAll=false",
     "test:watch": "node scripts/test.js",
@@ -147,30 +150,6 @@
     "watchPlugins": [
       "jest-watch-typeahead/filename",
       "jest-watch-typeahead/testname"
-    ]
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/react"
-    ],
-    "plugins": [
-      [
-        "@babel/plugin-proposal-optional-chaining"
-      ],
-      [
-        "module-resolver",
-        {
-          "root": [
-            "./src"
-          ],
-          "alias": {
-            "@styles": "./src/styles",
-            "@types": "./src/types",
-            "@data": "./src/data"
-          }
-        }
-      ]
     ]
   }
 }
