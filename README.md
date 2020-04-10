@@ -7,7 +7,7 @@ Component library built in React and using <a href="https://material-ui.com">Mat
 [![issues](https://img.shields.io/github/issues/luisott/palma-ui)](https://github.com/luisott/palma-ui/issues)
 [![version](https://img.shields.io/npm/v/palma-ui)](https://www.npmjs.com/package/palma-ui)
 ![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
-![Size](https://badgen.net/bundlephobia/minzip/palma-ui)
+[![Size](https://badgen.net/bundlephobia/minzip/palma-ui)](https://bundlephobia.com/result?p=palma-ui)
 [![Node.js CI](https://github.com/luisott/palma-ui/workflows/Node.js%20CI/badge.svg)](https://github.com/luisott/palma-ui/actions?query=workflow%3A%22Node.js+CI%22)
 [![PeerDependencies](https://david-dm.org/luisott/palma-ui/master/peer-status.svg)](https://david-dm.org/luisott/palma-ui/master?type=peer)
 [![Dependencies](https://david-dm.org/luisott/palma-ui/master/status.svg)](https://david-dm.org/luisott/palma-ui/master)
@@ -24,9 +24,6 @@ It also redefines some of the default styles (if used with provided theme) to of
 Palma UI needs to be used in addition to Material UI in your project as it's not meant to replace it, just compliment it with
 new components and different styles.  
 
-This library allows for tree shaking so that only the components you use end up in your bundle, read more 
-[here](https://material-ui.com/guides/minimizing-bundle-size)
-
 Inspiration for this library came from [Semantic UI](https://react.semantic-ui.com/), 
 [Ant](https://ant.design/), [Atlassian](https://atlassian.design) and others.
 
@@ -39,9 +36,14 @@ Material UI is one of the the most mature, popular, extensive, polished, accessi
 It also allows you to pull only components that you are using, read more about it [here](https://material-ui.com/guides/minimizing-bundle-size/), 
 which helps keep the size of this library small.
 
+## Bundle Size and Tree shaking
+This library allows for tree shaking so that only the components you use end up in your bundle, read more 
+[here](https://material-ui.com/guides/minimizing-bundle-size)  
+
+You can see the size of any of the individual components in this library [here](https://bundlephobia.com/result?p=palma-ui)
+
 ## Live storybook
 View a live version of the storybook [here](https://luisott.github.io/palma-ui)
-
 
 ## Installation
 `npm install palma-ui`  
