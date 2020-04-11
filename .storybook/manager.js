@@ -41,7 +41,8 @@ const theme = create({
 
   brandTitle: "Palma UI",
   brandUrl: "https://github.com/luisott/palma-ui/",
-  brandImage: "textLogo.svg",
+  brandImage:
+    "https://user-images.githubusercontent.com/5178558/79053940-2710fd80-7c0f-11ea-9e1f-a1ba546e7da7.png",
 });
 
 addons.setConfig({
