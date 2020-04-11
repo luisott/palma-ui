@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://luisott.github.io/palma-ui" rel="noopener" target="_blank">
-    <img width="300" src="public/textAndIconLogo.svg" alt="Palma UI logo"/>
+    <img width="300" src="https://user-images.githubusercontent.com/5178558/79053879-ab16b580-7c0e-11ea-8e30-2957f5041883.png" alt="Palma UI logo"/>
   </a>
 </p>
 
