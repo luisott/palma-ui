@@ -18,17 +18,21 @@ export const tabs = css`
   }
 `;
 
-export const tab = css`
+export const tab = (theme) => css`
   height: 100%;
 
   button {
     height: 100%;
   }
 
+  .MuiTouchRipple-root {
+    transition: all ${theme.transitions.duration.shorter}ms
+      ${theme.transitions.easing.easeIn};
+  }
+
   :hover {
     .MuiTouchRipple-root {
-      background-color: white;
-      opacity: 0.25;
+      background-color: rgba(255, 255, 255, 0.25);
     }
   }
 `;

@@ -6,44 +6,44 @@ export const themes = {
     overrides: {
       MuiInputBase: {
         root: {
-          fontSize: "1rem"
-        }
+          fontSize: "1rem",
+        },
       },
       MuiMenuItem: {
         root: {
-          fontSize: "1rem"
-        }
+          fontSize: "1rem",
+        },
       },
       MuiListItem: {
         root: {
-          fontSize: "1rem"
-        }
+          fontSize: "1rem",
+        },
       },
       MuiMenu: {
         list: {
           border: commonBorder,
-          borderRadius: `4px`
-        }
-      }
+          borderRadius: `4px`,
+        },
+      },
     },
     transitions: {
       duration: {
-        shorter: 200 // default
+        shorter: 200, // default
       },
       easing: {
-        easeIn: "cubic-bezier(0.4,0,1,1)" // default
-      }
+        easeIn: "cubic-bezier(0.4,0,1,1)", // default
+      },
     },
     palette: {
       primary: {
-        main: "#0847a5"
+        main: "#e63f77",
       },
       secondary: {
-        main: "#424242"
+        main: "#424242",
       },
       error: {
-        main: "#cc0e00"
-      }
+        main: "#cc0e00",
+      },
     },
     typography: {
       htmlFontSize: 14,
@@ -51,10 +51,10 @@ export const themes = {
       fontFamily:
         "-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', 'Roboto', 'Oxygen',\n" +
         "    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',\n" +
-        "    sans-serif"
+        "    sans-serif",
     },
     shape: {
-      borderRadius: 4
-    }
-  }
+      borderRadius: 4,
+    },
+  },
 };

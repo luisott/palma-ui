@@ -1,4 +1,8 @@
-<h1 align="center">Palma UI</h1>
+<p align="center">
+  <a href="https://luisott.github.io/palma-ui" rel="noopener" target="_blank">
+    <img width="300" src="public/textAndIconLogo.svg" alt="Palma UI logo"/>
+  </a>
+</p>
 
 <div align="center">
 Component library built in React and using <a href="https://material-ui.com">Material UI</a> components.

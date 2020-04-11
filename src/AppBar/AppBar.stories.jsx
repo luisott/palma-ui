@@ -6,13 +6,7 @@ import { IconButton } from "../IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-import {
-  Typography,
-  Toolbar,
-  ListItemText,
-  List,
-  ListItem
-} from "@material-ui/core";
+import { Toolbar, ListItemText, List, ListItem } from "@material-ui/core";
 import { AppBarTabs } from "./AppBarTabs";
 import { AppBarTab } from "./AppBarTab";
 import { AppBarMenuDrawer } from "./AppBarMenuDrawer";
@@ -23,9 +17,9 @@ export default {
   parameters: {
     readme: {
       // Show readme before story
-      content: Readme
-    }
-  }
+      content: Readme,
+    },
+  },
 };
 
 const storyStyleWrapper = css`
@@ -47,11 +41,16 @@ const storyMobileStyleWrapper = css`
 
 const logoWrapperStyle = css`
   width: 100%;
+  img {
+    height: 26px;
+  }
 `;
 
 const menuIconStyle = css`
   && {
-    margin-right: 20px;
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: left;
   }
 `;
 
@@ -80,6 +79,11 @@ const appMenuDrawerStyle = css`
   }
 `;
 
+const appBarMenuDrawerHeaderStyle = css`
+  display: flex;
+  align-items: center;
+`;
+
 const accountCircle = css`
   && {
     width: 32px;
@@ -89,11 +93,11 @@ const accountCircle = css`
 
 export const appBarDesktop = () => (
   <div css={storyStyleWrapper}>
-    <AppBar color={select("Color", ["primary", "secondary"], "primary")}>
+    <AppBar color={select("Color", ["primary", "secondary"], "secondary")}>
       <Toolbar>
-        <Typography variant="h5" css={logoWrapperStyle}>
-          LOGO
-        </Typography>
+        <div css={logoWrapperStyle}>
+          <img src="textLogoWhite.svg" alt="Material UI Logo" />
+        </div>
         <AppBarTabs
           value={0}
           aria-label="simple tabs example"
@@ -132,7 +136,7 @@ export const AppBarMobile = () => {
     setOpen(true);
   };
 
-  const color = select("Color", ["primary", "secondary"], "primary");
+  const color = select("Color", ["primary", "secondary"], "secondary");
 
   return (
     <div css={storyMobileStyleWrapper}>
@@ -147,9 +151,6 @@ export const AppBarMobile = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h5" css={logoWrapperStyle}>
-            LOGO
-          </Typography>
           <IconButton
             aria-label="user"
             edge="end"
@@ -167,11 +168,16 @@ export const AppBarMobile = () => {
         onClose={handleClose}
         css={appMenuDrawerStyle}
       >
-        <IconButton css={closeIconStyle}>
-          <CloseIcon onClick={handleClose} />
-        </IconButton>
+        <div css={appBarMenuDrawerHeaderStyle}>
+          <IconButton css={closeIconStyle}>
+            <CloseIcon onClick={handleClose} />
+          </IconButton>
+          <div css={logoWrapperStyle}>
+            <img src="textLogoWhite.svg" alt="Material UI Logo" />
+          </div>
+        </div>
         <List css={sideMenuStyle}>
-          {["Item One", "Item Two", "Item Three"].map(text => (
+          {["Item One", "Item Two", "Item Three"].map((text) => (
             <ListItem button key={text} css={sideMenuListItem}>
               <ListItemText primary={text} />
             </ListItem>

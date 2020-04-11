@@ -93,9 +93,9 @@
     "release": "npm build && npm publish build --tag latest",
     "test": "node scripts/test.js --watchAll=false",
     "test:watch": "node scripts/test.js",
-    "storybook": "start-storybook -p 9009 -s public",
+    "storybook": "start-storybook -p 9009 -s ./public",
     "deploy-storybook": "storybook-to-ghpages",
-    "build-storybook": "build-storybook -s public",
+    "build-storybook": "build-storybook -s ./public",
     "prebuild": "rimraf build"
   },
   "peerDependencies": {
