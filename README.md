@@ -57,8 +57,8 @@ View a live version of the storybook [here](https://luisott.github.io/palma-ui)
 ## Usage
 
 ### Add your own material theme
-This library can be themed using material ui themes. You will at least want to add the primary an secondary
-colors of your application (see a good starting theme [here](https://github.com/luisott/palma-ui/blob/master/src/styles/themes.js).  
+This library can be themed using material ui themes. You will at least want to add the primary and secondary
+colors of your application (see a good starting theme [here](https://github.com/luisott/palma-ui/blob/master/src/styles/themes.js)).  
 
 To add a theme at the root component of your application do:
 ~~~js
@@ -103,8 +103,6 @@ Read more about [here](https://material-ui.com/guides/interoperability/)
 
 
 ## Developing
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
