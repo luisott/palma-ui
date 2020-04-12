@@ -96,7 +96,7 @@ export const appBarDesktop = () => (
     <AppBar color={select("Color", ["primary", "secondary"], "secondary")}>
       <Toolbar>
         <div css={logoWrapperStyle}>
-          <img src="textLogoWhite.svg" alt="Material UI Logo" />
+          <img src="textLogoWhite.png" alt="Material UI Logo" />
         </div>
         <AppBarTabs
           value={0}
@@ -173,7 +173,7 @@ export const AppBarMobile = () => {
             <CloseIcon onClick={handleClose} />
           </IconButton>
           <div css={logoWrapperStyle}>
-            <img src="textLogoWhite.svg" alt="Material UI Logo" />
+            <img src="textLogoWhite.png" alt="Material UI Logo" />
           </div>
         </div>
         <List css={sideMenuStyle}>
