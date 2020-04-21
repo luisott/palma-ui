@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 
 import { ExpandMore, ExpandLess } from "@material-ui/icons";
@@ -64,19 +64,32 @@ const FilterSelect = ({
   const [value, setValue] = useState("");
   const [optionsToShow, setOptionsToShow] = useState(options);
   const [openResults, setOpenResults] = useState(false);
-  const [focusedItemIndex, setFocusedItemIndex] = useState(0);
-  const ref = useRef();
+  const containerRef = useRef();
+  const focusedItemRef = useRef();
 
-  const onOtherKeyDown = (event, indexFocused) => {
-    event.key === "Enter" && pickOption(optionsToShow[indexFocused]);
+  const onEnterCallback = () => {
+    pickOption(optionsToShow[focusedItemIndex]);
   };
 
-  const [onKeyDown] = useResultsKeyboardNavigation(
+  const handleCloseResults = () => {
+    setOpenResults(false);
+  };
+
+  const { focusedItemIndex, onKeyDown } = useResultsKeyboardNavigation(
     optionsToShow?.length || 0,
-    focusedItemIndex,
-    onOtherKeyDown,
-    (index) => setFocusedItemIndex(index)
+    containerRef,
+    null,
+    onEnterCallback,
+    null,
+    handleCloseResults
   );
+
+  useEffect(() => {
+    if (focusedItemRef && focusedItemRef.current) {
+      // focusedItemRef.current.scrollIntoView(false);
+      focusedItemRef.current.scrollIntoView(false);
+    }
+  }, [focusedItemIndex]);
 
   const handleInputChange = (e) => {
     const newValue = e.target.value;
@@ -90,17 +103,10 @@ const FilterSelect = ({
       setOptionsToShow(options);
     }
     setValue(newValue);
-    setFocusedItemIndex(0);
-  };
-
-  const handleCloseResults = () => {
-    setOpenResults(false);
-    setFocusedItemIndex(0);
   };
 
   const pickOption = (option) => {
     setOpenResults(false);
-    setFocusedItemIndex(0);
     setValue(option.name);
     if (onOptionSelected) {
       onOptionSelected(option);
@@ -119,6 +125,7 @@ const FilterSelect = ({
         {optionsToShow.map((option, index) => (
           <MenuItem
             key={option.id}
+            innerRef={focusedItemIndex === index ? focusedItemRef : null}
             onClick={() => pickOption(option)}
             selected={option.name === value || focusedItemIndex === index}
           >
@@ -153,7 +160,6 @@ const FilterSelect = ({
       if (!openResults) {
         setOptionsToShow(options);
       }
-      setFocusedItemIndex(0);
       setOpenResults(!openResults);
     }
   };
@@ -161,14 +167,13 @@ const FilterSelect = ({
   const handleKeyDown = (event) => {
     if (event.key === "Escape") {
       setOpenResults(false);
-      setFocusedItemIndex(0);
     } else {
       onKeyDown(event);
     }
   };
 
   return (
-    <div ref={ref} onKeyDown={handleKeyDown}>
+    <div ref={containerRef} onKeyDown={handleKeyDown}>
       <ClickAwayListener onClickAway={handleCloseResults}>
         <div>
           <TextField
@@ -187,7 +192,7 @@ const FilterSelect = ({
         </div>
       </ClickAwayListener>
       <ResultContainer
-        anchorEl={ref?.current}
+        anchorEl={containerRef?.current}
         elevation={elevation}
         {...popperOptions}
       >
