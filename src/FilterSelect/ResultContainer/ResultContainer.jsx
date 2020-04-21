@@ -10,7 +10,7 @@ const propTypes = {
   /**
    * Elevation property for the paper component (https://material-ui.com/api/paper/)
    */
-  elevation: PropTypes.number
+  elevation: PropTypes.number,
 };
 
 const ResultContainer = ({ anchorEl, children, elevation, ...rest }) => {
@@ -26,8 +26,8 @@ const ResultContainer = ({ anchorEl, children, elevation, ...rest }) => {
       placement={"bottom-start"}
       modifiers={{
         flip: {
-          enabled: true
-        }
+          enabled: true,
+        },
       }}
       {...rest}
     >

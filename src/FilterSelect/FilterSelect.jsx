@@ -9,6 +9,7 @@ import { IconButton } from "../IconButton";
 import { ResultContainer } from "./ResultContainer";
 import { TextField } from "../TextField";
 import InputAdornment from "@material-ui/core/InputAdornment";
+import { useResultsKeyboardNavigation } from "../../src/utils";
 
 const propTypes = {
   /**
@@ -28,7 +29,7 @@ const propTypes = {
        * If no renderOption this is the value rendered in the options
        */
       name: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired
+      id: PropTypes.string.isRequired,
     })
   ),
   /**
@@ -44,7 +45,7 @@ const propTypes = {
   /**
    * Elevation property for the paper component (https://material-ui.com/api/paper/)
    */
-  elevation: PropTypes.number
+  elevation: PropTypes.number,
 };
 
 const FilterSelect = ({
@@ -63,9 +64,21 @@ const FilterSelect = ({
   const [value, setValue] = useState("");
   const [optionsToShow, setOptionsToShow] = useState(options);
   const [openResults, setOpenResults] = useState(false);
+  const [focusedItemIndex, setFocusedItemIndex] = useState(0);
   const ref = useRef();
 
-  const handleInputChange = e => {
+  const onOtherKeyDown = (event, indexFocused) => {
+    event.key === "Enter" && pickOption(optionsToShow[indexFocused]);
+  };
+
+  const [onKeyDown] = useResultsKeyboardNavigation(
+    optionsToShow?.length || 0,
+    focusedItemIndex,
+    onOtherKeyDown,
+    (index) => setFocusedItemIndex(index)
+  );
+
+  const handleInputChange = (e) => {
     const newValue = e.target.value;
     if (newValue) {
       const filteredOptions = options.filter(({ name }) =>
@@ -77,14 +90,17 @@ const FilterSelect = ({
       setOptionsToShow(options);
     }
     setValue(newValue);
+    setFocusedItemIndex(0);
   };
 
   const handleCloseResults = () => {
     setOpenResults(false);
+    setFocusedItemIndex(0);
   };
 
-  const pickOption = option => {
+  const pickOption = (option) => {
     setOpenResults(false);
+    setFocusedItemIndex(0);
     setValue(option.name);
     if (onOptionSelected) {
       onOptionSelected(option);
@@ -100,12 +116,11 @@ const FilterSelect = ({
 
     return (
       <MenuList id="menu-list-grow">
-        {optionsToShow.map(option => (
+        {optionsToShow.map((option, index) => (
           <MenuItem
             key={option.id}
             onClick={() => pickOption(option)}
-            selected={option.name === value}
-            autoFocus={option.name === value}
+            selected={option.name === value || focusedItemIndex === index}
           >
             {renderOption ? renderOption(option) : option.name}
           </MenuItem>
@@ -138,13 +153,17 @@ const FilterSelect = ({
       if (!openResults) {
         setOptionsToShow(options);
       }
+      setFocusedItemIndex(0);
       setOpenResults(!openResults);
     }
   };
 
-  const handleKeyDown = event => {
+  const handleKeyDown = (event) => {
     if (event.key === "Escape") {
       setOpenResults(false);
+      setFocusedItemIndex(0);
+    } else {
+      onKeyDown(event);
     }
   };
 
@@ -161,7 +180,7 @@ const FilterSelect = ({
             disabled={disabled}
             onClick={openAllResults}
             InputProps={{
-              endAdornment: getDropDownIcon()
+              endAdornment: getDropDownIcon(),
             }}
             {...rest}
           />

@@ -18,5 +18,5 @@ export { MenuItem } from "./MenuItem";
 export { InputGroup, InputGroupInput, InputGroupSelect } from "./InputGroup";
 export { PhoneInput } from "./PhoneInput";
 export { OutlinedInput } from "./OutlinedInput";
-export { hexToRgba } from "./utils";
+export { hexToRgba, useResultsKeyboardNavigation } from "./utils";
 export { themes } from "./styles";
