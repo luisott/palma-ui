@@ -14,11 +14,11 @@ const propTypes = {
   label: PropTypes.string,
   color: PropTypes.oneOf(["primary", "secondary"]),
   disabled: PropTypes.bool,
-  error: PropTypes.bool
+  error: PropTypes.bool,
 };
 
 const defaultProps = {
-  color: "primary"
+  color: "primary",
 };
 
 const TextField = ({ id, label, color, disabled, error, ...rest }) => {
@@ -29,18 +29,18 @@ const TextField = ({ id, label, color, disabled, error, ...rest }) => {
       label={label}
       variant="outlined"
       css={[
-        styles.textField,
-        !disabled && !error && styles.activeNonError(theme, color)
+        styles.textField(theme),
+        !disabled && !error && styles.activeNonError(theme, color),
       ]}
       size={"small"}
       disabled={disabled}
       error={error}
       color={color}
       InputProps={{
-        notched: false
+        notched: false,
       }}
       SelectProps={{
-        IconComponent: ExpandMoreIcon
+        IconComponent: ExpandMoreIcon,
       }}
       {...rest}
     />

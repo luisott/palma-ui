@@ -37,5 +37,5 @@ export const iconButtonStyles = (theme, containerColor = "primary") => ({
     && {
       border: 0;
     }
-  `
+  `,
 });

@@ -12,9 +12,9 @@ export default {
   parameters: {
     readme: {
       // Show readme before story
-      content: Readme
-    }
-  }
+      content: Readme,
+    },
+  },
 };
 
 const movies = [
@@ -30,11 +30,11 @@ const movies = [
     name: "Monty Python and the Holy Grail",
     year: 1975,
     id: "8",
-    country: "🇺🇸"
-  }
+    country: "🇺🇸",
+  },
 ];
 
-const countryOptionRender = movie => (
+const countryOptionRender = (movie) => (
   <Typography variant="inherit" noWrap>
     {movie.country} {movie.name} ({movie.year})
   </Typography>
@@ -66,46 +66,41 @@ const CustomInputComponent = ({ value, placeholder }) => {
 
 CustomInputComponent.propTypes = {
   value: PropTypes.string,
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
 };
 
 export const filterSelect = () => (
   <FilterSelect
+    css={css`
+      min-width: 300px;
+    `}
     label={"some label"}
-    dropDownIconLabel={"show options"}
+    inputProps={{
+      color: select("Color", ["primary", "secondary"], "secondary"),
+      placeHolder: text("Placeholder", "Pick a value or search..."),
+    }}
     options={movies}
-    placeholder={text("Placeholder", "Pick a value or search...")}
     disabled={boolean("Disabled", false)}
     showLabel={boolean("Show Label", false)}
-    color={select("Color", ["primary", "secondary"], "secondary")}
-    popperOptions={{
-      placement: select(
-        "Results placement",
-        ["bottom-start", "bottom-end", "bottom", "top-start", "top-end", "top"],
-        "bottom-start"
-      )
-    }}
     elevation={select("Elevation", [0, 1, 2, 3, 4, 5, 6, 7, 8], 0)}
+    multiple={boolean("Multiple Select", false)}
   />
 );
 
 export const withOptionsRenderer = () => (
   <FilterSelect
+    css={css`
+      min-width: 300px;
+    `}
     label={"movie picker"}
     showLabel={boolean("Show Label", false)}
     disabled={boolean("Disabled", false)}
-    color={select("Color", ["primary", "secondary"], "secondary")}
-    dropDownIconLabel={"show options"}
-    options={movies}
-    placeholder={"Pick a movie"}
-    renderOption={countryOptionRender}
-    popperOptions={{
-      placement: select(
-        "Results placement",
-        ["bottom-start", "bottom-end", "bottom", "top-start", "top-end", "top"],
-        "bottom-start"
-      )
+    inputProps={{
+      color: select("Color", ["primary", "secondary"], "secondary"),
+      placeHolder: text("Placeholder", "Pick a value or search..."),
     }}
+    options={movies}
     elevation={select("Elevation", [0, 1, 2, 3, 4, 5, 6, 7, 8], 0)}
+    renderOption={countryOptionRender}
   />
 );
