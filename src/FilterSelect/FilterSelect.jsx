@@ -19,7 +19,6 @@ const propTypes = {
    */
   label: PropTypes.string.isRequired,
   showLabel: PropTypes.bool,
-  onOptionSelected: PropTypes.func,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       /**
@@ -49,7 +48,6 @@ const propTypes = {
 const FilterSelect = ({
   label,
   options,
-  onOptionSelected,
   renderOption,
   showLabel,
   inputProps,
