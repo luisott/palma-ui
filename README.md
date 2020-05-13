@@ -20,7 +20,7 @@ Component library built in React and using <a href="https://material-ui.com">Mat
 
 </div>
 
-This library offers new components not present in Material like `RichTextEditor`, `FilterSelect`, `SearchBar`, 
+This library offers new components not present in Material like `RichTextEditor`, `SearchBar`, 
 `ButtonGroup`, `PhoneInput`. 
 It also redefines some of the default styles (if used with provided theme) to offer a more modern and minimal design 
 (e.g. less/simpler shadows, smoother transitions and less color changes in interactions). 
