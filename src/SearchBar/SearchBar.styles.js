@@ -82,19 +82,7 @@ export const inputBase = {
 export const menuList = (theme) => css`
   background-color: ${theme.palette.background.paper};
   & li[data-focus="true"] {
-      background-color: ${theme.palette.action.focus};
+      background-color: ${theme.palette.action.hover};
       cursor: pointer;
     },
-`;
-
-export const menuItem = css`
-  && [data-focus="true"] {
-    background-color: red;
-    color: white;
-    cursor: pointer;
-  }
-  && :active {
-    background-color: purple;
-    color: white;
-  }
 `;

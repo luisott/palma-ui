@@ -77,7 +77,7 @@ export const filterSelect = () => (
     label={"some label"}
     inputProps={{
       color: select("Color", ["primary", "secondary"], "secondary"),
-      placeHolder: text("Placeholder", "Pick a value or search..."),
+      placeholder: text("Placeholder", "Pick a value or search..."),
     }}
     options={movies}
     disabled={boolean("Disabled", false)}
@@ -97,7 +97,7 @@ export const withOptionsRenderer = () => (
     disabled={boolean("Disabled", false)}
     inputProps={{
       color: select("Color", ["primary", "secondary"], "secondary"),
-      placeHolder: text("Placeholder", "Pick a value or search..."),
+      placeholder: text("Placeholder", "Pick a value or search..."),
     }}
     options={movies}
     elevation={select("Elevation", [0, 1, 2, 3, 4, 5, 6, 7, 8], 0)}

@@ -94,10 +94,7 @@ const SearchBar = ({
         <MenuList {...getListboxProps()} css={styles.menuList(theme)}>
           {groupedOptions.map((option, index) => (
             // eslint-disable-next-line react/jsx-key
-            <MenuItem
-              css={styles.menuItem}
-              {...getOptionProps({ option, index })}
-            >
+            <MenuItem {...getOptionProps({ option, index })}>
               {option.name}
             </MenuItem>
           ))}
