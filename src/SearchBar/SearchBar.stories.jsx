@@ -1,41 +1,40 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 import { SearchBar as SearchBarComponent } from "./SearchBar";
 import { boolean, select } from "@storybook/addon-knobs";
 import { sizes } from "@types";
-import { MenuList } from "@material-ui/core";
-import { MenuItem } from "../MenuItem";
 import { css } from "@emotion/core";
 import Readme from "./README.md";
+
+const movies = [
+  { name: "The Shawshank Redemption", year: 1994, id: "0", country: "🇺🇸" },
+  { name: "The Godfather", year: 1972, id: "1", country: "🇺🇸" },
+  { name: "The Godfather: Part II", year: 1974, id: "2", country: "🇺🇸" },
+  { name: "The Dark Knight", year: 2008, id: "3", country: "🇺🇸" },
+  { name: "12 Angry Men", year: 1957, id: "4", country: "🇺🇸" },
+  { name: "Inglourious Basterds", year: 2009, id: "5", country: "🇺🇸" },
+  { name: "Snatch", year: 2000, id: "6", country: "🇬🇧" },
+  { name: "3 Idiots", year: 2009, id: "7", country: "🇺🇸" },
+  {
+    name: "Monty Python and the Holy Grail",
+    year: 1975,
+    id: "8",
+    country: "🇺🇸",
+  },
+];
 
 export default {
   title: "Components/SearchBar",
   parameters: {
     readme: {
       // Show readme before story
-      content: Readme
-    }
-  }
+      content: Readme,
+    },
+  },
 };
 
 export const SearchBar = () => {
-  const [openResults, setOpenResults] = useState(false);
-  const ref = useRef();
-
-  const handleCloseResults = () => {
-    setOpenResults(false);
-  };
-
-  const handleSearchChange = text => {
-    if (text) {
-      setOpenResults(true);
-    } else {
-      setOpenResults(false);
-    }
-  };
-
   return (
     <div
-      ref={ref}
       css={css`
         width: 300px;
         margin-bottom: 100px;
@@ -53,22 +52,8 @@ export const SearchBar = () => {
         )}
         withSurface={boolean("With Surface", false)}
         disabled={boolean("Disabled", false)}
-        onChange={handleSearchChange}
-        onClickAway={handleCloseResults}
-      >
-        {openResults && (
-          <MenuList
-            id="menu-list-grow"
-            css={css`
-              background-color: white;
-            `}
-          >
-            <MenuItem onClick={handleCloseResults}>Profile</MenuItem>
-            <MenuItem onClick={handleCloseResults}>My account</MenuItem>
-            <MenuItem onClick={handleCloseResults}>Logout</MenuItem>
-          </MenuList>
-        )}
-      </SearchBarComponent>
+        options={movies}
+      />
     </div>
   );
 };

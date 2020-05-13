@@ -33,7 +33,7 @@ export const containerWrapper = (theme, color = "primary") => ({
     :focus-within {
       box-shadow: none;
     }
-  `
+  `,
 });
 
 export const container = {
@@ -52,7 +52,7 @@ export const container = {
   `,
   [sizes.LARGE]: css`
     height: 56px;
-  `
+  `,
 };
 
 export const searchIcon = {
@@ -65,7 +65,7 @@ export const searchIcon = {
       width: 1.1em;
       height: 1.1em;
     }
-  `
+  `,
 };
 
 export const inputBase = {
@@ -76,5 +76,25 @@ export const inputBase = {
     && {
       font-size: 1.1rem;
     }
-  `
+  `,
 };
+
+export const menuList = (theme) => css`
+  background-color: ${theme.palette.background.paper};
+  & li[data-focus="true"] {
+      background-color: ${theme.palette.action.focus};
+      cursor: pointer;
+    },
+`;
+
+export const menuItem = css`
+  && [data-focus="true"] {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+  }
+  && :active {
+    background-color: purple;
+    color: white;
+  }
+`;
