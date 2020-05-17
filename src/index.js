@@ -4,7 +4,7 @@ export { Card, CardHeader, CardContent } from "./Card";
 export { Checkbox } from "./Checkbox";
 export { Container } from "./Container";
 export { DialogActions, Dialog } from "./Dialog";
-export { FilterSelect, ResultContainer } from "./FilterSelect";
+export { FilterSelect } from "./FilterSelect";
 export { IconButton } from "./IconButton";
 export { Radio } from "./Radio";
 export { RichTextEditor, HoverToolbar } from "./RichTextEditor";
