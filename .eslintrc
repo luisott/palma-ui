@@ -3,7 +3,4 @@
     "react"
   ],
   "extends": ["react-app","eslint:recommended", "plugin:react/recommended"]
-//    "rules": {
-//      "react/prop-types": "error",
-//    }
 }
